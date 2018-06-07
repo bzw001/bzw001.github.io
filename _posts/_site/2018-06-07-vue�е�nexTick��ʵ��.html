@@ -9,16 +9,16 @@
     <blockquote>
       <p>宏任务：整段的script, setTimeout, setInterval, setImmediate(IE10), 用户交互操作, io口</p>
     </blockquote>
-  </li>
-</ul>
 
-<blockquote>
-  <p>微任务：promise, process.nextTick(nodejs)</p>
-</blockquote>
+    <blockquote>
+      <p>微任务：promise, process.nextTick(nodejs)</p>
+    </blockquote>
 
-<blockquote>
-  <p>执行顺序：一整段script相当于宏任务，如果里面有其它setTimeout等宏任务触发，便会在其异步场景完成后(如定时完成)推入到宏任务队列。有promise等微任务，则会将其推入到微任务队列，当前的宏任务执行完之后，会去读取微任务队列执行完，接下来进行读取宏任务队列。从这种顺序看来，微任务往往执行于一次事件循环结束，而宏任务执行于下一次事件循环开始。所以promise的执行往往先于promise。</p>
-  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 例：
+    <blockquote>
+      <p>执行顺序：一整段script相当于宏任务，如果里面有其它setTimeout等宏任务触发，便会在其异步场景完成后(如定时完成)推入到宏任务队列。有promise等微任务，则会将其推入到微任务队列，当前的宏任务执行完之后，会去读取微任务队列执行完，接下来进行读取宏任务队列。从这种顺序看来，微任务往往执行于一次事件循环结束，而宏任务执行于下一次事件循环开始。所以promise的执行往往先于promise。</p>
+    </blockquote>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 例：
     let p =  Promise.resolve();
     p.then(()=&gt; {
       console.log(1);
@@ -28,8 +28,9 @@
     },0);
     console.log(3);
   // 打印顺序：3 1 2
-</code></pre></div>  </div>
-</blockquote>
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 <h5 id="vue中的nexttick">vue中的nextTick</h5>
 <blockquote>
@@ -38,33 +39,35 @@ vue中的nextTick是借助于js的宏任务与微任务,实现执行回调的普
 </blockquote>
 
 <blockquote>
-  <p>vue表明默认使用microTask，特殊下可以使用macroTask
-```
-From vue version : “2.5.17-beta.0”</p>
+  <p>vue表明默认使用microTask，特殊下可以使用macroTask</p>
 </blockquote>
 
-<p>// Here we have async deferring wrappers using both microtasks and (macro) tasks.
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>From vue version : "2.5.17-beta.0"
+
+// Here we have async deferring wrappers using both microtasks and (macro) tasks.
 // In &lt; 2.4 we used microtasks everywhere, but there are some scenarios where
 // microtasks have too high a priority and fire in between supposedly
 // sequential events (e.g. #4521, #6690) or even between bubbling of the same
 // event (#6566). However, using (macro) tasks everywhere also has subtle problems
 // when state is changed right before repaint (e.g. #6813, out-in transitions).
 // Here we use microtask by default, but expose a way to force (macro) task when
-// needed (e.g. in event handlers attached by v-on).</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>##### nextTick的实现
+// needed (e.g. in event handlers attached by v-on).
 
 </code></pre></div></div>
-<p>//1、声明macroTask, macroToask, callbasks, useMacroTask等,
+<h5 id="nexttick的实现">nextTick的实现</h5>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  //1、声明macroTask, macroToask, callbasks, useMacroTask等,
   //2、各种环境侦测下建立宏任务与微任务
      第一轮侦测:
      a、先检查是否存在setImmediate,有则建立宏任务
      b、否则检查是否存在MessageChannel,有则建立宏任务
-     c、否则使用setTimeout建立宏任务</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 第二轮侦测:
- a、检查是否存在promise，有则建立微任务
- b、否则微任务等于宏任务.   //3、暴露withMacroTask ,可以往宏任务推入回调   //4、暴露nextTick：可以将回调推入微/宏任务等待执行。 ```
+     c、否则使用setTimeout建立宏任务
+    
+     第二轮侦测:
+     a、检查是否存在promise，有则建立微任务
+     b、否则微任务等于宏任务.
+  //3、暴露withMacroTask ,可以往宏任务推入回调
+  //4、暴露nextTick：可以将回调推入微/宏任务等待执行。
 </code></pre></div></div>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>附：vue中nextTick源码
