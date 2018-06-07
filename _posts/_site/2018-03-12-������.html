@@ -1,0 +1,175 @@
+<h5 id="数据监测是江湖行走必备之良技">数据监测是江湖行走必备之良技</h5>
+<blockquote>
+  <p>自从MVVM框架从前端兴起，各种武艺秘技在前端江湖横飞四起。当今的三大“门派”——angular，vue，react在前端各站鳌头，究其内门功夫，都有数据绑定（双向或者单向）一技。angularjs的脏检查，angular2的zone.js，vue的defineProperty，以及react的单向数据流，都在试图用最低的成本让程序猿(媛)能够快速的飞檐走壁，练出app。</p>
+</blockquote>
+
+<h5 id="洒家vue数据监测依赖什么">洒家vue数据监测依赖什么？</h5>
+<blockquote>
+  <p>vue得益于es5的<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty"> Object.defineProperty</a>方法，可以为正常的对象读取值附加一层拦截。有如火眼金睛，任何对象的一举一动都窥于目下（斯贼，休敢乱动）。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Object.defineProperty(obj,'keyName',{
+    //数据描述符
+    configurable:true/false(default)       // 该属性能否被delete删除
+    enumerable:  true/false(default)       //该属性能否被枚举
+    value:任何JavaScript值(默认undefined)  //该属性的值
+    writable:    true/false(default)       //该属性值能否被复制运算符改变
+    //存取描述符 --&gt; 数据监测主要依靠
+    get:Function/undefined(default)        //getter方法，属性被访问会触发
+    set:Function/undefined(default)        //setter方法,属性被赋值会触发
+})
+
+//举个橘子
+let obj = {};
+Object.defineProperty(obj,'test',{
+    get:function(){
+        console.log('我被访问了,速度返回404');
+        return 404;
+    },
+    set:function(newVal){
+        console.log('我被赋值了,^-^,赋的值是：',newVal);
+    }
+})
+console.log(obj.test)//我被访问了,速度返回404  //404
+obj.test = 200;//我被赋值了,^-^,赋的值是 200
+</code></pre></div></div>
+<blockquote>
+  <p>那么当对象被赋值的时候，会触发set方法，在set里比对新值与旧值，然后做相应的处理，不就达到数据监测并处理的目的了吗？这么简单，想想还有点小激动呢。</p>
+</blockquote>
+
+<h5 id="初级版的数据监测招式">初级版的数据监测招式</h5>
+<blockquote>
+  <p>建立一个监测类，能够监测对象的变动并执行指定的回调函数</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Survey{
+  constructor(obj,callback){
+    if(Object.prototype.toString.call(obj) !== '[object Object]')
+      console.error('This parameter should be an Object',obj);
+    this.callback = callback;
+    this.detect(obj);
+  }
+  detect(target){
+    Object.keys(target).forEach(function(key,index,keyArray){
+      let value = target[key];  //相当于旧值
+      Object.defineProperty(target,key,{
+        get:function(){
+          return value;
+        },
+        set:(function(newVal){
+          if(value !== newVal) 
+          {
+            //如果新值是个对象，会再遍历属性以监测
+            if(Object.prototype.toString.call(newVal) === '[object Object]') 
+            {
+              this.detect(newVal);
+            }
+            this.callback(value,newVal);
+            value=newVal;      //将新值赋予旧值
+          }
+        }).bind(this)
+      });
+    },this);
+    if(Object.prototype.toString.call(target[key]) === '[object Object]')
+        this.detect(target[key]);
+  }
+}
+//测试 
+let  obj={a:1,b:2};
+let watcher=new Survey(obj,function(old,newVal){
+  console.log(old);
+  console.log(newVal);
+});
+obj.b=3; // 2 3
+</code></pre></div></div>
+<blockquote>
+  <p>是不是感觉很easy,哪里不会点哪里？ 但是这种设计能应付监测的对象是数组的情况吗？答案是不能的。很明显数组操作如push或者unshift，以上设计并不能监测到这种举动。</p>
+  <h5 id="升级版搞定数组监测">升级版搞定数组监测</h5>
+  <p>怎么能够侦测到数组操作带来的变化呢？数组的变化来源其方法，如果数组的方法调用附带着其值的检测，那不是就可以监测数组变化了么，那怎么让数组的方法调用时能够附带作其它处理呢？能这么干的就只能在数组的原型(prototype)上动心思了。</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//数组的方法就那么几个，可以使用改写其Array.prototype让每个数组方法调用时，
+//都能检测操作值的处理数组的方法还有一些
+let ARR_METHODS=['push','pop','shift','unshift','splice','sort','reverse','map'];
+class  survey_2{
+    constructor(obj,callback){
+      if(Object.prototype.toString.call(obj) !== '[object Object]' &amp;&amp; 
+      Object.prototype.toString.call(obj) !== '[object Array]')
+        console.error('This parameter should be an Object',obj);
+      this.callback=callback;
+      this.detect(obj)
+    }
+
+    detect(target){
+      //如果target是数组，则重写其方法
+      if(Object.prototype.toString.call(target) === '[object Array]')
+        this.overrideArrPrototype(target);
+      Object.keys(target).forEach(function(key,index,keyArray){
+        let oldVal = target[key];
+        Object.defineProperty(target,key,{
+          get:function(){
+            return oldVal;
+          },
+          set:(
+            function(newVal){
+              console.log(newVal);
+              if(newVal !== oldVal)
+              { 
+                let valType=Object.prototype.toString(newVal);
+                if( valType === '[object Object]' || 
+                    valType === '[object Array]')
+                  this.detect(newVal);
+                this.callback(oldVal,newVal);
+                oldVal = newVal;
+              }
+            }
+          ).bind(this)
+        })
+        let targetPropType = Object.prototype.toString.call(target[key]);
+        if( targetPropType === '[object Object]' || 
+            targetPropType === '[object Array]')
+          this.detect(target[key]);
+      },this);
+     
+    }
+
+    overrideArrPrototype(array){
+      //产生一个数组原型副本,用于分配给需要重写的数组
+      let overrideProto=Object.create(Array.prototype);
+      let _this=this; 
+      //重写数组方法
+      Object.keys(ARR_METHODS).forEach((key,index,keyArrary)=&gt;{
+        let method=ARR_METHODS[key];
+        let oldArray=[];
+        Object.defineProperty(overrideProto,method,{
+          value:function(){
+            oldArray=this.slice(0);//存储旧数组
+            let args=[].slice.apply(arguments);
+            Array.prototype[method].apply(this,args);
+            _this.detect(this);
+            _this.callback(oldArray,this);
+          },
+          writable:true,
+          enumerable:false,
+          configurable:true
+        })
+      });
+      //将目标数组的原型替换成改造后的原型
+      array.__proto__=overrideProto;
+    }
+}
+
+let arr={a:1,b:[1]};
+let test =new survey_2(arr,function(oldArr,newArr){
+  console.log(oldArr);
+  console.log(newArr);
+})
+arr.b.push(4); //[1]   [1,4]
+</code></pre></div></div>
+<blockquote>
+  <p>这样就愉快完成了能对对象与数组进行检测的一个监测类了，是不是so easy.</p>
+</blockquote>
+
+<blockquote>
+  <p>总结：vue的数据监测主要运用的是es5的defineProperty特性，对于数组的检测则通过重写其数组方法来达到检测的目的。但是进一步，有木有能检测到哪个地方改变了的方法呢？ 下回拆解。</p>
+</blockquote>
