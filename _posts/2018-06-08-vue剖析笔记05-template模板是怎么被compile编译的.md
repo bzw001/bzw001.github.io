@@ -14,6 +14,7 @@ tags:
 
 ##### parse
 > 通过正则等方式将template模板进行字符串解析，得到指令，class,style等数据,形成AST(抽象语法树);
+
 > 能够描述出标签的属性以及依赖关系
 
 ```
@@ -344,6 +345,7 @@ tags:
 
  - optimize 
 > 优化。 给静态节点加上static 属性，那么在patch时bianhui9跳过这些标记的节点的比对
+
 ```
 //optimize后的结果
 {
@@ -433,6 +435,7 @@ function optimize(rootAst) {
 
 -  generate
 > 将AST 转换成render function 字符串, 最终得到render字符串以及staticRenderFns字符串
+
 ```
 	//vue.js编译后的结果
 	with(this) {
@@ -554,10 +557,6 @@ function optimize(rootAst) {
 			return code;
 		}
 	}
-
-
-
-	
 
 	//generate 
 	//将整个AST传入后判断是否为空,为空则人会div标签
