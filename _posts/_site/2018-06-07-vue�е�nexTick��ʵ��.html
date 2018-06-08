@@ -15,7 +15,7 @@
     </blockquote>
 
     <blockquote>
-      <p>执行顺序：一整段script相当于宏任务，如果里面有其它setTimeout等宏任务触发，便会在其异步场景完成后(如定时完成)推入到宏任务队列。有promise等微任务，则会将其推入到微任务队列，当前的宏任务执行完之后，会去读取微任务队列执行完，接下来进行读取宏任务队列。从这种顺序看来，微任务往往执行于一次事件循环结束，而宏任务执行于下一次事件循环开始。所以promise的执行往往先于promise。</p>
+      <p>执行顺序：一整段script相当于宏任务，如果里面有其它setTimeout等宏任务触发，便会在其异步场景完成后(如定时完成)推入到宏任务队列。有promise等微任务，则会将其推入到微任务队列，当前的宏任务执行完之后，会去读取微任务队列执行完，接下来进行读取宏任务队列。从这种顺序看来，微任务往往执行于一次事件循环结束，而宏任务执行于下一次事件循环开始。所以promise的执行往往先于setTimeout。</p>
     </blockquote>
 
     <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 例：
@@ -34,8 +34,11 @@
 
 <h5 id="vue中的nexttick">vue中的nextTick</h5>
 <blockquote>
-  <p>功能：在下次 DOM 更新循环结束之后执行延迟回调
-vue中的nextTick是借助于js的宏任务与微任务,实现执行回调的普通函数</p>
+  <p>功能：在下次 DOM 更新循环结束之后执行延迟回调</p>
+</blockquote>
+
+<blockquote>
+  <p>vue中的nextTick是借助于js的宏任务与微任务,实现执行回调的普通函数</p>
 </blockquote>
 
 <blockquote>
