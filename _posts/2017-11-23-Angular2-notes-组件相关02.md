@@ -1,8 +1,8 @@
 ---
 title: Angular2学习笔记-组件02
-date: 2018-06-08
+date: 2017-11-23
 categories:
-- vue
+- Angular2
 tags: 
 - Angular2
 - Angular2学习笔记

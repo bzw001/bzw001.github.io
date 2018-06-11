@@ -1,8 +1,8 @@
 ---
 title: Angular2学习笔记-angular的变化监测
-date: 2018-06-08
+date: 2017-11-23
 categories:
-- vue
+- Angular2
 tags: 
 - Angular2
 - Angular2学习笔记
