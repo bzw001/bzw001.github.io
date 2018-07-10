@@ -1,0 +1,35 @@
+<h4 id="阅前概要">阅前概要</h4>
+<blockquote>
+  <p>文章将会分成上中下三部分，包含一些常见面试算法题，大部分算法题来自于《剑指offer》,在此对此书的作者及牛客编程网表示感谢,还有一部分来自于本人的收集。</p>
+</blockquote>
+
+<h4 id="一数组遍历">一、数组遍历</h4>
+<blockquote>
+  <p>一个数组中，每一行都按照从左至右递增的顺序排序，每一列按照从上到下递增的顺序排序。完成：输入一个这样的二维数组和一个整数，判断数组是否含有这个整数</p>
+</blockquote>
+
+<blockquote>
+  <p>思路：数组是有序的，可以根据规律减少遍历次数。从右上角开始遍历，如果这个数不等，那么可以根据目标数与这个数的大小可以去掉一些行/列的遍历</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function findNumInSortedArray(arr, num) {
+  if (!Array.isArray(arr) || typeof num != 'number' || isNaN(num)) {
+    return;
+  }
+  let rows = arr.length;
+  let columns = arr[0].length;
+  let row = 0;
+  let column = columns -1;
+
+  while(row &lt; rows &amp;&amp; column &gt;=0 ){
+    if (arr[row][column] == num) {
+      return true;
+    } else if (arr[row][column] &gt; num) {
+      column --;
+    } else {
+      row ++ ;
+    }
+  }
+  return false;
+}
+</code></pre></div></div>
