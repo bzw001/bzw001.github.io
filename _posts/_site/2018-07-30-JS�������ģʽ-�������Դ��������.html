@@ -7,58 +7,65 @@
 <ul>
   <li>透明的单例模式
     <blockquote>
-      <p>用户从这个类创建对象的时候，可以想用其它任何普通类一样
-```
-var CreateDiv = (function(){
-var instance ;
-var CreateDiv = function(html){
-  if (instance) {
-    return instance;
-  }
-  this.html = html;
-  this.init();
-  return instance = this;
-}</p>
+      <p>用户从这个类创建对象的时候，可以想用其它任何普通类一样</p>
     </blockquote>
-
-    <p>CreateDiv.prototype.init = function() {
-  va div = document.createElement(‘div’);
-  div.innerHTML = this.html;
-  document.body.appendChild(div);
-}
-return CreateDiv;
-})();
-```</p>
   </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var CreateDiv = (function(){
+  var instance ;
+  var CreateDiv = function(html){
+    if (instance) {
+      return instance;
+    }
+    this.html = html;
+    this.init();
+    return instance = this;
+  }
+
+  CreateDiv.prototype.init = function() {
+    va div = document.createElement('div');
+    div.innerHTML = this.html;
+    document.body.appendChild(div);
+  }
+  return CreateDiv;
+})();
+</code></pre></div></div>
+
+<ul>
   <li>用代理实现单例模式
     <blockquote>
-      <p>通过引入代理类的方式
-```
-//将负责管理单例的代码移除，弄一个普通的创建div的类
-var CreateDiv = function(html) {
-  this.html = html;
-  this.init():
-}
-CreateDiv.prototype.init = function() {
-  var div = document.createElement(‘div’);
-  div.innerHTML = this.html;
-  document.body.appendChild(div);
-}</p>
+      <p>通过引入代理类的方式</p>
     </blockquote>
-
-    <p>//引入代理类</p>
-
-    <p>var ProxySingletonCreateDiv= (function() {
-  var instance ;
-  return function(html) {
-    if (!instance) {
-      instance = new CreateDiv(html);
-    }
-    return instance;
-  }
-})();
-```</p>
   </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  //将负责管理单例的代码移除，弄一个普通的创建div的类
+  var CreateDiv = function(html) {
+    this.html = html;
+    this.init():
+  }
+  CreateDiv.prototype.init = function() {
+    var div = document.createElement('div');
+    div.innerHTML = this.html;
+    document.body.appendChild(div);
+  }
+
+  //引入代理类
+
+  var ProxySingletonCreateDiv= (function() {
+    var instance ;
+    return function(html) {
+      if (!instance) {
+        instance = new CreateDiv(html);
+      }
+      return instance;
+    }
+  })();
+
+</code></pre></div></div>
+
+<ul>
   <li>js中的单例模式
     <blockquote>
       <p>本身来讲，js中的全局变量就可以当作单例，但是当项目比较大时，容易造成变量污染</p>
@@ -71,19 +78,23 @@ CreateDiv.prototype.init = function() {
   <li>惰性单例
     <blockquote>
       <p>在需要的时候才创建对象实例，惰性实例是单例模式的重点</p>
-      <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> //如在调用Singleton.getInstance的时候才创建
- Singleton.getInstance = (function() {
- var instance = null;
- return function(name) {
-   if (!instance) {
-     instance = new Singleton(name);
-   }
-   return instance;
- }
- })()
-</code></pre></div>      </div>
     </blockquote>
   </li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> //如在调用Singleton.getInstance的时候才创建
+ Singleton.getInstance = (function() {
+   var instance = null;
+   return function(name) {
+     if (!instance) {
+       instance = new Singleton(name);
+     }
+     return instance;
+   }
+ })()
+</code></pre></div></div>
+
+<ul>
   <li>通用的惰性单例
     <blockquote>
       <p>将管理单例的逻辑抽象出来：用一个变量来标志是否创建过对象</p>
@@ -101,7 +112,8 @@ CreateDiv.prototype.init = function() {
  //这样fn的逻辑可以是创建div，创建fragment,乃至一次性绑定事件
 </code></pre></div></div>
 
-<p>##### 策略模式</p>
+<h5 id="策略模式">策略模式</h5>
+
 <blockquote>
   <p>定义一系列的算法，将它们封装，并且使它们可以相互替换
 一个基于策略模式的程序至少由两部分组成：第一部分是策略类，封装了具体算法，负责具体的计算过程，第二部分是环境类Context，Context接受客户的请求，然后将请求委托给某一个策略类。</p>
@@ -138,7 +150,7 @@ CreateDiv.prototype.init = function() {
   </li>
 </ul>
 
-<p>##### 代理模式</p>
+<h5 id="代理模式">代理模式</h5>
 <blockquote>
   <p>代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问</p>
 </blockquote>
@@ -192,7 +204,7 @@ CreateDiv.prototype.init = function() {
   </li>
 </ul>
 
-<p>##### 迭代器模式</p>
+<h5 id="迭代器模式">迭代器模式</h5>
 <blockquote>
   <p>提供一种方法顺序访问聚合对象中的各个元素，并且不需要暴露该对象的内部表示</p>
 </blockquote>

@@ -128,27 +128,27 @@ salesOffices.trigger = function() {
   </li>
   <li>对象池
     <blockquote>
-      <p>对于创建过的对象进行循环利用
- ```
- //通用对象池实现
- var objectPoolFactory = function(createObjFn) {
-var objectPool = [];
-return {
-  create : function () {
-    var obj = objectPool.length === 0 ?
-             createObjFn.apply(this, arguments) : objectPool.shift();
-     return obj;
-  },</p>
+      <p>对于创建过的对象进行循环利用</p>
     </blockquote>
-
-    <p>recover: function(obj) {
-    objectPool.push(obj);
-  }
-}
- }
- ```</p>
   </li>
 </ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> //通用对象池实现
+ var objectPoolFactory = function(createObjFn) {
+   var objectPool = [];
+   return {
+     create : function () {
+       var obj = objectPool.length === 0 ?
+                createObjFn.apply(this, arguments) : objectPool.shift();
+        return obj;
+     },
+
+     recover: function(obj) {
+       objectPool.push(obj);
+     }
+   }
+ }
+</code></pre></div></div>
 
 <h5 id="职责链模式">职责链模式</h5>
 <blockquote>
