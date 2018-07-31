@@ -139,6 +139,7 @@
   var calculateBonus = function(level, salary) {
     return strategeis[level](salary);
   }
+  
 </code></pre></div></div>
 
 <ul>
@@ -195,6 +196,7 @@
   })()
 
   proxyImage.setSrc('http://xxx.com/asdsada.jpg);
+
 </code></pre></div></div>
 <ul>
   <li>缓存代理
@@ -212,29 +214,31 @@
 <ul>
   <li>内部迭代器与外部迭代器
     <blockquote>
-      <p>内部迭代器例如forEach函数
-  ```
-  //外部迭代器举例</p>
+      <p>内部迭代器例如forEach函数</p>
     </blockquote>
   </li>
 </ul>
 
-<p>var Iterator = function(obj) {
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  //外部迭代器举例
+
+  var Iterator = function(obj) {
     var currnet = 0;
     var next = function() {
       current += 1;
-    }</p>
+    }
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var isDone = function() {
-  return current &gt;= object.length;
-}
+    var isDone = function() {
+      return current &gt;= object.length;
+    }
 
-var getCurrentItem = function() {
-  return obj[current];
-};
-return {
-  next: next,
-  isDone: isDone,
-  getCurrent: getCurrent
-}   }   ```
+    var getCurrentItem = function() {
+      return obj[current];
+    };
+    return {
+      next: next,
+      isDone: isDone,
+      getCurrent: getCurrent
+    }
+  }
+
 </code></pre></div></div>
