@@ -64,8 +64,9 @@
   <p>状态模式的关键是把事务的每种状态都封装成单独的类，跟此种状态有关的行为都被封装在这个类的内部</p>
 </blockquote>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> //按下开发，变换灯的状态(强，弱，关)
- 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 
+ &lt;script&gt;
+ //按下开发，变换灯的状态(强，弱，关)
  //定义3个状态类
  var OffLineState = function(light) {
    this.light = light;
@@ -117,6 +118,7 @@
   }
 
   //当如果要增加一个超光光的时候，则再增加一个状态类
+ &lt;/script&gt;
 </code></pre></div></div>
 <ul>
   <li>状态模式的优缺点</li>
