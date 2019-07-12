@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://github.com/BiaoZhiWang/blog</id>
+    <title>哈利呦 Blog</title>
+    <updated>2018-06-08T06:00:00Z</updated>
+    <generator>Feed for Node.js</generator>
+    <link rel="alternate" href="https://github.com/BiaoZhiWang/blog"/>
+    <subtitle>The best place to stay up-to-date with the latest 哈利呦 news and events.</subtitle>
+    <logo>https://github.com/BiaoZhiWang/img/favicon.ico</logo>
+    <entry>
+        <title type="html"/>
+        <id>https://github.com/BiaoZhiWang/blog/2018/06/08/promise.html</id>
+        <link href="https://github.com/BiaoZhiWang/blog/2018/06/08/promise.html">
+        </link>
+        <updated>2018-06-08T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<p>title: promise与手动promise date: 2018-06-08 categories:</p> <ul> <li>es6</li> <li>promise tags:</li> <li>es6 promise</li> <li>promise</li> </ul> <hr> ]]></summary>
+        <author>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[动画展示快排]]></title>
+        <id>https://github.com/BiaoZhiWang/blog/2018/04/16/animate.html</id>
+        <link href="https://github.com/BiaoZhiWang/blog/2018/04/16/animate.html">
+        </link>
+        <updated>2018-04-16T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<h3><a class="anchor" aria-hidden="true" id="动画展示快排"></a><a href="#动画展示快排" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>动画展示快排</h3>
+<p><a href="/blog/assets/quickSortAnima.html">动画演示</a></p>
+]]></summary>
+        <author>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[实现一个lazyMan]]></title>
+        <id>https://github.com/BiaoZhiWang/blog/2018/04/12/js.html</id>
+        <link href="https://github.com/BiaoZhiWang/blog/2018/04/12/js.html">
+        </link>
+        <updated>2018-04-12T06:00:00Z</updated>
+        <author>
+        </author>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[如何实现对对象的检测]]></title>
+        <id>https://github.com/BiaoZhiWang/blog/2018/03/12.html</id>
+        <link href="https://github.com/BiaoZhiWang/blog/2018/03/12.html">
+        </link>
+        <updated>2018-03-12T06:00:00Z</updated>
+        <summary type="html"><![CDATA[<h5><a class="anchor" aria-hidden="true" id="数据监测是江湖行走必备之良技"></a><a href="#数据监测是江湖行走必备之良技" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>数据监测是江湖行走必备之良技</h5>
+<blockquote>
+<p>自从MVVM框架从前端兴起，各种武艺秘技在前端江湖横飞四起。当今的三大“门派”——angular，vue，react在前端各站鳌头，究其内门功夫，都有数据绑定（双向或者单向）一技。angularjs的脏检查，angular2的zone.js，vue的defineProperty，以及react的单向数据流，都在试图用最低的成本让程序猿(媛)能够快速的飞檐走壁，练出app。</p>
+</blockquote>
+]]></summary>
+        <author>
+        </author>
+    </entry>
+</feed>

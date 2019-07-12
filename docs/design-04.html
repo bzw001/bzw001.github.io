@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>常见设计模式-装饰者状态适配器 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;装饰者模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#装饰者模式&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;装饰者模式&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="常见设计模式-装饰者状态适配器 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;装饰者模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#装饰者模式&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;装饰者模式&lt;/h2&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>设计模式</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">常见设计模式-装饰者状态适配器</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="装饰者模式"></a><a href="#装饰者模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>装饰者模式</h2>
+<blockquote>
+<p>当不希望一个类一开始就很庞大，包含很多职责，可以使用装饰者模式
+装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责</p>
+</blockquote>
+<!--truncate-->
+```
+// AOP函数 分离业务代码与数据统计代码
+// 如在登录button上弹出登录浮层（业务代码），同时要进行上报多少用户点击了这个登录button(数据统计代码)
+//常规下
+<html>
+  <button tag="login" id="button">点击打开浮层</button>
+  <script>
+<p>var showLogin = function() {
+console.log('打开登录浮层');
+log(this.getAttribute('tag'));
+}</p>
+<p>var log = function(tag) {
+console.log(&quot;上报标签为：&quot; + tag);
+(new Image()).src=&quot;<a href="http://xxx">http://xxx</a>&quot;;
+}</p>
+<p>document.getElementById('button').onclick = showLogin;</p>
+  </script>
+</html>
+<p>//使用AOP分离</p>
+<script>
+  Function.prototype.after = function(afterFn) {
+    var _self = this;
+    return function () {
+      var ret = _self.apply(this, arguments);
+      afterFn.apply(this.arguments);
+      return ret;
+    }
+  }
+<p>var showLogin = function() {
+console.log('打开浮层);
+}</p>
+<p>var log = function() {
+console.log('数据上报')
+}</p>
+<p>showLogin = showLogin.after(log);
+document.getElementById('button').onclick = showLogin;</p>
+</script>
+<pre><code class="hljs">
+  + 装饰者模式与代理模式的区别
+<span class="hljs-meta">  &gt;</span><span class="bash">代理模式本身是依赖于本体使用的，而装饰者模式在于加入的行为是不依赖于被装饰者的</span>
+<span class="hljs-meta">
+#</span><span class="bash"><span class="hljs-comment"># 状态模式</span></span>
+<span class="hljs-meta">&gt;</span><span class="bash">状态模式的关键是把事务的每种状态都封装成单独的类，跟此种状态有关的行为都被封装在这个类的内部</span>
+
+</code></pre>
+ <script>
+ //按下开发，变换灯的状态(强，弱，关)
+ //定义3个状态类
+ var OffLineState = function(light) {
+   this.light = light;
+ }
+ OffLineState.prototype.buttonWasPressed = function() {
+   console.log('弱光);
+   this.light.setState(this.light.WeakLightState); //切换到弱光
+ }
+<p>var WeakLightState = function(light) {
+this.light = light;
+}
+WeakLightState.prototype.buttonWasPressed = function() {
+console.log('强光');
+this.light.setState(this.light.strongLightState); //切换到强光
+}</p>
+<p>var StrongLightState = function(light) {
+this.light = light;
+}
+StrongLightState = function() {
+console.log('关灯');
+this.light.setState(this.light.offLightState); //切换到关灯
+}</p>
+<p>//light类
+var Light = function() {
+this.offLightState = new OffLightState(this);
+this.weakLightState = new WeakLightState(this);
+this.strongLightState = new StrongLightState(this);
+this.button = null;
+}</p>
+<p>Light.prototype.init = function() {
+var button = document.createElement('button');
+var self = this;
+this.button = document.appendChild(button);
+this.button.innetHTML = &quot;开关&quot;;</p>
+<pre><code class="hljs">this.currState = this.offLightState;//设置当前状态
+
+this.button.click = functiont() {
+  self.currState.buttonWasPressed();
+}
+</code></pre>
+<p>}</p>
+<p>Light.prototype.setState = function(newState) {
+this.currState = newState;
+}</p>
+<p>//当如果要增加一个超光光的时候，则再增加一个状态类</p>
+ </script>
+```
+  + 状态模式的优缺点
+   - 优点在于将行为封装到了状态类里，容易增加新的状态与状态转换，将多个逻辑判断语句换成了单一的状态行为切换
+   - 缺点在于当状态比较多时，需要定义多个状态类，同时增加代码的复杂度
+<h2><a class="anchor" aria-hidden="true" id="适配器模式"></a><a href="#适配器模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>适配器模式</h2>
+<blockquote>
+<p>适配器好比插头转换器，当两个实体接口不兼容，同时不适宜改变两个实体的代码来使二者兼容时，适配器应运而生。
+适配器其实是不得已的选择
+比如xml与json数据的转换，百度地图与高德地图展示方法的切换等，实现起来并没有固定的模式，只是将这种业务场景下选择的处理方法称为适配者模式。</p>
+</blockquote>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/design-03"><span class="arrow-prev">← </span><span>JS常见设计模式-发布订阅命令组合模板享元职责中介者</span></a><a class="docs-next button" href="/docs/design-05"><span>编程建议</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#装饰者模式">装饰者模式</a></li><li><a href="#状态模式">状态模式</a></li><li><a href="#适配器模式">适配器模式</a></li></ul></nav></div></div></body></html>

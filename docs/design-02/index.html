@@ -1,0 +1,279 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>JS常见设计模式-单例策略代理迭代器 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;单例模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#单例模式&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;单例模式&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="JS常见设计模式-单例策略代理迭代器 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;单例模式&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#单例模式&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;单例模式&lt;/h2&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>设计模式</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">JS常见设计模式-单例策略代理迭代器</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="单例模式"></a><a href="#单例模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>单例模式</h2>
+<blockquote>
+<p>保证一个类仅有一个实例，并体用一个访问它的全局访问点
+如window对象</p>
+</blockquote>
+<ul>
+<li>透明的单例模式</li>
+</ul>
+<blockquote>
+<p>用户从这个类创建对象的时候，可以想用其它任何普通类一样</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-keyword">var</span> CreateDiv = (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  <span class="hljs-keyword">var</span> instance ;
+  <span class="hljs-keyword">var</span> CreateDiv = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">html</span>)</span>{
+    <span class="hljs-keyword">if</span> (instance) {
+      <span class="hljs-keyword">return</span> instance;
+    }
+    <span class="hljs-keyword">this</span>.html = html;
+    <span class="hljs-keyword">this</span>.init();
+    <span class="hljs-keyword">return</span> instance = <span class="hljs-keyword">this</span>;
+  }
+
+  CreateDiv.prototype.init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    va div = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
+    div.innerHTML = <span class="hljs-keyword">this</span>.html;
+    <span class="hljs-built_in">document</span>.body.appendChild(div);
+  }
+  <span class="hljs-keyword">return</span> CreateDiv;
+})();
+</code></pre>
+<ul>
+<li>用代理实现单例模式</li>
+</ul>
+<blockquote>
+<p>通过引入代理类的方式</p>
+</blockquote>
+<pre><code class="hljs">  <span class="hljs-comment">//将负责管理单例的代码移除，弄一个普通的创建div的类</span>
+  <span class="hljs-keyword">var</span> CreateDiv = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">html</span>) </span>{
+    <span class="hljs-keyword">this</span>.html = html;
+    <span class="hljs-keyword">this</span>.init():
+  }
+  CreateDiv.prototype.init = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> div = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'div'</span>);
+    div.innerHTML = <span class="hljs-keyword">this</span>.html;
+    <span class="hljs-built_in">document</span>.body.appendChild(div);
+  }
+
+  <span class="hljs-comment">//引入代理类</span>
+
+  <span class="hljs-keyword">var</span> ProxySingletonCreateDiv= (<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> instance ;
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">html</span>) </span>{
+      <span class="hljs-keyword">if</span> (!instance) {
+        instance = <span class="hljs-keyword">new</span> CreateDiv(html);
+      }
+      <span class="hljs-keyword">return</span> instance;
+    }
+  })();
+
+</code></pre>
+<ul>
+<li>js中的单例模式</li>
+</ul>
+<blockquote>
+<p>本身来讲，js中的全局变量就可以当作单例，但是当项目比较大时，容易造成变量污染</p>
+</blockquote>
+<ul>
+<li>可以使用命名空间</li>
+<li>使用闭包封装私有变量</li>
+</ul>
+<ul>
+<li>惰性单例</li>
+</ul>
+<blockquote>
+<p>在需要的时候才创建对象实例，惰性实例是单例模式的重点</p>
+</blockquote>
+<pre><code class="hljs"> //如在调用Singleton.getInstance的时候才创建
+ Singleton.getInstance = (function() {
+   var<span class="hljs-built_in"> instance </span>= null;
+  <span class="hljs-built_in"> return </span>function(name) {
+    <span class="hljs-built_in"> if </span>(!instance) {
+      <span class="hljs-built_in"> instance </span>=<span class="hljs-built_in"> new </span>Singleton(name);
+     }
+    <span class="hljs-built_in"> return </span>instance;
+   }
+ })()
+</code></pre>
+<ul>
+<li>通用的惰性单例</li>
+</ul>
+<blockquote>
+<p>将管理单例的逻辑抽象出来：用一个变量来标志是否创建过对象</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-keyword">var</span> getSingle = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">fn</span>) </span>{
+  <span class="hljs-keyword">var</span> result;
+  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> result || (result = fn.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>));
+  }
+}
+
+<span class="hljs-comment">//这样fn的逻辑可以是创建div，创建fragment,乃至一次性绑定事件</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="策略模式"></a><a href="#策略模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>策略模式</h2>
+<blockquote>
+<p>定义一系列的算法，将它们封装，并且使它们可以相互替换
+一个基于策略模式的程序至少由两部分组成：第一部分是策略类，封装了具体算法，负责具体的计算过程，第二部分是环境类Context，Context接受客户的请求，然后将请求委托给某一个策略类。</p>
+</blockquote>
+<pre><code class="hljs"> <span class="hljs-comment">//传统面向对象语言实现会先使用定义类再实现计算类与策略类</span>
+
+ <span class="hljs-comment">//js中策略模式, 策略往往被函数代替</span>
+ <span class="hljs-comment">//以计算奖金为例（不同级别的奖金计算不同）</span>
+ <span class="hljs-keyword">var</span> strategies = {
+   S : <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(salary)</span> </span>{
+     <span class="hljs-keyword">return</span> salary * <span class="hljs-number">4</span>;
+   },
+   A : <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(salary)</span> </span>{
+     <span class="hljs-keyword">return</span> salary * <span class="hljs-number">3</span>;
+   },
+   B: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(salary)</span> </span>{
+     <span class="hljs-keyword">return</span> salary * <span class="hljs-number">2</span>;
+   }
+ }
+
+ <span class="hljs-comment">//context</span>
+ <span class="hljs-keyword">var</span> calculateBonus = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(level, salary)</span> </span>{
+   <span class="hljs-keyword">return</span> strategeis[level](salary);
+ }
+ 
+</code></pre>
+<ul>
+<li>多态在策略模式中的体现</li>
+</ul>
+<blockquote>
+<p>策略模式下，相对而言消除了大量测条件分支语句
+如在表单验证的时候，一对象声明验证计算，另一部分进行验证场景的设置，如多验证方式设置等</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="代理模式"></a><a href="#代理模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>代理模式</h2>
+<blockquote>
+<p>代理模式是为一个对象提供一个代用品或占位符，以便控制对它的访问</p>
+</blockquote>
+<ul>
+<li>保护代理与虚拟代理</li>
+</ul>
+<blockquote>
+<p>保护代理： 控制不同权限的对象对目标对象的访问。
+虚拟代理： 将一些开销大的对象，延迟到真正需要的时候才去创建</p>
+</blockquote>
+<ul>
+<li>虚拟代理实现图片的预加载</li>
+</ul>
+<blockquote>
+<p>当大的图片加载时，会先用一个loading图片占位，然后用异步方式加载图片好之后再填充到img节点里。
+对于上述场景可以使用虚拟代理</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-comment">//通过代理对象，在图片真正加载好之前，页面会出现一张占位的loading.gif提示图片正在加载</span>
+var myImage = (<span class="hljs-keyword">function</span><span class="hljs-literal">()</span> {
+  var imgNode = document.create<span class="hljs-constructor">Element('<span class="hljs-params">img</span>')</span>;
+  document.body.append<span class="hljs-constructor">Child(<span class="hljs-params">imgNode</span>)</span>;
+  return {
+    setSrc : <span class="hljs-keyword">function</span>(src) {
+      imgNode.src = src;
+    }
+  }
+})<span class="hljs-literal">()</span>;
+
+var proxyImage = (<span class="hljs-keyword">function</span><span class="hljs-literal">()</span> {
+  var img = <span class="hljs-keyword">new</span> <span class="hljs-constructor">Image()</span>;
+  img.onload = <span class="hljs-keyword">function</span><span class="hljs-literal">()</span> {
+    myImage.set<span class="hljs-constructor">Src(<span class="hljs-params">this</span>.<span class="hljs-params">src</span>)</span>;
+  }
+  return {
+    setSrc: <span class="hljs-keyword">function</span>(src) {
+      myImage.set<span class="hljs-constructor">Src('<span class="hljs-params">http</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">xxx</span>.<span class="hljs-params">com</span><span class="hljs-operator">/</span><span class="hljs-params">loading</span>.<span class="hljs-params">gif</span>')</span>;
+      img.src = src;
+    }
+  }
+})<span class="hljs-literal">()</span>
+
+proxyImage.set<span class="hljs-constructor">Src('<span class="hljs-params">http</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">xxx</span>.<span class="hljs-params">com</span><span class="hljs-operator">/</span><span class="hljs-params">asdsada</span>.<span class="hljs-params">jpg</span>)</span>;
+
+</code></pre>
+<ul>
+<li>缓存代理</li>
+</ul>
+<blockquote>
+<p>可以为一些开销大的运算结果提供暂时的存储，可以供下次运算时使用</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="迭代器模式"></a><a href="#迭代器模式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>迭代器模式</h2>
+<blockquote>
+<p>提供一种方法顺序访问聚合对象中的各个元素，并且不需要暴露该对象的内部表示</p>
+</blockquote>
+<ul>
+<li>内部迭代器与外部迭代器</li>
+</ul>
+<blockquote>
+<p>内部迭代器例如forEach函数</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-comment">//外部迭代器举例</span>
+
+<span class="hljs-keyword">var</span> Iterator = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(obj)</span> </span>{
+  <span class="hljs-keyword">var</span> currnet = <span class="hljs-number">0</span>;
+  <span class="hljs-keyword">var</span> next = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    current += <span class="hljs-number">1</span>;
+  }
+
+  <span class="hljs-keyword">var</span> isDone = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> current &gt;= object.length;
+  }
+
+  <span class="hljs-keyword">var</span> getCurrentItem = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span> </span>{
+    <span class="hljs-keyword">return</span> obj[current];
+  };
+  <span class="hljs-keyword">return</span> {
+    next: next,
+    isDone: isDone,
+    getCurrent: getCurrent
+  }
+}
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/design-01"><span class="arrow-prev">← </span><span>JS常见设计模式-JS面向对象</span></a><a class="docs-next button" href="/docs/design-03"><span>JS常见设计模式-发布订阅命令组合模板享元职责中介者</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#单例模式">单例模式</a></li><li><a href="#策略模式">策略模式</a></li><li><a href="#代理模式">代理模式</a></li><li><a href="#迭代器模式">迭代器模式</a></li></ul></nav></div></div></body></html>

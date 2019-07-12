@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>es6-04-对象类型的扩展 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;数组的扩展&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#数组的扩展&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;数组的扩展&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="es6-04-对象类型的扩展 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;数组的扩展&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#数组的扩展&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;数组的扩展&lt;/h2&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>ES6</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">es6-04-对象类型的扩展</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="数组的扩展"></a><a href="#数组的扩展" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>数组的扩展</h2>
+<ul>
+<li>1、Array.from()  类数组对象与可遍历的对象转换成数组。如遍历DOM返回的nodelist集合，以及函数的arguments对象</li>
+</ul>
+<pre><code class="hljs">   var arrayLike={
+       <span class="hljs-string">'0'</span>:1,
+       <span class="hljs-string">'1'</span>:2,
+       <span class="hljs-meta">length</span>:2
+   }
+   //es5转换的方法
+   var arr=[].slice.<span class="hljs-meta">call</span>(arrayLike);
+   //es6
+   let arr=<span class="hljs-meta">Array</span>.<span class="hljs-meta">from</span>(arrayLike);
+   //具有遍历接口的数据  Arrary.<span class="hljs-meta">from</span>(<span class="hljs-string">'aa'</span>); //[<span class="hljs-string">'a'</span>,<span class="hljs-string">'a'</span>]
+   
+   注意，本质上来说只要对象具有<span class="hljs-meta">length</span>属性，就可以通过这个方法转数组
+   
+   //这个方法还有第2个参数，类似于map方法，对于元素进行处理放入到返回的数组中
+   <span class="hljs-meta">Array</span>.<span class="hljs-meta">from</span>(arrayLike,<span class="hljs-meta">x</span>=&gt;<span class="hljs-meta">x</span><span class="hljs-comment">*x);</span>
+   //等同   <span class="hljs-meta">Array</span>.<span class="hljs-meta">from</span>(arrayLike.map(<span class="hljs-meta">x</span>=&gt;<span class="hljs-meta">x</span><span class="hljs-comment">*x))
+</span></code></pre>
+<ul>
+<li>2、Array.of()  将一组值转换成数组，可以理解为es5的Array()或者new Array()</li>
+</ul>
+<pre><code class="hljs">   Array.of(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<span class="hljs-comment">//[1,2,3]</span>
+</code></pre>
+<ul>
+<li>3、copyWithin() 将指定位置的成员复制到其他位置，其他位置会被覆盖，并且返回当前数组。可以修改当前数组</li>
+</ul>
+<pre><code class="hljs">Array.prototype.copyWithin(该位置开始替换数据，从该位置开始读取数据，该位置停止读取)
+[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>].copyWithin(<span class="hljs-number">0</span>,<span class="hljs-number">3</span>) <span class="hljs-comment">//[4,5,3,4,5]</span>
+</code></pre>
+<ul>
+<li>4、find()与findIndex,可以查找，比indexOf()强大，它们可以执行函数，同时结合Object.is可以发现NaN</li>
+<li>5、fill()，用于将数组进行覆盖填充，可以用于数组的初始化.</li>
+</ul>
+<pre><code class="hljs">   [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>].fill(<span class="hljs-string">'a'</span>);<span class="hljs-comment">//  ['a','a','a']</span>
+</code></pre>
+<ul>
+<li>6、entries（），keys().values()  ，用于数组遍历，第一个是对键值对的遍历，第2个是对键名的遍历，第3个是对键值对的遍历</li>
+</ul>
+<pre><code class="hljs">    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> index <span class="hljs-keyword">of</span> [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>].keys()){ <span class="hljs-comment">//其他两个用法一样</span>
+        <span class="hljs-built_in">console</span>.log(index);
+    }
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> [index,elem] <span class="hljs-keyword">of</span> [<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>].entries()){ 
+        <span class="hljs-built_in">console</span>.log(index);
+    }
+    
+    <span class="hljs-comment">//比较有趣的方法，遍历器对象的next()方法，每次只去遍历对象的一个值，而且是一次取得</span>
+    
+    <span class="hljs-keyword">let</span> array=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+    <span class="hljs-keyword">let</span> entries=array.entries();
+    <span class="hljs-built_in">console</span>.log(entries.next().value);<span class="hljs-comment">//[0.1]</span>
+    <span class="hljs-built_in">console</span>.log(entries.next().value);<span class="hljs-comment">//[1.2]</span>
+    <span class="hljs-built_in">console</span>.log(entries.next().value);<span class="hljs-comment">//[2.3]</span>
+</code></pre>
+<ul>
+<li><p>7、includes()   判断某个数组是否包含给定的值</p></li>
+<li><p>8、对空位的处理，如[,,,]</p>
+<blockquote>
+<p>forEach(), filter(), every() 和some()都会跳过空位。
+map()会跳过空位，但会保留这个值
+join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。</p>
+</blockquote>
+<ul>
+<li>Es6会明确将空位转为undefined,这样一些方法就不会略过空位</li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="函数的扩展"></a><a href="#函数的扩展" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>函数的扩展</h2>
+<ul>
+<li>1、可以直接给函数参数设置默认值</li>
+</ul>
+<pre><code class="hljs">    function <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(x,y=<span class="hljs-number">1</span>)</span></span>{} <span class="hljs-comment">//如果传来的参数y没有被赋值，那么y=1;</span>
+    <span class="hljs-comment">//这样的好处可以知道哪些参数是不必输的，一些参数以后不传也是可以的.</span>
+    <span class="hljs-keyword">let</span> x=<span class="hljs-number">99</span>
+    function <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(y=x+<span class="hljs-number">1</span>)</span></span>{console.log(y)};
+    <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>;<span class="hljs-comment">//100</span>
+    <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>;<span class="hljs-comment">//101  //取的值是最新的计算的值，也叫惰性取值</span>
+</code></pre>
+<ul>
+<li>2、与解构赋值默认值结合使用</li>
+</ul>
+<pre><code class="hljs">    function <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">({x,y=<span class="hljs-number">5</span>})</span></span>{console.log(x,y)};
+    <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">({{x:<span class="hljs-number">1</span>}})</span></span>;<span class="hljs-comment">//1,5</span>
+    <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">({x:<span class="hljs-number">1</span>,y:<span class="hljs-number">2</span>})</span></span>;<span class="hljs-comment">//1,2</span>
+    
+    还有一些用法，这里暂略。
+</code></pre>
+<ul>
+<li>3、一般需要设置默认值的参数都会排在后面</li>
+<li>4、函数具有length属性，表示没有设置默认值参数的个数，但是注意一点，只计算从第一个设置了默认值参数算起，前面的未设置默认值参数个个数就是length的值</li>
+</ul>
+<pre><code class="hljs">    (<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x,y=1)</span></span>{}).length;<span class="hljs-comment">//1</span>
+    （<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x=1,y)</span></span>{}).length;<span class="hljs-comment">//0</span>
+</code></pre>
+<ul>
+<li>5、函数设置默认值的参数会有单独的作用域</li>
+</ul>
+<pre><code class="hljs">    let <span class="hljs-symbol">x</span>=<span class="hljs-number">3</span>;
+    function func(<span class="hljs-symbol">y</span>=<span class="hljs-symbol">x</span>){let <span class="hljs-symbol">x</span>=<span class="hljs-number">2</span>;console.log(<span class="hljs-symbol">y</span>)};
+    func();<span class="hljs-comment">//3</span>
+    这里参数<span class="hljs-symbol">y</span>=<span class="hljs-symbol">x</span>会形成一个单独的作用域，这里的<span class="hljs-symbol">x</span>由于没有被声明值，就会找到外层的<span class="hljs-symbol">x</span>=<span class="hljs-number">3</span>;然后赋值给<span class="hljs-symbol">y</span>,
+    函数里得<span class="hljs-symbol">x</span>是不起作用的，如果<span class="hljs-symbol">x</span>在外面找不到值，那么就会报<span class="hljs-literal">undefined</span>
+</code></pre>
+<ul>
+<li>6、利用参数值默认值可以在函数声明时就确定哪些参数不可以省略以及哪些参数可以省略</li>
+</ul>
+<pre><code class="hljs">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">throwIfMissing</span><span class="hljs-params">()</span></span>{
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error(<span class="hljs-string">'missing parameter'</span>);
+        
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span><span class="hljs-params">(x=throwIfMissing<span class="hljs-params">()</span>,y=undefined)</span></span>;x参数如果被省略，那么就会报错，y可以被省略
+</code></pre>
+<ul>
+<li>7、使用rest参数(...变量名)能够接受多余的参数</li>
+</ul>
+<pre><code class="hljs">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-rest_arg">...values</span>)</span></span>{
+        let sum=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> val of values){
+            sum++=value;
+        }
+        <span class="hljs-keyword">return</span> sum;
+    }
+    
+    add(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)<span class="hljs-comment">//6</span>
+    <span class="hljs-comment">//这里的...values表示将输进来的参数放到values数组中,注意values后面不能再有其它参数</span>
+    
+    应用：
+    <span class="hljs-number">1</span>、将一个数组依次作为参数传入到函数中
+    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span><span class="hljs-params">(x,y,z)</span></span>;
+    <span class="hljs-keyword">var</span> args=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+    func(...args);
+    
+    <span class="hljs-number">2</span>、合并数组的新方式
+    <span class="hljs-keyword">var</span> arr1=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>];
+    <span class="hljs-keyword">var</span> arr2=[<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>];
+    <span class="hljs-keyword">var</span> arr3=[<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];
+    [...arr1,...arr2,...arr3];
+    
+    <span class="hljs-number">3</span>、与解构进行结合
+    <span class="hljs-keyword">const</span> [first,...rest]=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>];
+    first;<span class="hljs-comment">//1</span>
+    rest;<span class="hljs-comment">//[2,3,4]</span>
+</code></pre>
+<ul>
+<li>8 、函数的name属性，es5与es6有点不同</li>
+</ul>
+<pre><code class="hljs">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span><span class="hljs-params">()</span><span class="hljs-comment">{}</span>;</span>
+    func.<span class="hljs-keyword">name</span>;<span class="hljs-comment">//'func'</span>
+    
+    <span class="hljs-keyword">var</span> func2=<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span><span class="hljs-comment">{}</span>;</span>
+    func2.<span class="hljs-keyword">name</span>;<span class="hljs-comment">//es5为'',es6为 'func2'</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="箭头函数"></a><a href="#箭头函数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>箭头函数</h2>
+<ul>
+<li>1、箭头函数使用规则：</li>
+</ul>
+<pre><code class="hljs">    <span class="hljs-number">1</span>、(x)=&gt;x,直接小括号内写入参数，当需要执行多个代码时，使用大括号将代码包住，如
+    ()=&gt;{console.log(<span class="hljs-string">'a'</span>);<span class="hljs-keyword">return</span> <span class="hljs-number">1</span>}.
+    <span class="hljs-number">2</span>、如果需要直接返回对象，需要加上小括号:()=&gt;({x:<span class="hljs-number">1</span>});
+    <span class="hljs-number">3</span>、可以与解构结合起来，（{first，second}}=？first+<span class="hljs-string">''</span>+second
+    <span class="hljs-number">4</span>、最有意义的一点，它的<span class="hljs-keyword">this</span>不根据运行环境改变而改变，在声明时就绑定。者对于回调来说有很大好处。
+    <span class="hljs-number">5</span>、不能与new结合使用，以及函数内不使用arguments，可以使用rest代替。
+    
+    注意一点，本身箭头函数没有自己产生的<span class="hljs-keyword">this</span>,需要依靠外边的<span class="hljs-keyword">this</span>.所以使用call,applay,
+    或者bind都不能改变箭头函数的<span class="hljs-keyword">this</span>的指向。
+    
+</code></pre>
+<ul>
+<li>2.多重嵌套函数与管道机制</li>
+</ul>
+<pre><code class="hljs">        <span class="hljs-keyword">let</span> insert=<span class="hljs-function">(<span class="hljs-params">value</span>)=&gt;</span><span class="hljs-function">(<span class="hljs-params">{into:(<span class="hljs-params">array</span>)=&gt;(<span class="hljs-params">{after:(<span class="hljs-params">aftervalue</span>)=&gt;{array.splice(<span class="hljs-params">array.indexOf(<span class="hljs-params">afterValue</span>)+1,0,value</span>)}}</span>)}</span>)
+        
+        管道机制：
+        
+        <span class="hljs-params">const</span> <span class="hljs-params">pipeline</span>=(<span class="hljs-params">...funcs</span>)=&gt;</span><span class="hljs-function"><span class="hljs-params">val</span>=&gt;</span>funcs.reduce(<span class="hljs-function">(<span class="hljs-params">a,b</span>)=&gt;</span>b(a),val)
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="es7的提案-使用运算符来绑定this-babel转换器已经实现"></a><a href="#es7的提案-使用运算符来绑定this-babel转换器已经实现" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>es7的提案，使用运算符来绑定this（babel转换器已经实现）</h2>
+<pre><code class="hljs">    foo::<span class="hljs-function"><span class="hljs-keyword">func</span>;//将左边的<span class="hljs-title">foo</span>作为<span class="hljs-title">func</span>的绑定的<span class="hljs-title">this</span>,就是<span class="hljs-title">func</span>,<span class="hljs-title">bind</span><span class="hljs-params">(foo)</span>;</span>
+    foo:<span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">(...argumnets)</span>;//就是<span class="hljs-title">func</span>,<span class="hljs-title">bind</span><span class="hljs-params">(foo,arguments)</span>;</span>
+    
+    还有一种用法。
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="尾调用"></a><a href="#尾调用" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>尾调用</h2>
+<pre><code class="hljs">  尾调用: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>)</span>{<span class="hljs-keyword">return</span> func2();};<span class="hljs-comment">//最后一步调用一个函数，只是最单纯的调用.</span>
+  尾调用优化：一个函数调用就会产生一个调用记录，即调用帧，如果a函数里面执行b函数，而且b函数的执行使用了外层的内部变量信息。那么上一层的调用帧会保存，如果这种调用帧产生的多了，将非常的损耗资源。
+  如:
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">func</span>(<span class="hljs-params"></span>)</span>{
+      <span class="hljs-keyword">let</span> m=<span class="hljs-number">1</span>;
+      <span class="hljs-keyword">let</span> n=<span class="hljs-number">2</span>;
+      <span class="hljs-keyword">return</span> g(m+n);
+  }
+  <span class="hljs-comment">//等同于g(3)</span>
+  
+  这种情况就不能尾调用优化:
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addone</span>(<span class="hljs-params">a</span>)</span>{
+      <span class="hljs-keyword">var</span> one=<span class="hljs-number">1</span>;
+      <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inner</span>(<span class="hljs-params">b</span>)</span>{
+          <span class="hljs-keyword">return</span> b+one;
+      }
+      
+      <span class="hljs-keyword">return</span> inner(a);
+  }
+ 
+ es6的尾调用优化只在严格模式下开启。因为正常模式下，函数有<span class="hljs-built_in">arguments</span>与caller跟踪函数的调用栈
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="尾递归"></a><a href="#尾递归" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>尾递归</h2>
+<pre><code class="hljs">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">afactorial</span><span class="hljs-params">(n,total=1)</span></span>{<span class="hljs-comment">//计算阶乘</span>
+        <span class="hljs-keyword">if</span>(n==<span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> total;
+        <span class="hljs-keyword">return</span> factorail(n<span class="hljs-number">-1</span>,n*total);
+    }
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/es6-03"><span class="arrow-prev">← </span><span>es6-03-基本的数据类型扩展</span></a><a class="docs-next button" href="/docs/es6-05"><span>es6-05-对象的扩展(补充)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#数组的扩展">数组的扩展</a></li><li><a href="#函数的扩展">函数的扩展</a></li><li><a href="#箭头函数">箭头函数</a></li><li><a href="#es7的提案-使用运算符来绑定this-babel转换器已经实现">es7的提案，使用运算符来绑定this（babel转换器已经实现）</a></li><li><a href="#尾调用">尾调用</a></li><li><a href="#尾递归">尾递归</a></li></ul></nav></div></div></body></html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Angular2学习笔记-依赖注入 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;一-依赖注入概述&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#一-依赖注入概述&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;一、依赖注入概述&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Angular2学习笔记-依赖注入 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;h2&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;一-依赖注入概述&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#一-依赖注入概述&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;一、依赖注入概述&lt;/h2&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Angular2</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Angular2学习笔记-依赖注入</h1></header><article><div><span><h2><a class="anchor" aria-hidden="true" id="一-依赖注入概述"></a><a href="#一-依赖注入概述" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>一、依赖注入概述</h2>
+<pre><code class="hljs"><span class="hljs-comment">//依赖注入能够在应用时替换依赖对象，而不是编译时</span>
+<span class="hljs-comment">/**
+ * 1、如何在组件，服务，模块注入服务
+ * 2、层级注入
+ * 3、注入到派生组件
+ * 4、限定方式的依赖注入
+ * 5、四种Provider注册形式
+ */</span>
+<span class="hljs-comment">//依赖注入的使用，利于各个组件的解耦，代码易于维护，提升开发效率。</span>
+
+<span class="hljs-comment">/**
+ * 依赖注入的三个概念：
+ * 1、注入器（Injector）：用户创建依赖对象实例
+ * 2、Provider:配置注入器
+ * 3、依赖（Dependence）：指定被依赖对象的类型
+ */</span>
+
+ <span class="hljs-comment">//1、如何在组件中注入服务</span>
+ <span class="hljs-comment">/**
+  * 1、import导入被依赖对象的服务
+    2、组件中配置注入器
+    3、组件的构造函数声明需要注入的依赖
+    其子组件都可以使用这个服务
+  */</span>
+  
+
+  <span class="hljs-comment">//1、导入</span>
+  <span class="hljs-keyword">import</span> {sharData} <span class="hljs-keyword">from</span> <span class="hljs-string">'sharData.ser'</span>;
+<span class="hljs-keyword">import</span> { shardData } <span class="hljs-keyword">from</span> <span class="hljs-string">'../project/ng2test/src/app/services/shardData.ser'</span>;
+  <span class="hljs-meta">@Component</span>({
+      moduleOd:<span class="hljs-built_in">module</span>.id,
+      selector:<span class="hljs-string">'test-comp'</span>,
+      <span class="hljs-comment">//2、配置注入器</span>
+      providers:[sharData],
+      templateUrl:<span class="hljs-string">''</span>,
+      styleUrls:[]
+  })
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> testComponent{
+      <span class="hljs-comment">//3、组件构造函数声明使用</span>
+      <span class="hljs-keyword">constructor</span>(<span class="hljs-params">
+          _shardData:shardData
+      </span>){}
+  }
+  <span class="hljs-comment">//每一个组件都有自己的注入器，但是一旦从provider中注明引入，那么就会产生一个新的服务的实例</span>
+
+
+
+  <span class="hljs-comment">//如何在服务中注入服务</span>
+  <span class="hljs-comment">//示例：</span>
+  <span class="hljs-keyword">import</span> {Injetable} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+
+  <span class="hljs-meta">@Injectable</span>()
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> LoggerService{
+      log(message:<span class="hljs-built_in">string</span>){
+          <span class="hljs-built_in">console</span>.log(message)
+      }
+  }
+<span class="hljs-comment">//在服务中引入上一个日志服务</span>
+<span class="hljs-keyword">import</span> {Injectable} <span class="hljs-keyword">from</span> <span class="hljs-string">'@anuglar/core'</span>;
+<span class="hljs-keyword">import</span> {LoggerService} <span class="hljs-keyword">from</span> <span class="hljs-string">'logger.ser'</span>;
+
+<span class="hljs-meta">@injectable</span>()
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ContactService{
+    <span class="hljs-comment">//在构造函数中引入被注入的服务</span>
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">_logger:LoggerService</span>){};
+    getConllections(){
+        <span class="hljs-keyword">this</span>._logger.log(<span class="hljs-string">"hello"</span>);
+    }
+}
+<span class="hljs-comment">//引入的步骤一样：导入，在构造函数引入</span>
+
+
+<span class="hljs-comment">//如何在模块中注入服务</span>
+<span class="hljs-comment">//模块下的组件都会共用这一个服务实例</span>
+<span class="hljs-comment">//在app启动的NgModule里注册的服务默认在整个程序内可使用</span>
+<span class="hljs-comment">//使用：直接在元数据providers注入即可</span>
+<span class="hljs-comment">/**
+ * 多模块引入相同服务注意点：
+ * 1、在根模块中引入的模块，模块内部如果使用相同的服务，那么以后面模块为准
+ * 2、如果是一个模块引入另一个模块，两个模块都引入相同的服务，那么以上级模块为准。
+ * 因为angular是没有模块作用域这一概念的。
+ */</span>
+
+ <span class="hljs-comment">/**
+  * 服务可以放在根模块，子模块，组件，服务里，这个根据不同的应用场景下进行区分。对于延迟加载的模块，如果需要调用组件内服务，其服务最好放在根模块里。
+  */</span>
+
+  <span class="hljs-comment">//服务实例的查找路径：先从本地组件找，然后父组件，最后到模块。如果都找不到就报错。可以现在依赖注入控制的查找范围</span>
+
+  <span class="hljs-comment">//派生组件以及派生组件中的服务引入</span>
+  
+  <span class="hljs-comment">//组件的实质是一个类。一个组件类继承另一个组件类形成派生组件。</span>
+  <span class="hljs-comment">//派生组件需要调用在构造函数中调用super来标明其跟父类使用同一个服务</span>
+
+  <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Test2 <span class="hljs-keyword">extends</span> Test {
+      <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">protected</span> _service:service</span>){
+          <span class="hljs-keyword">super</span>(_service);
+      }
+  }
+
+  <span class="hljs-comment">//如何使用限定方式依赖注入</span>
+  <span class="hljs-comment">//加入注入了依赖服务的模块代码别移除，就会影响服务的调用。 @Optional和@Host装饰器能解决上面的问题</span>
+  <span class="hljs-comment">/**
+   * @Optional :兼容依赖不存在的情况
+   * @Host:限定查找规则,明确实例初始化的位置
+   */</span>
+
+   <span class="hljs-keyword">import</span> {Optional} <span class="hljs-keyword">from</span> <span class="hljs-string">'@angular/core'</span>;
+   <span class="hljs-keyword">import</span> {LoggerService} <span class="hljs-keyword">from</span> <span class="hljs-string">'service'</span>;
+
+   <span class="hljs-comment">//..</span>
+  <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-meta">@Optional</span>() provate _logger:LoggerService</span>){
+        <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>._logger) <span class="hljs-keyword">this</span>.logger.info();
+  }
+   <span class="hljs-comment">//..</span>
+
+   <span class="hljs-comment">//宿主组件：一个组件注入依赖想，那么这个组件就是这些依赖的宿主组件，但是如果这个组件被ng-content被嵌入到另外一个组件，那么这个父组件才是宿主组件</span>
+   <span class="hljs-comment">//加入@Host将限定只能在当前组件查找依赖</span>
+   <span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> tesr3{ <span class="hljs-comment">//如果组件被ng-content嵌入到另一个组件，那么那个组件是宿主组件，会从宿主组件查找</span>
+       <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-meta">@Host</span> _logger:LoggerService</span>){}
+   }
+   
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="二-provider及扩展"></a><a href="#二-provider及扩展" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>二、provider及扩展</h2>
+<pre><code class="hljs"><span class="hljs-comment">//provider能够实现逻辑或者数据操作的封装，以接口方式提供给调用方使用。在前后台都有使用</span>
+<span class="hljs-comment">//对于angular来讲，provider说明了运行时的所需依赖，注入器根据它来创建服务对象的实例</span>
+
+<span class="hljs-comment">//provider能够注册返回合适的服务对象,angular提供了4中provider的注册方式，可以应付大型复杂项目下不同场景</span>
+
+<span class="hljs-comment">//1、类provider(useClass)</span>
+<span class="hljs-comment">//场景：同一依赖，可以指定不同的实现</span>
+<span class="hljs-comment">//例：render服务可以canvas渲染，dom渲染</span>
+
+<span class="hljs-keyword">var</span> injector=Injector.resolveAndCreate([
+    {provider:Render,useClass:DomRender}
+    <span class="hljs-comment">// {provider:Render,useClass:CanvasRender}</span>
+]);
+<span class="hljs-comment">//调用方</span>
+<span class="hljs-keyword">class</span> AppComponent{
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">_render:Render</span>){
+        _render.render();
+    }
+}
+
+
+<span class="hljs-comment">//2、值provider(useValue)</span>
+<span class="hljs-comment">//场景：依赖的对象可以是常量，字符串等</span>
+
+<span class="hljs-keyword">let</span> globalSetting={
+    env:<span class="hljs-string">'production'</span>,
+    getHost:<span class="hljs-function"><span class="hljs-params">()</span>=&gt;</span>{<span class="hljs-keyword">return</span> <span class="hljs-string">'http://test.com.cn'</span>}
+}
+
+<span class="hljs-meta">@Component</span>({
+    selector:<span class="hljs-string">'test'</span>,
+    template:<span class="hljs-string">`&lt;div&gt;test&lt;/div&gt;`</span>,
+    providers:[
+        {provide:<span class="hljs-string">'urlSetting'</span>,useValue:globalSetting},
+        {provide:<span class="hljs-string">'Name'</span>,useValue:<span class="hljs-string">'HELLO'</span>}
+    ]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> testComponent{
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"></span>){}
+}
+
+
+<span class="hljs-comment">//3、别名provider（useExisting）</span>
+<span class="hljs-comment">//场景：一个新服务需要替换一个旧服务，但是不想动旧服务存在的代码</span>
+providers:[
+    {provide:NerService,useClass:NewLogger},
+    {provide:OldService,useExisting:NewLogger} <span class="hljs-comment">//这样原来的代码就不需要变更</span>
+]
+
+
+<span class="hljs-comment">//4、工厂provider（useFactory）</span>
+<span class="hljs-comment">//场景：依赖对象是可以动态变化的。如根据用户的权限返回对应的服务</span>
+<span class="hljs-keyword">let</span> contactServiceFactory=(
+    _logger:LoggerService,
+    _userService:UserService
+)=&gt;{
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> contactServiceFactory(_logger,_userService.user.isAuthorized);
+}
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">let</span> contactServiceProvider={
+    provide:ContactService,
+    useFactory:contactServiceFactory,<span class="hljs-comment">//声明Provider是一个工厂函数</span>
+    deps:[
+        LoggerService,
+        UserService
+    ]
+};
+
+<span class="hljs-comment">//扩展</span>
+
+
+<span class="hljs-comment">//如何在子组件获取父组件的实例？</span>
+
+<span class="hljs-comment">//已知父组件的类型：在子组件构造函数使用ParentComponent来获取已知类型的父组件使用</span>
+<span class="hljs-comment">//已知父组件：定义子组件的时候清楚其组件</span>
+<span class="hljs-keyword">export</span> ChildComponent{
+    name=<span class="hljs-string">"子组件"</span>;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span> parent:ParentComponent</span>){
+    }
+}
+
+<span class="hljs-comment">//未知父组件的类型。 一个组件可能是多个组件的子组件，定义子组件的时候，使用父组件实例，但是不清楚其父组件实例具体是哪个</span>
+<span class="hljs-comment">//通过类一接口解决。父组件实现一个抽象类，子组件通过注入这个'抽象'可以获取到父组件实例</span>
+
+<span class="hljs-comment">//定义Parent抽象类，只有name属性</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">class</span> Parent{
+    name:<span class="hljs-built_in">string</span> ;
+}
+<span class="hljs-meta">@Component</span>({
+    selector:<span class="hljs-string">'parent'</span>,
+    template:<span class="hljs-string">`
+    &lt;div&gt;
+        &lt;h3&gt;{{name}}&lt;/h3&gt;
+        &lt;child&gt;&lt;/child&gt;
+    &lt;/div&gt;`</span>,
+    providers:[
+        {
+            provide:Parent,
+            useExisting:ParentComponet
+        }
+    ]
+})
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ParentComponnet <span class="hljs-keyword">implements</span> Parent{
+    name=<span class="hljs-string">"父组件"</span>;
+}
+
+<span class="hljs-comment">//子组件中获取</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> ChildComponent{
+    name=<span class="hljs-string">"子组件"</span>;
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params"><span class="hljs-keyword">public</span>:Parent</span>){}<span class="hljs-comment">//找到父组件实例</span>
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ang-06"><span class="arrow-prev">← </span><span>Angular2学习笔记-指令相关</span></a><a class="docs-next button" href="/docs/ang-08"><span>Angular2学习笔记-angular服务</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#一-依赖注入概述">一、依赖注入概述</a></li><li><a href="#二-provider及扩展">二、provider及扩展</a></li></ul></nav></div></div></body></html>
