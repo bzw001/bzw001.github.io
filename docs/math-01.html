@@ -1,0 +1,238 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>链表 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;底层存储数据的数据结构时数组，那么链表有什么用呢? 有什么优于数据的地方吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="链表 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;blockquote&gt;
+&lt;p&gt;底层存储数据的数据结构时数组，那么链表有什么用呢? 有什么优于数据的地方吗？&lt;/p&gt;
+&lt;/blockquote&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>数据结构与算法</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">链表</h1></header><article><div><span><blockquote>
+<p>底层存储数据的数据结构时数组，那么链表有什么用呢? 有什么优于数据的地方吗？</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="1-数组的缺点"></a><a href="#1-数组的缺点" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1、数组的缺点</h2>
+<pre><code class="hljs">在许多编程语言来讲，数组的长度是固定的，添加与删除操作比较麻烦
+<span class="hljs-keyword">js的数组被实现成为对象，但因为与其他语言的数组相比，效率会低
+</span>因为：常规的数组是一段线性分配的内存，通过整数计算偏移来访问语速，
+但是<span class="hljs-keyword">js的数组实际上是一个对象，其下标也只是对象的属性而已，这样的设计
+</span>在于能够随机方便的访问。当数组在使用中很慢，可以使用链表来替换它。
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="2-什么是链表"></a><a href="#2-什么是链表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2、什么是链表</h2>
+<pre><code class="hljs">   链表是节点的集合，一个节点都使用一个对象的引用指向它的后继。指向另一个节点
+  的引用叫做链。
+  链表最前面会有一个特殊节点是头结点。尾元素指向的是一个<span class="hljs-literal">null</span>节点
+  插入节点：修改其前面的节点指向新加入的节点，新加入的节点指向原来前驱指向的节点
+  删除节点：待删除元素的前驱节点指向待删除节点的后继节点，同时将待删除节点指向<span class="hljs-literal">null</span>
+  其它操作：建立，测长，打印，删除，插入
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="基于对象的链表"></a><a href="#基于对象的链表" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基于对象的链表</h2>
+<blockquote>
+<p>Node类用来表示节点， LinkedList类提供了插入节点，删除节点，显示列表元素等方法</p>
+</blockquote>
+<ul>
+<li>单向链表，精髓在于无论怎么做都需要从头结点循环遍历</li>
+</ul>
+<pre><code class="hljs">  <span class="hljs-comment">// Node类</span>
+  <span class="hljs-comment">/**
+   * 使用一个构造函数来创建节点
+   * 属性：
+   * element 保存节点上的数据
+   * next 保存指向下一个节点的链接
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Node</span></span>(element) {
+    <span class="hljs-built_in">this</span>.element = element;
+    <span class="hljs-built_in">this</span>.next = <span class="hljs-literal">null</span>;
+  }
+
+  <span class="hljs-comment">// LinkedList 类</span>
+  <span class="hljs-comment">/**
+   * 提供对链表进行操作的方法。
+   * 提供一个构造函数，链表只有一个属性，用一个Node对象保存该链表的头结点
+   */</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">LinkedList</span> </span>() {
+    <span class="hljs-built_in">this</span>.head = <span class="hljs-keyword">new</span> <span class="hljs-type">Node</span>(<span class="hljs-string">'head'</span>);
+    <span class="hljs-built_in">this</span>.find = find;
+    <span class="hljs-built_in">this</span>.insert = insert;
+    <span class="hljs-built_in">this</span>.remove = remove;
+    <span class="hljs-built_in">this</span>.display = display;
+  }
+
+  <span class="hljs-comment">//插入新节点</span>
+  <span class="hljs-comment">//需要指出那个节点的前面或者后面插入</span>
+  <span class="hljs-comment">//如：在一个已知节点后面插入元素，先找到后面的节点</span>
+  <span class="hljs-comment">// 找节点方法 find()，只要循环比较即可</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">find</span></span>(item){
+    <span class="hljs-keyword">var</span> currNode = <span class="hljs-built_in">this</span>.head；
+    <span class="hljs-keyword">while</span> (currNode.element != item) {
+      currNode = currNode.next;
+    }
+    <span class="hljs-keyword">return</span> currNode;
+  }
+  <span class="hljs-comment">//插入节点，先找到待插入节点的后节点，然后其前节点指向待插入节点，待插入节点指向后节点</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insert</span></span>(<span class="hljs-keyword">new</span><span class="hljs-type">Element</span>, item){
+    <span class="hljs-keyword">var</span> <span class="hljs-keyword">new</span><span class="hljs-type">Node</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Node</span>(<span class="hljs-keyword">new</span><span class="hljs-type">Element</span>);
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.find(item);
+    <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>.next = currentNode.next;
+    currentNode.next = <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>;
+  }
+  <span class="hljs-comment">//打印链表</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">display</span></span>() {
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.head;
+    <span class="hljs-keyword">while</span>(!(currentNode.next == <span class="hljs-literal">null</span>)) {
+      console.log(currentNode.next.element);
+      currentNode = currentNode.next;
+    }
+  }
+
+  <span class="hljs-comment">//如何从链表中删除一个节点</span>
+  <span class="hljs-comment">//先找到待删除节点前面的节点，修改其属性，将其next指向待删除的下一个节点。</span>
+  <span class="hljs-comment">// findPrevious()，检测节点的下一个节点是否存储着待删除数据</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findPrevious</span></span>(item) {
+    <span class="hljs-keyword">var</span>  currentNode = <span class="hljs-built_in">this</span>.head;
+    <span class="hljs-keyword">while</span>(!(currentNode == <span class="hljs-literal">null</span>) &amp;&amp; currentNode.next.element != item) {
+      currentNode = currentNode.next;
+    }
+    <span class="hljs-keyword">return</span> currentNode;
+  }
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span></span>(item){
+    <span class="hljs-keyword">var</span> prevNode = <span class="hljs-built_in">this</span>.findPrevious(item);
+    <span class="hljs-keyword">if</span> (!(prevNode.next == nulll)) {
+      prevNode.next = prevNode.next.next;
+    }
+  }
+
+</code></pre>
+<ul>
+<li>双向链表</li>
+</ul>
+<blockquote>
+<p>在节点添加prev属性指向其前驱，这样删除节点效率会提高,不需要查找删除节点的前驱节点,这样头结点的prev指向null</p>
+</blockquote>
+<pre><code class="hljs">  
+   <span class="hljs-comment">//Node类，添加prev属性</span>
+   <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Node</span></span>(element) {
+     <span class="hljs-built_in">this</span>.element = element;
+     <span class="hljs-built_in">this</span>.next = <span class="hljs-literal">null</span>;
+     <span class="hljs-built_in">this</span>.prev = <span class="hljs-literal">null</span>;
+   }
+  <span class="hljs-comment">//insert方法，需要将待插入节点的prev指向前面一个节点</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">insert</span></span>(<span class="hljs-keyword">new</span><span class="hljs-type">Element</span>, item) {
+    <span class="hljs-keyword">var</span> <span class="hljs-keyword">new</span><span class="hljs-type">Node</span> = <span class="hljs-keyword">new</span> <span class="hljs-type">Node</span>(<span class="hljs-keyword">new</span><span class="hljs-type">Element</span>);
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.find(item);
+    <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>.next = currentNode.next;
+    <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>.prev = currentNode;
+    currentNode.next = <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>;
+    <span class="hljs-keyword">if</span> (!(currentNode.next == <span class="hljs-literal">null</span>)) {
+      currentNode.next.prev = <span class="hljs-keyword">new</span><span class="hljs-type">Node</span>;
+    }
+  }
+  <span class="hljs-comment">// remove比单向链表高效在于不需要寻找前驱节点，虽然</span>
+  <span class="hljs-comment">//依然需要遍历找到目标节点，但是相对找前驱会少一些运算</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">remove</span></span>(item) {
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.find(item);
+    <span class="hljs-keyword">if</span> (!(currentNode.next == <span class="hljs-literal">null</span>)) {
+      currentNode.prev.next = currentNode.next;
+      currentNode.next.prev = currentNode.prev;
+    } <span class="hljs-keyword">else</span> {
+      currentNode.prev.next =<span class="hljs-literal">null</span>;
+    }
+    currentNode.next = <span class="hljs-literal">null</span>;
+    currentNode.pre = <span class="hljs-literal">null</span>;
+  }
+  <span class="hljs-comment">//反序显示链表，就需要先找到链表的尾节点</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">findLast</span></span>() {
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.head;
+    <span class="hljs-keyword">while</span>(!(currentNode.next == <span class="hljs-literal">null</span>)){
+      currentNode = currentNode.next;
+    }
+    <span class="hljs-keyword">return</span> currentNode;
+  }
+
+  <span class="hljs-comment">//反向显示</span>
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">dispReverse</span></span>() {
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-built_in">this</span>.findLast();
+    <span class="hljs-keyword">while</span>(!(currentNode.prev == <span class="hljs-literal">null</span>)) {
+      console.log(currentNode.element);
+      currentNode = currentNode.prev;
+    }
+  }
+
+</code></pre>
+<ul>
+<li>循环链表</li>
+</ul>
+<blockquote>
+<p>单向链表只要将头结点next指向本身，接下来创建每个节点的next都指向其本身</p>
+</blockquote>
+<pre><code class="hljs">  function LinkList() {
+    <span class="hljs-keyword">this</span>.head = new Node(<span class="hljs-string">'head'</span>);
+    <span class="hljs-keyword">this</span>.head.next = <span class="hljs-keyword">this</span>.head;
+    <span class="hljs-keyword">this</span>.find = find;
+    <span class="hljs-keyword">this</span>.insert = insert;
+    <span class="hljs-keyword">this</span>.display = display;
+    <span class="hljs-keyword">this</span>,findPrevious = findPrevious;
+    <span class="hljs-keyword">this</span>.remove = remove;
+  }
+  <span class="hljs-comment">//其方法除dispaly方法需要修改为，其它方法都是一样</span>
+  function display() {
+    <span class="hljs-keyword">var</span> currentNode = <span class="hljs-keyword">this</span>.head;
+    <span class="hljs-keyword">while</span>(!(currentNode.next == <span class="hljs-literal">null</span>) &amp;&amp; !(currentNode.element == <span class="hljs-string">'head'</span>)) {
+      currentNode = currentNode.next;
+      console.log(currentNod.element);
+    }
+  }
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/design-05"><span class="arrow-prev">← </span><span>编程建议</span></a><a class="docs-next button" href="/docs/math-02"><span>归并与排序</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-数组的缺点">1、数组的缺点</a></li><li><a href="#2-什么是链表">2、什么是链表</a></li><li><a href="#基于对象的链表">基于对象的链表</a></li></ul></nav></div></div></body></html>

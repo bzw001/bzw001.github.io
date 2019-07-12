@@ -1,0 +1,227 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>如何实现对对象的检测 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="##### 数据监测是江湖行走必备之良技"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="如何实现对对象的检测 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/blog/2018/03/12"/><meta property="og:description" content="##### 数据监测是江湖行走必备之良技"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/es6-01" target="_self">系列文章</a></li><li class="siteNavGroupActive"><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>All Blog Posts</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">All Blog Posts</h3><ul class=""><li class="navListItem"><a class="navItem" href="/blog/2018/06/08/promise"></a></li><li class="navListItem"><a class="navItem" href="/blog/2018/04/16/animate">动画展示快排</a></li><li class="navListItem"><a class="navItem" href="/blog/2018/04/12/js">实现一个lazyMan</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/blog/2018/03/12">如何实现对对象的检测</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer postContainer blogContainer"><div class="wrapper"><div class="lonePost"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle"><a href="/blog/2018/03/12">如何实现对对象的检测</a></h1><p class="post-meta">March 12, 2018</p><div class="authorBlock"></div></header><div><span><h5><a class="anchor" aria-hidden="true" id="数据监测是江湖行走必备之良技"></a><a href="#数据监测是江湖行走必备之良技" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>数据监测是江湖行走必备之良技</h5>
+<blockquote>
+<p>自从MVVM框架从前端兴起，各种武艺秘技在前端江湖横飞四起。当今的三大“门派”——angular，vue，react在前端各站鳌头，究其内门功夫，都有数据绑定（双向或者单向）一技。angularjs的脏检查，angular2的zone.js，vue的defineProperty，以及react的单向数据流，都在试图用最低的成本让程序猿(媛)能够快速的飞檐走壁，练出app。</p>
+</blockquote>
+<!--truncate-->
+##### 洒家vue数据监测依赖什么？
+> vue得益于es5的[ Object.defineProperty](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty)方法，可以为正常的对象读取值附加一层拦截。有如火眼金睛，任何对象的一举一动都窥于目下（斯贼，休敢乱动）。
+<pre><code class="hljs"><span class="hljs-built_in">Object</span>.defineProperty(obj,<span class="hljs-string">'keyName'</span>,{
+    <span class="hljs-comment">//数据描述符</span>
+    configurable:<span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>(<span class="hljs-keyword">default</span>)       <span class="hljs-comment">// 该属性能否被delete删除</span>
+    enumerable:  <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>(<span class="hljs-keyword">default</span>)       <span class="hljs-comment">//该属性能否被枚举</span>
+    value:任何JavaScript值(默认<span class="hljs-literal">undefined</span>)  <span class="hljs-comment">//该属性的值</span>
+    writable:    <span class="hljs-literal">true</span>/<span class="hljs-literal">false</span>(<span class="hljs-keyword">default</span>)       <span class="hljs-comment">//该属性值能否被复制运算符改变</span>
+    <span class="hljs-comment">//存取描述符 --&gt; 数据监测主要依靠</span>
+    <span class="hljs-keyword">get</span>:<span class="hljs-built_in">Function</span>/<span class="hljs-literal">undefined</span>(<span class="hljs-keyword">default</span>)        <span class="hljs-comment">//getter方法，属性被访问会触发</span>
+    <span class="hljs-keyword">set</span>:<span class="hljs-built_in">Function</span>/<span class="hljs-literal">undefined</span>(<span class="hljs-keyword">default</span>)        <span class="hljs-comment">//setter方法,属性被赋值会触发</span>
+})
+
+<span class="hljs-comment">//举个橘子</span>
+<span class="hljs-keyword">let</span> obj = {};
+<span class="hljs-built_in">Object</span>.defineProperty(obj,<span class="hljs-string">'test'</span>,{
+    <span class="hljs-keyword">get</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我被访问了,速度返回404'</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-number">404</span>;
+    },
+    <span class="hljs-keyword">set</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newVal</span>)</span>{
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'我被赋值了,^-^,赋的值是：'</span>,newVal);
+    }
+})
+<span class="hljs-built_in">console</span>.log(obj.test)<span class="hljs-comment">//我被访问了,速度返回404  //404</span>
+obj.test = <span class="hljs-number">200</span>;<span class="hljs-comment">//我被赋值了,^-^,赋的值是 200</span>
+</code></pre>
+<blockquote>
+<p>那么当对象被赋值的时候，会触发set方法，在set里比对新值与旧值，然后做相应的处理，不就达到数据监测并处理的目的了吗？这么简单，想想还有点小激动呢。</p>
+</blockquote>
+<h5><a class="anchor" aria-hidden="true" id="初级版的数据监测招式"></a><a href="#初级版的数据监测招式" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>初级版的数据监测招式</h5>
+<blockquote>
+<p>建立一个监测类，能够监测对象的变动并执行指定的回调函数</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Survey</span></span>{
+  constructor(obj,callback){
+    <span class="hljs-keyword">if</span>(Object.prototype.toString.call(obj) !== <span class="hljs-string">'[object Object]'</span>)
+      console.error(<span class="hljs-string">'This parameter should be an Object'</span>,obj);
+    <span class="hljs-built_in">this</span>.callback = callback;
+    <span class="hljs-built_in">this</span>.detect(obj);
+  }
+  detect(target){
+    Object.keys(target).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span></span>(key,index,keyArray){
+      let value = target[key];  <span class="hljs-comment">//相当于旧值</span>
+      Object.defineProperty(target,key,{
+        <span class="hljs-keyword">get</span>:<span class="hljs-type">function</span>(){
+          <span class="hljs-keyword">return</span> value;
+        },
+        <span class="hljs-keyword">set</span>:<span class="hljs-type"></span>(<span class="hljs-function"><span class="hljs-keyword">function</span></span>(<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>){
+          <span class="hljs-keyword">if</span>(value !== <span class="hljs-keyword">new</span><span class="hljs-type">Val</span>) 
+          {
+            <span class="hljs-comment">//如果新值是个对象，会再遍历属性以监测</span>
+            <span class="hljs-keyword">if</span>(Object.prototype.toString.call(<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>) === <span class="hljs-string">'[object Object]'</span>) 
+            {
+              <span class="hljs-built_in">this</span>.detect(<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>);
+            }
+            <span class="hljs-built_in">this</span>.callback(value,<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>);
+            value=<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>;      <span class="hljs-comment">//将新值赋予旧值</span>
+          }
+        }).bind(<span class="hljs-built_in">this</span>)
+      });
+    },<span class="hljs-built_in">this</span>);
+    <span class="hljs-keyword">if</span>(Object.prototype.toString.call(target[key]) === <span class="hljs-string">'[object Object]'</span>)
+        <span class="hljs-built_in">this</span>.detect(target[key]);
+  }
+}
+<span class="hljs-comment">//测试 </span>
+let  obj={a:<span class="hljs-type">1</span>,b:<span class="hljs-type">2</span>};
+let watcher=<span class="hljs-keyword">new</span> <span class="hljs-type">Survey</span>(obj,<span class="hljs-function"><span class="hljs-keyword">function</span></span>(old,<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>){
+  console.log(old);
+  console.log(<span class="hljs-keyword">new</span><span class="hljs-type">Val</span>);
+});
+obj.b=<span class="hljs-number">3</span>; <span class="hljs-comment">// 2 3</span>
+</code></pre>
+<blockquote>
+<p>是不是感觉很easy,哪里不会点哪里？ 但是这种设计能应付监测的对象是数组的情况吗？答案是不能的。很明显数组操作如push或者unshift，以上设计并不能监测到这种举动。</p>
+</blockquote>
+<h5><a class="anchor" aria-hidden="true" id="升级版搞定数组监测"></a><a href="#升级版搞定数组监测" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>升级版搞定数组监测</h5>
+<blockquote>
+<p>怎么能够侦测到数组操作带来的变化呢？数组的变化来源其方法，如果数组的方法调用附带着其值的检测，那不是就可以监测数组变化了么，那怎么让数组的方法调用时能够附带作其它处理呢？能这么干的就只能在数组的原型(prototype)上动心思了。</p>
+</blockquote>
+<pre><code class="hljs"><span class="hljs-comment">//数组的方法就那么几个，可以使用改写其Array.prototype让每个数组方法调用时，</span>
+<span class="hljs-comment">//都能检测操作值的处理数组的方法还有一些</span>
+<span class="hljs-keyword">let</span> ARR_METHODS=[<span class="hljs-string">'push'</span>,<span class="hljs-string">'pop'</span>,<span class="hljs-string">'shift'</span>,<span class="hljs-string">'unshift'</span>,<span class="hljs-string">'splice'</span>,<span class="hljs-string">'sort'</span>,<span class="hljs-string">'reverse'</span>,<span class="hljs-string">'map'</span>];
+<span class="hljs-class"><span class="hljs-keyword">class</span>  <span class="hljs-title">survey_2</span></span>{
+    <span class="hljs-keyword">constructor</span>(obj,callback){
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Object</span>.prototype.toString.call(obj) !== <span class="hljs-string">'[object Object]'</span> &amp;&amp; 
+      <span class="hljs-built_in">Object</span>.prototype.toString.call(obj) !== <span class="hljs-string">'[object Array]'</span>)
+        <span class="hljs-built_in">console</span>.error(<span class="hljs-string">'This parameter should be an Object'</span>,obj);
+      <span class="hljs-keyword">this</span>.callback=callback;
+      <span class="hljs-keyword">this</span>.detect(obj)
+    }
+
+    detect(target){
+      <span class="hljs-comment">//如果target是数组，则重写其方法</span>
+      <span class="hljs-keyword">if</span>(<span class="hljs-built_in">Object</span>.prototype.toString.call(target) === <span class="hljs-string">'[object Array]'</span>)
+        <span class="hljs-keyword">this</span>.overrideArrPrototype(target);
+      <span class="hljs-built_in">Object</span>.keys(target).forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">key,index,keyArray</span>)</span>{
+        <span class="hljs-keyword">let</span> oldVal = target[key];
+        <span class="hljs-built_in">Object</span>.defineProperty(target,key,{
+          <span class="hljs-attr">get</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            <span class="hljs-keyword">return</span> oldVal;
+          },
+          <span class="hljs-attr">set</span>:(
+            <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newVal</span>)</span>{
+              <span class="hljs-built_in">console</span>.log(newVal);
+              <span class="hljs-keyword">if</span>(newVal !== oldVal)
+              { 
+                <span class="hljs-keyword">let</span> valType=<span class="hljs-built_in">Object</span>.prototype.toString(newVal);
+                <span class="hljs-keyword">if</span>( valType === <span class="hljs-string">'[object Object]'</span> || 
+                    valType === <span class="hljs-string">'[object Array]'</span>)
+                  <span class="hljs-keyword">this</span>.detect(newVal);
+                <span class="hljs-keyword">this</span>.callback(oldVal,newVal);
+                oldVal = newVal;
+              }
+            }
+          ).bind(<span class="hljs-keyword">this</span>)
+        })
+        <span class="hljs-keyword">let</span> targetPropType = <span class="hljs-built_in">Object</span>.prototype.toString.call(target[key]);
+        <span class="hljs-keyword">if</span>( targetPropType === <span class="hljs-string">'[object Object]'</span> || 
+            targetPropType === <span class="hljs-string">'[object Array]'</span>)
+          <span class="hljs-keyword">this</span>.detect(target[key]);
+      },<span class="hljs-keyword">this</span>);
+     
+    }
+
+    overrideArrPrototype(array){
+      <span class="hljs-comment">//产生一个数组原型副本,用于分配给需要重写的数组</span>
+      <span class="hljs-keyword">let</span> overrideProto=<span class="hljs-built_in">Object</span>.create(<span class="hljs-built_in">Array</span>.prototype);
+      <span class="hljs-keyword">let</span> _this=<span class="hljs-keyword">this</span>; 
+      <span class="hljs-comment">//重写数组方法</span>
+      <span class="hljs-built_in">Object</span>.keys(ARR_METHODS).forEach(<span class="hljs-function">(<span class="hljs-params">key,index,keyArrary</span>)=&gt;</span>{
+        <span class="hljs-keyword">let</span> method=ARR_METHODS[key];
+        <span class="hljs-keyword">let</span> oldArray=[];
+        <span class="hljs-built_in">Object</span>.defineProperty(overrideProto,method,{
+          <span class="hljs-attr">value</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+            oldArray=<span class="hljs-keyword">this</span>.slice(<span class="hljs-number">0</span>);<span class="hljs-comment">//存储旧数组</span>
+            <span class="hljs-keyword">let</span> args=[].slice.apply(<span class="hljs-built_in">arguments</span>);
+            <span class="hljs-built_in">Array</span>.prototype[method].apply(<span class="hljs-keyword">this</span>,args);
+            _this.detect(<span class="hljs-keyword">this</span>);
+            _this.callback(oldArray,<span class="hljs-keyword">this</span>);
+          },
+          <span class="hljs-attr">writable</span>:<span class="hljs-literal">true</span>,
+          <span class="hljs-attr">enumerable</span>:<span class="hljs-literal">false</span>,
+          <span class="hljs-attr">configurable</span>:<span class="hljs-literal">true</span>
+        })
+      });
+      <span class="hljs-comment">//将目标数组的原型替换成改造后的原型</span>
+      array.__proto__=overrideProto;
+    }
+}
+
+<span class="hljs-keyword">let</span> arr={<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">b</span>:[<span class="hljs-number">1</span>]};
+<span class="hljs-keyword">let</span> test =<span class="hljs-keyword">new</span> survey_2(arr,<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">oldArr,newArr</span>)</span>{
+  <span class="hljs-built_in">console</span>.log(oldArr);
+  <span class="hljs-built_in">console</span>.log(newArr);
+})
+arr.b.push(<span class="hljs-number">4</span>); <span class="hljs-comment">//[1]   [1,4]</span>
+</code></pre>
+<blockquote>
+<p>这样就愉快完成了能对对象与数组进行检测的一个监测类了，是不是so easy.</p>
+</blockquote>
+<blockquote>
+<p>总结：vue的数据监测主要运用的是es5的defineProperty特性，对于数组的检测则通过重写其数组方法来达到检测的目的。但是进一步，有木有能检测到哪个地方改变了的方法呢？ 下回拆解。</p>
+</blockquote>
+</span></div></div><div class="blogSocialSection"></div></div><div class="blog-recent"><a class="button" href="/blog">Recent Posts</a></div></div></div><nav class="onPageNav"></nav></div></div></body></html>
