@@ -1,0 +1,376 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>reactV16.0源码解析 · 哈利呦</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h2&gt;&lt;/h2&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="reactV16.0源码解析 · 哈利呦"/><meta property="og:type" content="website"/><meta property="og:url" content="https://github.com/BiaoZhiWang/"/><meta property="og:description" content="&lt;h2&gt;&lt;/h2&gt;
+"/><meta property="og:image" content="https://github.com/BiaoZhiWang/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://github.com/BiaoZhiWang/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://github.com/BiaoZhiWang/blog/atom.xml" title="哈利呦 Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://github.com/BiaoZhiWang/blog/feed.xml" title="哈利呦 Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/"><img class="logo" src="/img/favicon.ico" alt="哈利呦"/><h2 class="headerTitleWithLogo">哈利呦</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es6-01" target="_self">系列文章</a></li><li class=""><a href="/blog/" target="_self">Blog</a></li><li class=""><a target="_self"></a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>React</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">JS<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ES6</h4><ul><li class="navListItem"><a class="navItem" href="/docs/es6-01">es6-01-let与const注意点</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-02">es6-02-变量的解析赋值</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-03">es6-03-基本的数据类型扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-04">es6-04-对象类型的扩展</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-05">es6-05-对象的扩展(补充)</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-06">es6-06-symbol</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-07">es6-07-set与map的数据结构</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-08">es6-08-proxy</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-09">es6-09-reflect</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-10">es6-10-Promise对象</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-11">es6-11-Interator与for-of</a></li><li class="navListItem"><a class="navItem" href="/docs/es6-12">es6-12-Genarator函数</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Angular2<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ang-01">Angular2学习笔记-组件01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-02">Angular2学习笔记-组件02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-03">Angular2学习笔记-angular的变化监测</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-04">Angular2学习笔记-模板相关01</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-05">Angular2学习笔记-模板相关02</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-06">Angular2学习笔记-指令相关</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-07">Angular2学习笔记-依赖注入</a></li><li class="navListItem"><a class="navItem" href="/docs/ang-08">Angular2学习笔记-angular服务</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Vue<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/vue-01">vue剖析笔记01-全局运行机制</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-02">vue剖析笔记04-实现一个VNode节点</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-03">vue剖析笔记05-template模板是怎么被compile编译的</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-04">vue剖析笔记02-响应式系统</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-05">vue剖析笔记03-依赖收集追踪原理</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-06">vue中的nextTick的实现</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-07">vue+vuex+vueRouter原理思维导图</a></li><li class="navListItem"><a class="navItem" href="/docs/vue-08">vue-ssr简析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">React<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/react-01">renderProps模式</a></li><li class="navListItem"><a class="navItem" href="/docs/react-02">提供者模式</a></li><li class="navListItem"><a class="navItem" href="/docs/react-03">组合组件</a></li><li class="navListItem"><a class="navItem" href="/docs/react-04">高阶组件</a></li><li class="navListItem"><a class="navItem" href="/docs/react-05">diff算法的演化历史</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/react-06">reactV16.0源码解析</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">设计模式<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/design-01">JS常见设计模式-JS面向对象</a></li><li class="navListItem"><a class="navItem" href="/docs/design-02">JS常见设计模式-单例策略代理迭代器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-03">JS常见设计模式-发布订阅命令组合模板享元职责中介者</a></li><li class="navListItem"><a class="navItem" href="/docs/design-04">常见设计模式-装饰者状态适配器</a></li><li class="navListItem"><a class="navItem" href="/docs/design-05">编程建议</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">数据结构与算法<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/math-01">链表</a></li><li class="navListItem"><a class="navItem" href="/docs/math-02">归并与排序</a></li><li class="navListItem"><a class="navItem" href="/docs/math-03">您需要的前端面试算法(上)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">前端工程<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">测试</h4><ul><li class="navListItem"><a class="navItem" href="/docs/test-01">jasmine测试断言</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">gitlab</h4><ul><li class="navListItem"><a class="navItem" href="/docs/gitlab-01">gitlab-ci与gitlab-runner</a></li><li class="navListItem"><a class="navItem" href="/docs/gitlab-02">webpack集成到gitlab CI</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">webpack</h4><ul><li class="navListItem"><a class="navItem" href="/docs/webpack-01">webpack总结</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">服务器与运维<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/server-01">关于docker</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">reactV16.0源码解析</h1></header><article><div><span><h2></h2>
+<pre><code class="hljs"><span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet"> * </span>v16.0使用Fiber异步渲染架构进行了重写,进化点：
+<span class="hljs-bullet"> * </span>1、体积更小
+<span class="hljs-bullet"> * </span>2、服务端渲染速度大幅提升
+<span class="hljs-bullet"> * </span>3、更responsive的界面
+ */</span></span>
+
+ <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">  * </span>Filber概念简介
+<span class="hljs-bullet">  * </span>1、Reconciler 即Vitual Dom, 用于计算新旧View的差异
+<span class="hljs-bullet">  * </span>2、Renderer表示和平台相关的代码,将View渲染到不同平台
+<span class="hljs-bullet">  * 
+  </span>* Reconciliation表示Fiber的update, 产出effect list(更新视图所需要的操作),可以当作第一阶段, 这个阶段是可以打断，重新生成effect list
+<span class="hljs-bullet">  * </span>effect list 再commit 后才会生效,commit表示第2阶段, 表示view到具体视图(如DOM)的步骤,这个阶段时长小，是同步的。
+<span class="hljs-bullet">  * 
+  </span>* React内部有事务的概念，之前与渲染相关的事务时连续的，一旦开始就会执行完。
+<span class="hljs-bullet">  * </span>现在事务由Fiber的更新组成，可以断断续续更新Fiber，最后commit变化。
+  */</span></span>
+
+  <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">   * </span>一个React Element不一定就对应一个Fiber?
+<span class="hljs-bullet">   * </span>dom diff 时，会出现新旧Fiber, 一个待更新的组件最多会对应两个Fiber
+   */</span></span>
+
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>Fiber的一些重要属性
+<span class="hljs-bullet">    *  </span>Fiber节点构成了一颗单链表形式的树
+<span class="hljs-bullet">    * </span>child执行第一个子节点，sibling属性分别指向相邻的兄弟节点
+<span class="hljs-code">    */</span></span></span>
+   {
+     tag: TypeOfWork,  <span class="hljs-comment">// Fiber 类型</span>
+     alternate: Fiber|<span class="hljs-keyword">null</span> <span class="hljs-comment">// Fiber更新时克隆出的景象fiber, 对fiber的修改会标记在这个fiber</span>
+     <span class="hljs-keyword">return</span>: Fiber| <span class="hljs-keyword">null</span>, <span class="hljs-comment">//指向Fiber树中的父节点</span>
+     child:Fiber | <span class="hljs-keyword">null</span>, <span class="hljs-comment">//指向第一个子节点</span>
+     sibling: Fiber | <span class="hljs-keyword">null</span>, <span class="hljs-comment">// 指向兄弟节点</span>
+     effectTag: TypeOfSideEffect，<span class="hljs-comment">// side effect 类型</span>
+     nextEffect: Fiber | <span class="hljs-keyword">null</span>, <span class="hljs-comment">// 单链表结构，方便遍历fiber树上有副作用的节点</span>
+     pendingWorkPriority: PriorityLevel, <span class="hljs-comment">//标记子树上待更新任务的优先级</span>
+   }
+
+
+<span class="hljs-comment"><span class="markdown">/// 从setState开始入手</span></span>
+ReactComponent.prototype.setState = function(partialState, callback) {
+  invariant(typeof partialState === <span class="hljs-string">'object'</span> || ...);
+
+  <span class="hljs-keyword">this</span>.updater.enqueueSetState(<span class="hljs-keyword">this</span>, partialState, callback, <span class="hljs-string">'setState'</span>);
+}
+<span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet"> * </span>setState -&gt; this.updater.enqueueSetState .updater由reconciler提供
+ */</span></span>
+
+ <span class="hljs-comment">// setState 的流程基本React 15的流程基本是一样</span>
+ <span class="hljs-keyword">const</span> updater = {
+   isMounted,
+   enqueueSetState(instance, partialState, callback){
+     <span class="hljs-keyword">const</span> fiber = ReactInstanceMap.<span class="hljs-keyword">get</span>(instance); <span class="hljs-comment">// 拿到React组件实例对应的fiber</span>
+     <span class="hljs-keyword">const</span> priorityLevel = getPriorityContext(fiber,<span class="hljs-keyword">false</span>)<span class="hljs-comment">// 拿到fiber的优先级</span>
+     callback = callback === undefined ? <span class="hljs-keyword">null</span> : callback;
+
+     <span class="hljs-keyword">if</span>(__DEV__) {
+       warnOnInvalidCallback(callback, <span class="hljs-string">'setState'</span>);
+     }
+     addupdate(fiber, partialState, callback, priorityLevel);<span class="hljs-comment">// 向队列推入需要更新的fiber</span>
+     scheduleupdate(fiber, priorityLevel); <span class="hljs-comment">// 调用scheduleUpdate触发调度器调度一次新的更新</span>
+   }
+   ...
+ }
+
+ <span class="hljs-comment"><span class="markdown">/// Fiber架构有哪些不同的地方？</span></span>
+
+ <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">  * </span>向Fiber的更新队列加入一次更新
+<span class="hljs-bullet">  * </span>-&gt; insertUpdate
+  */</span></span>
+ function addUpdate(
+   fiber:Fiber,
+   partialState: PartialState&lt;any,any&gt; | <span class="hljs-keyword">null</span>,
+   callback: mixed,
+   priorityLevel:PriorityLevel
+ ):<span class="hljs-keyword">void</span> {
+   <span class="hljs-keyword">const</span> update = {
+     priorityLevel,
+     partialState,
+     callback,
+     isReplace: <span class="hljs-keyword">false</span>,
+     isForced: <span class="hljs-keyword">false</span>,
+     isTopLevelUnmount: <span class="hljs-keyword">false</span>,
+     next: <span class="hljs-keyword">null</span>,
+   };
+   insertUpdate(fiber, update);
+ }
+
+ <span class="hljs-comment"><span class="markdown">/// 两个类型, Update与UpdateQueue</span></span>
+ <span class="hljs-comment"><span class="markdown">/// 单向链表</span></span>
+ type UpdateQueue = {
+   first: Update |<span class="hljs-keyword">null</span>, 
+   last: Update | <span class="hljs-keyword">null</span>,
+   hasForceUpdate: boolean,
+   callbackList: <span class="hljs-keyword">null</span> | Array&lt;Callback&gt;,
+
+ }
+ type Update = {
+   priorityLevel: Prioritylevel,
+   partialState: PartialState&lt;any, any&gt;,
+   callback: Callback | <span class="hljs-keyword">null</span>,
+   isReplace: boolean,
+   isForced: boolean,
+   isTopLevelUnmount: boolean,
+   next: Update | <span class="hljs-keyword">null</span>,
+ }
+
+ <span class="hljs-comment"><span class="markdown">/// React Element 更新时会有current fiber与alternate fiber(working in progress fiber)</span></span>
+ <span class="hljs-comment"><span class="markdown">/// 两个fiber都会有一个Update Queue</span></span>
+ <span class="hljs-comment"><span class="markdown">/// 两个Queue里面的item引用时相同的</span></span>
+ <span class="hljs-comment"><span class="markdown">/// working in progreds fiber 会在更新完一个队列项后将其从队列中移除,</span></span>
+ <span class="hljs-comment"><span class="markdown">/// 更新完成之后,working in progress fiber会取代新的current fiber</span></span>
+ <span class="hljs-comment"><span class="markdown">/// 更新中断(有更优先级的更新插入),curernt fiber的update queue可以作为备份，是之前的中断的更新可以重新开始</span></span>
+
+ <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">  * </span>scheduleUpdate
+<span class="hljs-bullet">  * </span>-&gt; scheduleUpdateImpl(fiber, priorityLevel, false)
+<span class="hljs-bullet">  * </span>会根据fiber向上搜索父节点, React的schedule的更新都是在Host上更新的，
+<span class="hljs-bullet">  * </span>其上面会有isScheduled的flag标致是否这个fiber树等待更新, 还有nextScheduledRoot指针
+<span class="hljs-bullet">  * </span>指向待更新的HostRoor，构成一个链表的结构
+<span class="hljs-bullet">  *   </span>优先级为SychronousPriority 则更新将同步触发,直接调用performWork处理update
+<span class="hljs-bullet">  *   </span>优先级为TaskPriority,那upadte一般在batchedUpdates中触发
+<span class="hljs-bullet">  *   </span>其他优先级的update将时异步的，使用scheduleDeferredCallback让浏览器空闲时候触发一次更新
+  */</span></span>
+
+  <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">   * </span>performWork
+<span class="hljs-bullet">   *   </span>刷新待更新队列,执行待更新的事务
+<span class="hljs-bullet">   * </span>大部分代码时错误处理代码,与React 16新特性(Error Boundaries)相关
+<span class="hljs-bullet">   * </span>需要关注的函数: workLoop  React 更新pendingWork队列的主循环
+<span class="hljs-bullet">   *          </span>scheduleDeferredCallback 函数会在未来安排一次更新，来处理workLoop中没有做完的事情
+   */</span></span>
+
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>workLoop
+<span class="hljs-bullet">    *  </span>根据优先级及deadline来commit工作，支持处理之前未commit操作与同步的reconsiliation
+<span class="hljs-bullet">    * </span>一次re-render 分为reconsiliation与commit
+<span class="hljs-bullet">    * </span>如果update不能在deadline之前commit, 就会被标记为pendingCommit,所以在一次workLoop开始
+<span class="hljs-bullet">    * </span>先检查上一次workLoop有咩有留下的pedningCommit, 有则立即提交
+<span class="hljs-bullet">    * </span>如果没有pendingCommmit, nextUnitWork,就会resetNextUnitWork初始化nextUnitOfWork
+<span class="hljs-code">    */</span></span></span>
+
+    <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">     * </span>scheduleDeferredCallback
+<span class="hljs-bullet">     * </span>每个renderer初始化时需要传入当前平台相关的配置，也就是一个HostConfig实例,才能拿到自定义的Reconciler
+<span class="hljs-code">     */</span></span></span>
+    <span class="hljs-comment"><span class="markdown">/// ReactDom的入口中:</span></span>
+    scheduleDeferredCallback: ReactDomFrameScheduling.rIC,
+
+    <span class="hljs-comment"><span class="markdown">/// React Native的入口中:</span></span>
+    scheduleDeferredCallback: global.requestIdleCallback
+
+
+<span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet"> * </span>Cooperative Scheduling &amp;&amp; requestIdleCallback
+<span class="hljs-bullet"> * </span>windowRequestIdleCallback可以指定在浏览器一帧的空闲时间执行函数, 接受IdleDeadLINE类型的参数
+<span class="hljs-bullet"> * </span>IdleDeadline有timeRemaing方法
+<span class="hljs-bullet"> * 
+ </span>* React 主要利用了流啊冷凝器提供的requestIdleCallback API来实现这一特性
+<span class="hljs-bullet"> * </span>相比setTimeout这样的API调用callback, requestIdleCalklback带来的Cooperative Scheduling让开发着让浏览器在空闲时间调用callback
+<span class="hljs-bullet"> * </span>deadline中的timeRemaing的最大值是50ms，以免浏览器长期空闲时，callback的任务一一直执行，使得UI不能及时响应Y用户输入
+<span class="hljs-bullet"> * 
+ </span>* 如果浏览器没有实现requestIdleCallback, 就使用一个polyfill ，使用requestAnimationFrame实现
+<span class="hljs-bullet"> *  </span>1、预估一个比较低的frame rate,从requestAnimationFrame获取一帧开始，时间戳与触发message事件
+<span class="hljs-bullet"> *  </span>2、postMessage在layout paint 和composite之后调用，deadline通过fframe rate-rafTime可以得到
+<span class="hljs-bullet"> * </span>|frame start time                                        deadline|
+<span class="hljs-bullet"> * </span>[requestAnimationFrame] [layout] [paint] [composite] [postMessage]
+<span class="hljs-bullet"> * </span>根据时间戳获取两帧的准确frame rate, 动态调整当前帧的frame rate
+ */</span></span>
+
+ <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">  * </span>默认优先级
+<span class="hljs-bullet">  * </span>一次更新时同步还是异步是由优先级决定的，那么怎么从setState来schedule的一次update的优先级呢?
+<span class="hljs-bullet">  * </span>-&gt; getPriorityContext
+<span class="hljs-bullet">  *   </span>同步渲染的默认优先级时SynchronousPrioroty
+<span class="hljs-bullet">  * </span>在React 16中，异步渲染默认时关闭的。用户代码的优先级是同步的
+  */</span></span>
+
+  <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">   * </span>performUnitOfWork
+<span class="hljs-bullet">   * </span>reconcilation工作首先调用performUnitOfWork,做reconcilation工作
+<span class="hljs-bullet">   * </span>调用commitAllWork进入commit阶段,将reconcilation结果真正应用到DOM中
+<span class="hljs-bullet">   *  </span>一个'work'被分解成了begin与complete两个阶段完成
+<span class="hljs-bullet">   *  </span>beginWork ： 根据fiber节点不同的tag,调用对应的update方法，，相当于入口函数
+<span class="hljs-bullet">   *    </span>具体的update函数：
+<span class="hljs-bullet">   *      </span>updateClassComponent &amp;&amp; updateHostComponent
+   */</span></span>
+
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>UpdateClassComponent
+<span class="hljs-bullet">    *   </span>classComponent对应的是React组件实例
+<span class="hljs-bullet">    * </span></span>a<span class="markdown">、如果current 为null, 意味着当前的update是组件第一次渲染，需要调用constructClassInstance构建组件实例
+<span class="hljs-bullet">    *   </span>、并且会调用componentWillMount声明周期方法，并且初始化组件的updateQueue
+<span class="hljs-bullet">    * </span>b、不然使用updateClassInstance，如果新老props不一致，会调用componentWillReceiveProps声明周期方法(16.6.3已经标记为不安全)
+<span class="hljs-bullet">    *    </span>调用checkShouldComponentUpdate，返回值为shouldUpdate。如果没有定义，则shouldUpdate默认为true
+<span class="hljs-bullet">    * </span>c、如果shouldUpdate为false。则返回，不然调用实例的render fucntion 渲染出children,然后
+<span class="hljs-bullet">    *   </span>调用reconcileChildren对新老子节点进行diff
+<span class="hljs-code">    */</span></span></span>
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>updateHostComponent
+<span class="hljs-bullet">    *  </span>主要是低矮用reconcileChildren对子节进行diff, 其没有生命周期函数需要处理
+<span class="hljs-code">    */</span></span></span>
+
+    <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">     * </span>reconcileChildren  即virtual DOM diff
+<span class="hljs-bullet">     * </span>-&gt; reconcileChildrenAtPriority (内部三个分支)
+<span class="hljs-bullet">     * </span></span>a<span class="markdown">、首次渲染，-&gt; mountChildFiberInPlace创建子节点的fiber实例
+<span class="hljs-bullet">     * </span>b、新老fiber对比-&gt; reconcileChildFibers
+<span class="hljs-bullet">     * </span>c、如果前一次reconciliation过程被打断，则复用之前的工作-&gt; reconcileChildFibersInPlace
+<span class="hljs-bullet">     * </span>上面三个函数是通过不同参数组合的同一个函数-&gt;ChildReconciler(shouldClone, shouldTrackSideEffects)
+<span class="hljs-bullet">     *  </span>其最终返回的函数是reconcileChildFibers，这个函数实现了对子fiber节点的reconciliation
+<span class="hljs-code">     */</span></span></span>
+
+     <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">      * </span>reconcileChildFibers
+<span class="hljs-bullet">      * </span>React的reconcile算法采用的是同层遍历比较，reconcile算法的核心是如何diff两个子节点数组
+<span class="hljs-bullet">      * </span>根据newChild 的类型调用不同的方法:
+<span class="hljs-bullet">      * </span>1、reconcile单个元素, 如果key与type相同，复用fiber,删除多余元素(currentFirstChild的sibling)
+<span class="hljs-bullet">      *   </span>如果不同，调用createFiberFromElement返回新创建的
+<span class="hljs-bullet">      * </span>2、如果是string, reconcileSingleTextNode
+<span class="hljs-bullet">      * </span>3、如果是array, reconcileChildrenArray
+<span class="hljs-bullet">      * </span>4、如果为空，deleteRemainingChildren删除老的子元素
+<span class="hljs-code">      */</span></span></span>
+ <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">  * </span>diff两个子节点数组
+<span class="hljs-bullet">  * </span>reconcileChildrenArray
+<span class="hljs-bullet">  * </span>fiber树是单链表结构，没有子节点数组这样的数据结构，也就没有可以供两端同时比较的尾部游标
+<span class="hljs-bullet">  * </span>从而智能从头部比较:
+<span class="hljs-bullet">  *   </span>1、从头部遍历，第一次遍历新数组，对上了，就新老index ++ ，比较新老数组那些元素是一样的。
+<span class="hljs-bullet">  *    </span>通过updateSlot,比较key,如果是同样的就update, 如果是同样的就Update,
+<span class="hljs-bullet">  *   </span>2、第一次遍历完后:
+<span class="hljs-bullet">  *     </span>1、新数组遍历完，老数组没完，就将老数组剩余的fiber删除
+<span class="hljs-bullet">  *     </span>2、老数组遍历完，新数组没完，将新数组剩下的都插入
+<span class="hljs-bullet">  *     </span>3、如果都不是，则将新老数组元素按照key放入map里，然后遍历新数组，插入老数组的元素，这是移动的情况、
+<span class="hljs-bullet">  *     </span>4、最后再删除没有被上述情况涉及的元素
+  */</span></span>
+
+  <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">   * </span>completeUnitWork
+<span class="hljs-bullet">   * </span>是complete阶段的入口，complete阶段作用是在一个节点diff完成之后，进行收尾工作，
+<span class="hljs-bullet">   * </span>主要是更新props和调用生命周期方法等。 将当前子树的effect list插入到HostRoot的effect list中
+   */</span></span>
+
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>completeWork
+<span class="hljs-bullet">    * </span>完成reconciliation阶段得扫尾工作，重点对HostComponent的props进行diff,并标记更新
+<span class="hljs-code">    */</span></span></span>
+
+  <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">   * </span>reconciliation阶段
+<span class="hljs-bullet">   * </span>主要负责产出effect list.reconcile的过程相当于纯函数，输入fiber节点，输出effect list.
+<span class="hljs-bullet">   * </span>side-effects是在commit阶段被应用到UI中的，由于纯函数的可预测性，我们可以随时中断reconciliation阶段执行
+<span class="hljs-bullet">   * </span>，不用担心side-effects让组件状态和实际UI产生不一致。
+<span class="hljs-bullet">   * </span>commit阶段有点像GIT的commit概念，缓冲区得代码改动只有在commit之后才会被添加到GIT的Object store中
+   */</span></span>
+
+   <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">    * </span>commit阶段
+<span class="hljs-bullet">    * </span>commitAllWork
+<span class="hljs-bullet">    *   </span>1、prepareForCommit 做一些DOM事件相关的设置
+<span class="hljs-bullet">    *   </span>2、commitAllHostEffects。 会遍历当前fiber树的effect list, 对fiber的插入,更新, 删除以及ref的删除做处理
+<span class="hljs-bullet">    *     </span>根据effectTag做不同的处理，如对Deletion这个effectTag会调用commitDeletion，其会递归的将子节点从fiber树上移除，对节点
+<span class="hljs-bullet">    *     </span>上存在的ref做detach,最后调用componentWillUnmount生命周期钩子。
+<span class="hljs-bullet">    *     </span>最后调用renderer传入的平台相关方法removeChild和removeChildFromContainer更新UI
+<span class="hljs-bullet">    *     </span>插入操作，update操作等都会类似的操作
+<span class="hljs-bullet">    *   </span>3、commitAllLifeCycles。再次遍历effect list。依次在每个effect上调用commitAllLifeCycles。
+<span class="hljs-bullet">    *     </span>如果effet发生在ClassComponent，就会调用实例的componentDidMount和componentDidUpdate
+<span class="hljs-bullet">    *     </span>还会对HostComponent调用commitMount方法，可以在renderer一个节点后做一些操作。
+<span class="hljs-bullet">    *     </span>如input的auto-focus
+<span class="hljs-code">    */</span></span></span>
+
+    <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">     * </span>生命周期方法是在reconciliation和commit阶段中调用
+<span class="hljs-bullet">     *   </span>render/reconciliation:
+<span class="hljs-bullet">     *      </span>componentWillMount
+<span class="hljs-bullet">     *      </span>componentWillReceiveProps
+<span class="hljs-bullet">     *      </span>shouldComponentUpdate
+<span class="hljs-bullet">     *      </span>componentWillUpdate
+<span class="hljs-bullet">     *   </span>commit:
+<span class="hljs-bullet">     *      </span>componentDidMount
+<span class="hljs-bullet">     *      </span>componentDidUpdate
+<span class="hljs-bullet">     *      </span>componentWillUnmount
+<span class="hljs-code">     */</span></span></span>
+
+     <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">      * </span>reconciliation 与commit阶段调用函数
+<span class="hljs-bullet">      * </span>workLoop:
+<span class="hljs-bullet">      *   </span>performUnitOfWork   reconciliation入口
+<span class="hljs-bullet">      *   </span>commitAllWork     commit入口
+<span class="hljs-bullet">      * </span>performUnitOfWork:
+<span class="hljs-bullet">      *   </span>begeinWork:
+<span class="hljs-bullet">      *     </span>updateClassComponent
+<span class="hljs-bullet">      *     </span>reconcileChildren
+<span class="hljs-bullet">      *   </span>completeUnitWork
+<span class="hljs-bullet">      *     </span>completeWork
+<span class="hljs-bullet">      * </span>commitAllWork:
+<span class="hljs-bullet">      *   </span>commitAllHostEffects
+<span class="hljs-bullet">      *   </span>commitWork/commitPlacement/commitDeletion
+<span class="hljs-code">      */</span></span></span>
+
+      <span class="hljs-comment"><span class="markdown">/**
+<span class="hljs-bullet">       * </span>异步渲染:
+<span class="hljs-bullet">       * </span>当前的渲染虽然是在一个tick中完成的，但是未来React会将渲染的时机给用户掌控。
+<span class="hljs-bullet">       * </span>用户可以主动调用commit来让组件继续渲染。
+<span class="hljs-bullet">       * </span>因为reconcile是没有副作用的
+<span class="hljs-code">       */</span></span></span>
+
+       <span class="hljs-comment"><span class="markdown">//// 在React上，看到了一些借鉴自操作系统中的设计，Fiber可以看作是一个轻量级的线程，有自己的数据，也有优先级</span></span>
+      <span class="hljs-comment"><span class="markdown">//// 的分别。React能调度fiber使得优先级高得任务优先执行，同时保证低优先级得任务会在未来一段时间执行完毕。</span></span>
+      <span class="hljs-comment"><span class="markdown">//// 在diff算法得设计上，React借鉴了社区得经验。</span></span>
+
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/react-05"><span class="arrow-prev">← </span><span>diff算法的演化历史</span></a><a class="docs-next button" href="/docs/design-01"><span>JS常见设计模式-JS面向对象</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div></div></body></html>
