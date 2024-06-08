@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-02-变量的解析赋值</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="数组的结构赋值"><a href="#数组的结构赋值" class="headerlink" title="数组的结构赋值"></a>数组的结构赋值</h2><ul>
+<li><p>一、使用模式匹配的方式进行变量进行赋值(可以用于多变量值的初始化)</p>
+</li>
+<li><p>数组、使用对称的方式:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a,b,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//相当于声明三个变量，依次等于右边的值</span></span><br><span class="line">不完全:</span><br><span class="line"><span class="keyword">let</span> [a,,c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//c会等于3</span></span><br><span class="line"><span class="keyword">let</span> [a,...c]=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];<span class="comment">//a为1.c为数组[2,3]</span></span><br><span class="line"></span><br><span class="line">如果右边不具有iterator接口（可以遍历），那么这种形式将会报错</span><br><span class="line">只要数据结构具有<span class="title class_">Iterator</span>接口，那么可以使用数组的形式解构赋值</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>2、解构赋值如果找不到对应的值或对应的值为undefined可以赋予默认值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [a=<span class="number">1</span>]=[];<span class="comment">//a为1</span></span><br><span class="line"><span class="keyword">let</span> [a,b=<span class="number">1</span>]=[<span class="number">2</span>] <span class="comment">//a为2,b为1</span></span><br><span class="line"><span class="keyword">let</span> [a,b==<span class="number">1</span>]=[<span class="number">2</span>,<span class="literal">null</span>]<span class="comment">//a为2,b为null</span></span><br><span class="line"></span><br><span class="line">在一个同一解构赋值中使用另一个变量:</span><br><span class="line"><span class="keyword">let</span> [x=<span class="number">1</span>,y=x]=[];<span class="comment">//x=y=1;</span></span><br><span class="line"><span class="keyword">let</span> [x=<span class="number">1</span>,y=x]=[<span class="number">2</span>];<span class="comment">//x=y=2</span></span><br><span class="line">  <span class="comment">//注意引用的变量必须是前面声明过的:</span></span><br><span class="line">ler [x=y,y=<span class="number">1</span>]=[];<span class="comment">//报错</span></span><br><span class="line"></span><br><span class="line">可以使用函数参与赋值：</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">fun</span>(<span class="params"></span>)&#123;retrun <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> [a=<span class="title function_">func</span>()]=[<span class="number">1</span>];<span class="comment">//只有当右边的值（[1][0]）为undefined时，函数才会被执行，然后赋值</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、对象的解构赋值</p>
+<ul>
+<li>1。变量必须与属性同名</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">let &#123;a,b&#125;=&#123;a:1,b:2&#125;;//a为1，b为2</span><br><span class="line">//如果需要有没有对象属性的变量，可以去其他能配对的值</span><br><span class="line">let [a:c,b:c]=&#123;a:1,b:2&#125;;//这样c会等于a,d等于b</span><br><span class="line"></span><br><span class="line">也可以不在声明时使用:</span><br><span class="line">let a;</span><br><span class="line">(&#123;a:c&#125;=&#123;a:1&#125;)；//必须加上圆括号</span><br><span class="line"></span><br><span class="line">也可以使用嵌套的结构:</span><br><span class="line">let arr=[];</span><br><span class="line">let obj=&#123;&#125;;</span><br><span class="line"></span><br><span class="line">(&#123;a:obj.a,b:arr[0]&#125;=&#123;a:1,b:2&#125;);</span><br><span class="line"></span><br><span class="line">也可以指定默认值，使用与上面一样</span><br><span class="line">let &#123;x=3&#125;=&#123;x:undefiend&#125;;</span><br><span class="line"></span><br><span class="line">对象这种方式可以很方便的获得对象的方法赋值给一个变量</span><br><span class="line">let &#123;log.sin,cos&#125;=Math;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4、字符串的解构赋值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">字符串会被视为数组进行赋值</span><br><span class="line">let [a,b]=&#x27;he&#x27;;//a为&#x27;h&#x27;,b为&#x27;e&#x27;</span><br><span class="line"></span><br><span class="line">同时字符串一样有length属性</span><br><span class="line">let [length:len]=&#x27;12345&#x27;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>  +5 、对于不能转变为对象的右边值，会变换成包装对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let &#123;toString:s&#125;=123;//s为toString方法</span><br><span class="line">因为将123包装成对象的时候就会包含toString方法</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>6、针对函数的参数进行解构赋值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function add([x,y])&#123; return x+y;&#125;</span><br><span class="line">add([1,2]);//虽然传进来的是一个数组，但是由于函数已经使用解构赋值，</span><br><span class="line">1,2会被分别赋值给x,y</span><br><span class="line"></span><br><span class="line">//函数参数解构时使用默认值</span><br><span class="line">function move(&#123;x=0;y=0&#125;=&#123;&#125;)&#123;  //这里参数需要传进来一个对象</span><br><span class="line">    return [x,y];</span><br><span class="line">&#125;</span><br><span class="line">move(&#123;x:3,y:3&#125;);//[3,3]</span><br><span class="line">move(&#123;x=3&#125;);//[3.0]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>7、使用圆括号的注意事项</li>
+<li>1、只要可能出现解构歧义的地方，就不要使用圆括号</li>
+<li>2、解构赋值的时候不使用圆括号的三种方法：<ul>
+<li>1、变量声明中，不使用  如 let [(a)]&#x3D;[1];</li>
+<li>2、对于函数参数的解构，不使用。如 function func([(x)]){};</li>
+<li>3、赋值时，不能将模式的一层放置在圆括号中，如([a])&#x3D;[1]</li>
+</ul>
+</li>
+<li>3、可以使用圆括号的情况<ul>
+<li>只有一种，赋值时，非模式的部分，可以使用<br>如： [(b)]&#x3D;[3];</li>
+</ul>
+</li>
+</ul>
+<h2 id="变量解构的用途"><a href="#变量解构的用途" class="headerlink" title="变量解构的用途"></a>变量解构的用途</h2><ul>
+<li>1、交换变量值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let x=1;</span><br><span class="line">let b=3;</span><br><span class="line">[x,y]=[y,x];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、从函数中返回多个值同时被多个变量接受</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">以往函数返回多个值一般需要使用对象或数组进行包裹被一个变量接受</span><br><span class="line"></span><br><span class="line">function func()&#123;</span><br><span class="line">    return [1,2,3]</span><br><span class="line">&#125;</span><br><span class="line">let [a,b,c]=func();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>3、将一组参数与变量名对应起来</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function f([x,y,z]&#123;&#125;);</span><br><span class="line">f([1,2,3])</span><br><span class="line"></span><br><span class="line">function f2(&#123;x,y,z&#125;&#123;...&#125;)</span><br><span class="line">f(&#123;x:1,y:2,z:3&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4.用于提取JSON数据</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let jsonData=&#123;</span><br><span class="line">    id:1,</span><br><span class="line">    states:&#x27;ok&#x27;,</span><br><span class="line">    data:[1,2]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let &#123;id,states,data:number&#125;=jsonData;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>5、直接在声明函数的时候指定函数参数的默认值</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jQuery.ajax=fucntion(url,&#123;async=true,cache=true,..&#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>6、用于遍历map数据结构</li>
+<li>7.便捷的获得引入模块的方法</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">const &#123;func1,func2&#125;=require(&#x27;module1&#x27;);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-10-Promise对象</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <ul>
+<li><p>1、作用：解决异步编程</p>
+</li>
+<li><p>2、关于promise的一些概念</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、Promise的三种状态：pending（进行中），fulfilled，rejected</span><br><span class="line"></span><br><span class="line">2、状态不可逆转，同事不设置catch函数，那么Promise内部函数的错误不会被检测到</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、Promise的用法</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">1、Promise对象是一个构造函数，用于生成promise实例 </span><br><span class="line">   构造函数接受一个函数作为参数，函数参数为resolve与reject。它们两个是函数</span><br><span class="line">   实例生成之后可以使用then指定Resolved与rejected状态的回调函数</span><br><span class="line"> 例：</span><br><span class="line">    var promise=new Promise(function()&#123;resolve,reject&#125;&#123;</span><br><span class="line">        if(..)&#123;</span><br><span class="line">            resolve(value);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            reject(error)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">   function timeout(ms)&#123;</span><br><span class="line">       return new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">           setTimeout(resolve,ms,&#x27;done&#x27;)</span><br><span class="line">       &#125;);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   timeout(100).then((value)=&gt;&#123;</span><br><span class="line">       console.log(value);</span><br><span class="line">   &#125;)</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"> 2、如果在Promise里面使用resolve或者reject函数带有参数，那么这个参数会被传递给then中的回调函数</span><br><span class="line"> </span><br><span class="line"> 3、resolved事件总是晚于本轮循环的同步任务。</span><br><span class="line"> </span><br><span class="line"> 4、Promise.prototype.then()  ,第一个参数是Resolved状态的回调函数，第二个参数是Rejected状态的回调函数</span><br><span class="line">    then返回的是Promise，后面可以继续then</span><br><span class="line"> </span><br><span class="line"> 5、Promise.prototype.catch()  一般放在then后面捕获错误,只要是异步操作跑出的错误，都会被变为Rejected，都会被catch捕获.catch方法返回promise，</span><br><span class="line"> 后面还可以加then</span><br><span class="line"> 例 :</span><br><span class="line">     p.then((val)=&gt;console.log(&#x27;fulfilled:&#x27;,val))</span><br><span class="line">      .catch((err)=&gt;console.log(&#x27;rejected&#x27;.err));</span><br><span class="line">     </span><br><span class="line">     类同与try，catch</span><br><span class="line">     </span><br><span class="line">    当多个promise时，Promise对象的错误具有冒泡性质，会一直向后传递，知道被捕获位置，错误总是会被下一个catch捕获。</span><br><span class="line"> 6、建议：使用catch而不使用then的第二个参数处理错误</span><br><span class="line">    原因: 它可以捕获then方法中执行的错误。更接近同步的写法.</span><br><span class="line">         </span><br><span class="line">     对于catch抛出的错误，可以后面再加一个catch承接.</span><br><span class="line">     例 ：</span><br><span class="line">     </span><br><span class="line">        promise.then(()=&gt;&#123;</span><br><span class="line">            return promise;</span><br><span class="line">        &#125;).catch((error)=&gt;&#123;</span><br><span class="line">            y+2;</span><br><span class="line">        &#125;).catch((error)=&gt;&#123;</span><br><span class="line">            console.log(error);</span><br><span class="line">        &#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>4、promise的其它方法<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">1、Promise.all()  将多个Promise实例打包</span><br><span class="line"></span><br><span class="line">let p=Promise.all([p1,p2,p3]);// p1.p2.p3都是promise</span><br><span class="line">只有三个promise的状态为fulfilled，p的状态才为fulfilled,不然为rejected</span><br><span class="line"></span><br><span class="line">Promise.all()可以定义catch方法，但是如果其里面的promise定义了catch方法，而且必触发，那么只会触发该promise的catch方法。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2、Promise.race()  打包多个promise实例</span><br><span class="line">   let p=Promise.race([p1,p2,p3]);</span><br><span class="line">   当里面打包的promise有一个状态被改变，那么p的状态随之改变,这个最先改变的promise的返回值会被传送到p的回调函数中.</span><br><span class="line">例：</span><br><span class="line">   const p=Promise.race([</span><br><span class="line">       fetch(&#x27;/resource-that&#x27;),</span><br><span class="line">       new Promise((resolve,reject)=&gt;&#123;</span><br><span class="line">           setTimeout(()=&gt;reject(new Error(&#x27;request error&#x27;)),500)</span><br><span class="line">       &#125;)</span><br><span class="line">   ]);</span><br><span class="line">   </span><br><span class="line">   p.then(response=&gt;console.log(response));</span><br><span class="line">   p.catch(error=&gt;console.log(error))//5s，fetch方法没有返回结果，就会将p的状态变为rejected</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line"> 3、Promise.resolve()  将现有对象转为Promise对象</span><br><span class="line"> </span><br><span class="line"> Promise.resolve(&#x27;foo&#x27;);</span><br><span class="line"> 等价于：</span><br><span class="line"> new Promise(resolve=&gt;resolve(&#x27;foo&#x27;));</span><br><span class="line"> </span><br><span class="line"> 接受一个参数：参数可以分为4种情况</span><br><span class="line">  a、不带参数，直接返回状态为Resolved的Promise对象</span><br><span class="line">      var p =Promise.resolve();</span><br><span class="line">      p.then()..//里面的resolve会在本轮事件循环执行。</span><br><span class="line">      </span><br><span class="line">  b、参数不是对象或者是没有then方法的对象,resolve方法会被立即执行，因为没有异步操作</span><br><span class="line">  var p=Promise.resolve(&#x27;hello&#x27;);</span><br><span class="line">  p.then(function(s)&#123;</span><br><span class="line">      console.log(s);</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  c、参数是一个具有then方法的对象</span><br><span class="line">   先执行该对象的里的then方法，状态变为resolved，然后再执行promise的then</span><br><span class="line">   例:</span><br><span class="line">      let thenable=&#123;</span><br><span class="line">          then:function(resolve,reject)&#123;</span><br><span class="line">              resolve(42);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      let p1=Promise.resolve(thenable);</span><br><span class="line">      p1.then(function(value)&#123;</span><br><span class="line">          console.log(value);</span><br><span class="line">      &#125;)</span><br><span class="line">  </span><br><span class="line">  d、参数是一个Promise对象</span><br><span class="line">  不做任何修改，直接返回这个实例。</span><br><span class="line">  </span><br><span class="line">4、Promise.reject()  返回一个新的Promise实例，实例的状态为rejected</span><br><span class="line">注意，Promise.reject()方法的参数，会原封不动的作为reject的理由,变成后续方法的参数,即使catch</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5、非官方api，但是有用的方法:</span><br><span class="line">   done() ：处于回调链的尾端，保证抛出任何可能出现的错误</span><br><span class="line">   实现代码:</span><br><span class="line">       Promise.prototype.done=function(onFulfilled,onRejected)&#123;</span><br><span class="line">           this.then(onFulfilled,onRejected)</span><br><span class="line">               .catch(function(reason)&#123;</span><br><span class="line">                   //抛出全局错误</span><br><span class="line">                   setTimeout(()=&gt;&#123;throw reason&#125;,0)</span><br><span class="line">               &#125;)</span><br><span class="line">       &#125;</span><br><span class="line">   </span><br><span class="line">   </span><br><span class="line">   finally():不管怎样，最后都会执行的操作，接受一个回调作为参数。</span><br><span class="line">   实现代码：</span><br><span class="line">       Promise.prototype.finally=function(callback)&#123;</span><br><span class="line">           let p=this.constructor;</span><br><span class="line">           return this.then(</span><br><span class="line">            value=&gt;p.resolve(callback()).then(()=&gt;value),</span><br><span class="line">            reason=&gt;p.resolve(callback()).then(()=&gt;&#123;throw reason&#125;);</span><br><span class="line">           )</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">    Promise.try() 同时处理同步与异步操作</span><br><span class="line">    普通情况下：</span><br><span class="line">      Promise.resolve().then(f);//如果f是同步函数，那么会在本轮事件循环的末尾执行</span><br><span class="line">      </span><br><span class="line">    让同步函数同步执行，异步函数异步执行的方法:</span><br><span class="line">    </span><br><span class="line">    const f=()=&gt;console.log(&#x27;now&#x27;);</span><br><span class="line">    (</span><br><span class="line">        ()=&gt;new Promise(</span><br><span class="line">            resolve=&gt;resolve(f());</span><br><span class="line">        )</span><br><span class="line">    )();</span><br><span class="line">    </span><br><span class="line">    执行new Promise（），同步函数也会执行</span><br><span class="line">    </span><br><span class="line">    现在有提案提供Promise.try方法。</span><br><span class="line"> </span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

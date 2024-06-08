@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >链表</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <blockquote>
+<p>底层存储数据的数据结构时数组，那么链表有什么用呢? 有什么优于数据的地方吗？</p>
+</blockquote>
+<h2 id="1、数组的缺点"><a href="#1、数组的缺点" class="headerlink" title="1、数组的缺点"></a>1、数组的缺点</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">在许多编程语言来讲，数组的长度是固定的，添加与删除操作比较麻烦</span><br><span class="line">js的数组被实现成为对象，但因为与其他语言的数组相比，效率会低</span><br><span class="line">因为：常规的数组是一段线性分配的内存，通过整数计算偏移来访问语速，</span><br><span class="line">但是js的数组实际上是一个对象，其下标也只是对象的属性而已，这样的设计</span><br><span class="line">在于能够随机方便的访问。当数组在使用中很慢，可以使用链表来替换它。</span><br></pre></td></tr></table></figure>
+<h2 id="2、什么是链表"><a href="#2、什么是链表" class="headerlink" title="2、什么是链表"></a>2、什么是链表</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> 链表是节点的集合，一个节点都使用一个对象的引用指向它的后继。指向另一个节点</span><br><span class="line">的引用叫做链。</span><br><span class="line">链表最前面会有一个特殊节点是头结点。尾元素指向的是一个null节点</span><br><span class="line">插入节点：修改其前面的节点指向新加入的节点，新加入的节点指向原来前驱指向的节点</span><br><span class="line">删除节点：待删除元素的前驱节点指向待删除节点的后继节点，同时将待删除节点指向null</span><br><span class="line">其它操作：建立，测长，打印，删除，插入</span><br></pre></td></tr></table></figure>
+
+<h2 id="基于对象的链表"><a href="#基于对象的链表" class="headerlink" title="基于对象的链表"></a>基于对象的链表</h2><blockquote>
+<p>Node类用来表示节点， LinkedList类提供了插入节点，删除节点，显示列表元素等方法</p>
+</blockquote>
+<ul>
+<li>单向链表，精髓在于无论怎么做都需要从头结点循环遍历</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">// Node类</span><br><span class="line">/**</span><br><span class="line"> * 使用一个构造函数来创建节点</span><br><span class="line"> * 属性：</span><br><span class="line"> * element 保存节点上的数据</span><br><span class="line"> * next 保存指向下一个节点的链接</span><br><span class="line"> */</span><br><span class="line">function Node(element) &#123;</span><br><span class="line">  this.element = element;</span><br><span class="line">  this.next = null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// LinkedList 类</span><br><span class="line">/**</span><br><span class="line"> * 提供对链表进行操作的方法。</span><br><span class="line"> * 提供一个构造函数，链表只有一个属性，用一个Node对象保存该链表的头结点</span><br><span class="line"> */</span><br><span class="line">function LinkedList () &#123;</span><br><span class="line">  this.head = new Node(&#x27;head&#x27;);</span><br><span class="line">  this.find = find;</span><br><span class="line">  this.insert = insert;</span><br><span class="line">  this.remove = remove;</span><br><span class="line">  this.display = display;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//插入新节点</span><br><span class="line">//需要指出那个节点的前面或者后面插入</span><br><span class="line">//如：在一个已知节点后面插入元素，先找到后面的节点</span><br><span class="line">// 找节点方法 find()，只要循环比较即可</span><br><span class="line">function find(item)&#123;</span><br><span class="line">  var currNode = this.head；</span><br><span class="line">  while (currNode.element != item) &#123;</span><br><span class="line">    currNode = currNode.next;</span><br><span class="line">  &#125;</span><br><span class="line">  return currNode;</span><br><span class="line">&#125;</span><br><span class="line">//插入节点，先找到待插入节点的后节点，然后其前节点指向待插入节点，待插入节点指向后节点</span><br><span class="line">function insert(newElement, item)&#123;</span><br><span class="line">  var newNode = new Node(newElement);</span><br><span class="line">  var currentNode = this.find(item);</span><br><span class="line">  newNode.next = currentNode.next;</span><br><span class="line">  currentNode.next = newNode;</span><br><span class="line">&#125;</span><br><span class="line">//打印链表</span><br><span class="line">function display() &#123;</span><br><span class="line">  var currentNode = this.head;</span><br><span class="line">  while(!(currentNode.next == null)) &#123;</span><br><span class="line">    console.log(currentNode.next.element);</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//如何从链表中删除一个节点</span><br><span class="line">//先找到待删除节点前面的节点，修改其属性，将其next指向待删除的下一个节点。</span><br><span class="line">// findPrevious()，检测节点的下一个节点是否存储着待删除数据</span><br><span class="line">function findPrevious(item) &#123;</span><br><span class="line">  var  currentNode = this.head;</span><br><span class="line">  while(!(currentNode == null) &amp;&amp; currentNode.next.element != item) &#123;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">  &#125;</span><br><span class="line">  return currentNode;</span><br><span class="line">&#125;</span><br><span class="line">function remove(item)&#123;</span><br><span class="line">  var prevNode = this.findPrevious(item);</span><br><span class="line">  if (!(prevNode.next == nulll)) &#123;</span><br><span class="line">    prevNode.next = prevNode.next.next;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>双向链表<blockquote>
+<p>在节点添加prev属性指向其前驱，这样删除节点效率会提高,不需要查找删除节点的前驱节点,这样头结点的prev指向null</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> //Node类，添加prev属性</span><br><span class="line"> function Node(element) &#123;</span><br><span class="line">   this.element = element;</span><br><span class="line">   this.next = null;</span><br><span class="line">   this.prev = null;</span><br><span class="line"> &#125;</span><br><span class="line">//insert方法，需要将待插入节点的prev指向前面一个节点</span><br><span class="line">function insert(newElement, item) &#123;</span><br><span class="line">  var newNode = new Node(newElement);</span><br><span class="line">  var currentNode = this.find(item);</span><br><span class="line">  newNode.next = currentNode.next;</span><br><span class="line">  newNode.prev = currentNode;</span><br><span class="line">  currentNode.next = newNode;</span><br><span class="line">  if (!(currentNode.next == null)) &#123;</span><br><span class="line">    currentNode.next.prev = newNode;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">// remove比单向链表高效在于不需要寻找前驱节点，虽然</span><br><span class="line">//依然需要遍历找到目标节点，但是相对找前驱会少一些运算</span><br><span class="line">function remove(item) &#123;</span><br><span class="line">  var currentNode = this.find(item);</span><br><span class="line">  if (!(currentNode.next == null)) &#123;</span><br><span class="line">    currentNode.prev.next = currentNode.next;</span><br><span class="line">    currentNode.next.prev = currentNode.prev;</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    currentNode.prev.next =null;</span><br><span class="line">  &#125;</span><br><span class="line">  currentNode.next = null;</span><br><span class="line">  currentNode.pre = null;</span><br><span class="line">&#125;</span><br><span class="line">//反序显示链表，就需要先找到链表的尾节点</span><br><span class="line">function findLast() &#123;</span><br><span class="line">  var currentNode = this.head;</span><br><span class="line">  while(!(currentNode.next == null))&#123;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">  &#125;</span><br><span class="line">  return currentNode;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//反向显示</span><br><span class="line">function dispReverse() &#123;</span><br><span class="line">  var currentNode = this.findLast();</span><br><span class="line">  while(!(currentNode.prev == null)) &#123;</span><br><span class="line">    console.log(currentNode.element);</span><br><span class="line">    currentNode = currentNode.prev;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>循环链表</li>
+</ul>
+<blockquote>
+<p>单向链表只要将头结点next指向本身，接下来创建每个节点的next都指向其本身</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function LinkList() &#123;</span><br><span class="line">  this.head = new Node(&#x27;head&#x27;);</span><br><span class="line">  this.head.next = this.head;</span><br><span class="line">  this.find = find;</span><br><span class="line">  this.insert = insert;</span><br><span class="line">  this.display = display;</span><br><span class="line">  this,findPrevious = findPrevious;</span><br><span class="line">  this.remove = remove;</span><br><span class="line">&#125;</span><br><span class="line">//其方法除dispaly方法需要修改为，其它方法都是一样</span><br><span class="line">function display() &#123;</span><br><span class="line">  var currentNode = this.head;</span><br><span class="line">  while(!(currentNode.next == null) &amp;&amp; !(currentNode.element == &#x27;head&#x27;)) &#123;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">    console.log(currentNod.element);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

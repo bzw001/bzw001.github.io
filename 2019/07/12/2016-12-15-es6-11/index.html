@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-11-Interator与for-of</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <ul>
+<li><p>1、Interator遍历器</p>
+<blockquote>
+<p>es6有四种数据集合，Interator能够提供统一的访问机制。而Interator主要为for…of服务</p>
+</blockquote>
+</li>
+<li><p>2、遍历过程</p>
+<blockquote>
+<p>遍历器对象本质是一个指针对象，首先指向数据结构的起始位置，然后调用指针对象的next方法，知道指向数据结构的结束位置。遍历器对象每次移动指针（next方法），都检查一下返回值的done属性。</p>
+</blockquote>
+</li>
+<li><p>3、默认的Iterator接口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">1、数据结构只要部署了Iterator接口，该数据结构则“可遍历的”</span><br><span class="line">2、数据结构只要有Symbol.iterator属性，那么即代表可遍历,该属性返回Symbol对象iterator属性</span><br><span class="line">3、原生具备Iterator接口的数据结构：</span><br><span class="line">  Array,Map,Set,String,TypedArray,函数的arguments对象，NodeList对象</span><br><span class="line">4、为什么对象没有部署Iterator接口？</span><br><span class="line">   因为对象属性遍历顺序是不确定的，需要开发者指定。</span><br><span class="line">   如果需要对象具备for...of循环调用的Iterator接口，就需要在其Symbol.iterator的属性上设置遍历器生产方法，原型链上也可。</span><br><span class="line">   </span><br><span class="line">   例 ：</span><br><span class="line">   class RangeIterator&#123;</span><br><span class="line">       constructor(start,stop)&#123;</span><br><span class="line">           this.valu=start;</span><br><span class="line">           this.stop=stop;</span><br><span class="line">       &#125;</span><br><span class="line">       [Symbol.iterator]()&#123;return this;&#125;;</span><br><span class="line">       </span><br><span class="line">       next()&#123;</span><br><span class="line">           var value=this.value;</span><br><span class="line">           if(value&lt;this.stop)&#123;</span><br><span class="line">               this.value++;</span><br><span class="line">               return&#123;done:false,value:value&#125;</span><br><span class="line">           &#125;</span><br><span class="line">           return &#123;done:true,value:undefined&#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   function range(start,stop)&#123;</span><br><span class="line">       return new RangeIterator(start,stop);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   for(var value of range(0,3))&#123;</span><br><span class="line">       console.log(value);</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">   例：给对象添加遍历接口的例子</span><br><span class="line">   let obj=&#123;</span><br><span class="line">       data:[&#x27;hello&#x27;,&#x27;world&#x27;],</span><br><span class="line">       [Symbol.iterator]()&#123;</span><br><span class="line">           const self=this;</span><br><span class="line">           let index=0;</span><br><span class="line">           return &#123;</span><br><span class="line">               next()&#123;</span><br><span class="line">                   if(index&lt;self.data.length)&#123;</span><br><span class="line">                       return &#123;</span><br><span class="line">                           value:self.data[index++],</span><br><span class="line">                           done:false</span><br><span class="line">                       &#125;</span><br><span class="line">                   &#125;else&#123;</span><br><span class="line">                       return &#123;value:undefined,done:true&#125;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line">5、对类数组对象，部署遍历接口的方法:</span><br><span class="line">  例: </span><br><span class="line">     NodeList.prototype[Symbol.iterator]=Array.prototype[Symbol.iterator];</span><br><span class="line">     NodeList.prototype[Symbol.iterator]=[][Symbol.iterator];//这样也可</span><br><span class="line">     </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4、默认会调用Iterator接口的场合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1、对数组与Set解构进行解构赋值时，解构赋值</span><br><span class="line">2、扩展运算符(...)</span><br><span class="line">   只要数据结构部署了Iterator接口，就可以对它使用扩展运算符，将其转换为数组。</span><br><span class="line">3、yeild* 后面跟是可遍历结构</span><br><span class="line">4、数组的操作</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5、字符串的Iterator接口</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">字符串是类数组，也具有Iterator接口</span><br><span class="line">    let test=&#x27;hello&#x27;;</span><br><span class="line">    console.log(typeof test[Symbol.iterator]);</span><br><span class="line">    let testIterator=test[Symbol.iterator]();</span><br><span class="line">    console.log(testIterator.next());</span><br><span class="line">通过覆盖原生的Symbol.iterator方法，可以修改遍历器行为的目的</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6、遍历器对象其它方法 return().throw()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">当for ..of 循环提前退出（报错，有break,continue）就会调用return()。</span><br><span class="line">如一个对象在完成遍历前，需要清理或释放资源</span><br><span class="line">  function readLinesSync(file)&#123;</span><br><span class="line">      return&#123;</span><br><span class="line">          next()&#123;</span><br><span class="line">              return &#123;done:false&#125;</span><br><span class="line">          &#125;,</span><br><span class="line">          return()&#123;</span><br><span class="line">              file.close():</span><br><span class="line">              return &#123;done:true&#125;;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  使用:</span><br><span class="line">  for(let line of readLinesSync(fileName))&#123;</span><br><span class="line">      console.log(line);</span><br><span class="line">      continue;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7、for…of循环</p>
+<blockquote>
+<p>它可以遍历所有忽悠Iterator接口的数据结构</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、数组</span><br><span class="line">   for of可与得到键值,for in 可以得到键名,当然entries与keys方法一样可以得到</span><br><span class="line">2、类数组对象可以使用Array.from将对象转为数组，然后遍历</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8 总结</p>
+<blockquote>
+<p>Iterator接口本质是指针的指向遍历，可重写，可定制。为可遍历的数据结构统一访问机制。</p>
+</blockquote>
+</li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-05-对象的扩展(补充)</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <ul>
+<li>1、属性的简洁表示</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">属性简写: var x=3;</span><br><span class="line">          var b=&#123;x&#125;;//等同于b=&#123;x:x&#125;</span><br><span class="line">          </span><br><span class="line">方法简写:  var obj=&#123;</span><br><span class="line">    x,</span><br><span class="line">    class()=&gt;&#123;this.x&#125;;//等同于&#x27;class&#x27;:function()&#123;return this.x&#125;;class这里是字符串，不会被认为是关键字</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>2、属性名可以使用表达式，但是不可以与简洁方式同用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var objProperty=&#x27;aaa&#x27;;</span><br><span class="line"></span><br><span class="line">var obj2[objProperty]=3;//相当于var obj2[&#x27;aaa&#x27;]=3;</span><br><span class="line"></span><br><span class="line">这种方式报错</span><br><span class="line">var obj3=&#123;[objproperty]&#125;;//报错</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、函数的name属性能返回函数名，方法也可以</p>
+</li>
+<li><p>4、Object.is()判断两个值是否严格相等</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">与===的唯一两处差别:</span><br><span class="line">+0===-0;//true</span><br><span class="line">Object.is(+0,-0);//false</span><br><span class="line"></span><br><span class="line">NaN===NaN;//false</span><br><span class="line">Object.is(NaN,NaN);//true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>5.Object.assign(target,source1,source2)  用于对象的合并，将源对象(source)的可枚举的属性覆盖性的复制给目标对象（target）,<br>注意这个方法是浅拷贝，如果属性是一个对象，那么只是复制对该对象的引用。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object.assign()的作用：</span><br><span class="line">复制对象与为属性指定默认值。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>6、属性的可枚举性<br>使用Object,getOwnPropertyDescriptor方法可以获取该属性的描述对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">let obj=&#123;foo:123&#125;;</span><br><span class="line">Object.getOwnPropertyscriptor(obj,&#x27;foo&#x27;);</span><br><span class="line">打印://&#123;</span><br><span class="line">    value:123,</span><br><span class="line">    writebale:true;</span><br><span class="line">    enumberable:true;</span><br><span class="line">    configurable:true</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">对于enumberanle为false的属性，for in ,Object.keys(),JSON.stringify(),Object.assign()会忽略这个属性</span><br><span class="line"></span><br><span class="line">只关心对象自身的属性，尽量使用Object,keys()，而不是for in </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7、5种属性的遍历方法:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for in :遍历自身与可继承的可枚举属性，不含symbol属性</span><br><span class="line">Object.keys(obj) ：所有可枚举属性，不包含继承的与symbol属性</span><br><span class="line">Object.getOwnPropertyNames(obj): 返回一个数组包含对象所有属性，不含symbol与不可枚举属性</span><br><span class="line"></span><br><span class="line">Object.getOwnPropertySymbols(obj):返回一个数组，包含对象自身所有symbol属性</span><br><span class="line"></span><br><span class="line">Reflect.ownKeys(obj):返回一个数组，包含对象自身的所有属性，不管的是symbol还是其他</span><br><span class="line"></span><br><span class="line">这5种遍历，首先遍历属性名为数值的属性，按照数字排序，然后字符串，然后symbol</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8、关于原型方法,不要使用__proto__</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Object.setPrototypeOf(object,prototype);设置一个对象的 prototype对象</span><br><span class="line">Object.getPrototypeOf(obj);//读取一个对象的原型对象</span><br><span class="line">Objcet.create()</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

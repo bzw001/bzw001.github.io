@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Angular2学习笔记-依赖注入</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="一、依赖注入概述"><a href="#一、依赖注入概述" class="headerlink" title="一、依赖注入概述"></a>一、依赖注入概述</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line">//依赖注入能够在应用时替换依赖对象，而不是编译时</span><br><span class="line">/**</span><br><span class="line"> * 1、如何在组件，服务，模块注入服务</span><br><span class="line"> * 2、层级注入</span><br><span class="line"> * 3、注入到派生组件</span><br><span class="line"> * 4、限定方式的依赖注入</span><br><span class="line"> * 5、四种Provider注册形式</span><br><span class="line"> */</span><br><span class="line">//依赖注入的使用，利于各个组件的解耦，代码易于维护，提升开发效率。</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 依赖注入的三个概念：</span><br><span class="line"> * 1、注入器（Injector）：用户创建依赖对象实例</span><br><span class="line"> * 2、Provider:配置注入器</span><br><span class="line"> * 3、依赖（Dependence）：指定被依赖对象的类型</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> //1、如何在组件中注入服务</span><br><span class="line"> /**</span><br><span class="line">  * 1、import导入被依赖对象的服务</span><br><span class="line">    2、组件中配置注入器</span><br><span class="line">    3、组件的构造函数声明需要注入的依赖</span><br><span class="line">    其子组件都可以使用这个服务</span><br><span class="line">  */</span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  //1、导入</span><br><span class="line">  import &#123;sharData&#125; from &#x27;sharData.ser&#x27;;</span><br><span class="line">import &#123; shardData &#125; from &#x27;../project/ng2test/src/app/services/shardData.ser&#x27;;</span><br><span class="line">  @Component(&#123;</span><br><span class="line">      moduleOd:module.id,</span><br><span class="line">      selector:&#x27;test-comp&#x27;,</span><br><span class="line">      //2、配置注入器</span><br><span class="line">      providers:[sharData],</span><br><span class="line">      templateUrl:&#x27;&#x27;,</span><br><span class="line">      styleUrls:[]</span><br><span class="line">  &#125;)</span><br><span class="line">  export class testComponent&#123;</span><br><span class="line">      //3、组件构造函数声明使用</span><br><span class="line">      constructor(</span><br><span class="line">          _shardData:shardData</span><br><span class="line">      )&#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">  //每一个组件都有自己的注入器，但是一旦从provider中注明引入，那么就会产生一个新的服务的实例</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  //如何在服务中注入服务</span><br><span class="line">  //示例：</span><br><span class="line">  import &#123;Injetable&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line"></span><br><span class="line">  @Injectable()</span><br><span class="line">  export class LoggerService&#123;</span><br><span class="line">      log(message:string)&#123;</span><br><span class="line">          console.log(message)</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">//在服务中引入上一个日志服务</span><br><span class="line">import &#123;Injectable&#125; from &#x27;@anuglar/core&#x27;;</span><br><span class="line">import &#123;LoggerService&#125; from &#x27;logger.ser&#x27;;</span><br><span class="line"></span><br><span class="line">@injectable()</span><br><span class="line">export class ContactService&#123;</span><br><span class="line">    //在构造函数中引入被注入的服务</span><br><span class="line">    constructor(_logger:LoggerService)&#123;&#125;;</span><br><span class="line">    getConllections()&#123;</span><br><span class="line">        this._logger.log(&quot;hello&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//引入的步骤一样：导入，在构造函数引入</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//如何在模块中注入服务</span><br><span class="line">//模块下的组件都会共用这一个服务实例</span><br><span class="line">//在app启动的NgModule里注册的服务默认在整个程序内可使用</span><br><span class="line">//使用：直接在元数据providers注入即可</span><br><span class="line">/**</span><br><span class="line"> * 多模块引入相同服务注意点：</span><br><span class="line"> * 1、在根模块中引入的模块，模块内部如果使用相同的服务，那么以后面模块为准</span><br><span class="line"> * 2、如果是一个模块引入另一个模块，两个模块都引入相同的服务，那么以上级模块为准。</span><br><span class="line"> * 因为angular是没有模块作用域这一概念的。</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /**</span><br><span class="line">  * 服务可以放在根模块，子模块，组件，服务里，这个根据不同的应用场景下进行区分。对于延迟加载的模块，如果需要调用组件内服务，其服务最好放在根模块里。</span><br><span class="line">  */</span><br><span class="line"></span><br><span class="line">  //服务实例的查找路径：先从本地组件找，然后父组件，最后到模块。如果都找不到就报错。可以现在依赖注入控制的查找范围</span><br><span class="line"></span><br><span class="line">  //派生组件以及派生组件中的服务引入</span><br><span class="line">  </span><br><span class="line">  //组件的实质是一个类。一个组件类继承另一个组件类形成派生组件。</span><br><span class="line">  //派生组件需要调用在构造函数中调用super来标明其跟父类使用同一个服务</span><br><span class="line"></span><br><span class="line">  export class Test2 extends Test &#123;</span><br><span class="line">      constructor(protected _service:service)&#123;</span><br><span class="line">          super(_service);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //如何使用限定方式依赖注入</span><br><span class="line">  //加入注入了依赖服务的模块代码别移除，就会影响服务的调用。 @Optional和@Host装饰器能解决上面的问题</span><br><span class="line">  /**</span><br><span class="line">   * @Optional :兼容依赖不存在的情况</span><br><span class="line">   * @Host:限定查找规则,明确实例初始化的位置</span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line">   import &#123;Optional&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line">   import &#123;LoggerService&#125; from &#x27;service&#x27;;</span><br><span class="line"></span><br><span class="line">   //..</span><br><span class="line">  constructor(@Optional() provate _logger:LoggerService)&#123;</span><br><span class="line">        if(this._logger) this.logger.info();</span><br><span class="line">  &#125;</span><br><span class="line">   //..</span><br><span class="line"></span><br><span class="line">   //宿主组件：一个组件注入依赖想，那么这个组件就是这些依赖的宿主组件，但是如果这个组件被ng-content被嵌入到另外一个组件，那么这个父组件才是宿主组件</span><br><span class="line">   //加入@Host将限定只能在当前组件查找依赖</span><br><span class="line">   export class tesr3&#123; //如果组件被ng-content嵌入到另一个组件，那么那个组件是宿主组件，会从宿主组件查找</span><br><span class="line">       constructor(@Host _logger:LoggerService)&#123;&#125;</span><br><span class="line">   &#125;</span><br><span class="line">   </span><br></pre></td></tr></table></figure>
+
+<h2 id="二、provider及扩展"><a href="#二、provider及扩展" class="headerlink" title="二、provider及扩展"></a>二、provider及扩展</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">//provider能够实现逻辑或者数据操作的封装，以接口方式提供给调用方使用。在前后台都有使用</span><br><span class="line">//对于angular来讲，provider说明了运行时的所需依赖，注入器根据它来创建服务对象的实例</span><br><span class="line"></span><br><span class="line">//provider能够注册返回合适的服务对象,angular提供了4中provider的注册方式，可以应付大型复杂项目下不同场景</span><br><span class="line"></span><br><span class="line">//1、类provider(useClass)</span><br><span class="line">//场景：同一依赖，可以指定不同的实现</span><br><span class="line">//例：render服务可以canvas渲染，dom渲染</span><br><span class="line"></span><br><span class="line">var injector=Injector.resolveAndCreate([</span><br><span class="line">    &#123;provider:Render,useClass:DomRender&#125;</span><br><span class="line">    // &#123;provider:Render,useClass:CanvasRender&#125;</span><br><span class="line">]);</span><br><span class="line">//调用方</span><br><span class="line">class AppComponent&#123;</span><br><span class="line">    constructor(_render:Render)&#123;</span><br><span class="line">        _render.render();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//2、值provider(useValue)</span><br><span class="line">//场景：依赖的对象可以是常量，字符串等</span><br><span class="line"></span><br><span class="line">let globalSetting=&#123;</span><br><span class="line">    env:&#x27;production&#x27;,</span><br><span class="line">    getHost:()=&gt;&#123;return &#x27;http://test.com.cn&#x27;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector:&#x27;test&#x27;,</span><br><span class="line">    template:`&lt;div&gt;test&lt;/div&gt;`,</span><br><span class="line">    providers:[</span><br><span class="line">        &#123;provide:&#x27;urlSetting&#x27;,useValue:globalSetting&#125;,</span><br><span class="line">        &#123;provide:&#x27;Name&#x27;,useValue:&#x27;HELLO&#x27;&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line">export class testComponent&#123;</span><br><span class="line">    constructor()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//3、别名provider（useExisting）</span><br><span class="line">//场景：一个新服务需要替换一个旧服务，但是不想动旧服务存在的代码</span><br><span class="line">providers:[</span><br><span class="line">    &#123;provide:NerService,useClass:NewLogger&#125;,</span><br><span class="line">    &#123;provide:OldService,useExisting:NewLogger&#125; //这样原来的代码就不需要变更</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//4、工厂provider（useFactory）</span><br><span class="line">//场景：依赖对象是可以动态变化的。如根据用户的权限返回对应的服务</span><br><span class="line">let contactServiceFactory=(</span><br><span class="line">    _logger:LoggerService,</span><br><span class="line">    _userService:UserService</span><br><span class="line">)=&gt;&#123;</span><br><span class="line">    return new contactServiceFactory(_logger,_userService.user.isAuthorized);</span><br><span class="line">&#125;</span><br><span class="line">export let contactServiceProvider=&#123;</span><br><span class="line">    provide:ContactService,</span><br><span class="line">    useFactory:contactServiceFactory,//声明Provider是一个工厂函数</span><br><span class="line">    deps:[</span><br><span class="line">        LoggerService,</span><br><span class="line">        UserService</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">//扩展</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//如何在子组件获取父组件的实例？</span><br><span class="line"></span><br><span class="line">//已知父组件的类型：在子组件构造函数使用ParentComponent来获取已知类型的父组件使用</span><br><span class="line">//已知父组件：定义子组件的时候清楚其组件</span><br><span class="line">export ChildComponent&#123;</span><br><span class="line">    name=&quot;子组件&quot;;</span><br><span class="line">    constructor(public parent:ParentComponent)&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//未知父组件的类型。 一个组件可能是多个组件的子组件，定义子组件的时候，使用父组件实例，但是不清楚其父组件实例具体是哪个</span><br><span class="line">//通过类一接口解决。父组件实现一个抽象类，子组件通过注入这个&#x27;抽象&#x27;可以获取到父组件实例</span><br><span class="line"></span><br><span class="line">//定义Parent抽象类，只有name属性</span><br><span class="line">export abstract class Parent&#123;</span><br><span class="line">    name:string ;</span><br><span class="line">&#125;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector:&#x27;parent&#x27;,</span><br><span class="line">    template:`</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">        &lt;h3&gt;&#123;&#123;name&#125;&#125;&lt;/h3&gt;</span><br><span class="line">        &lt;child&gt;&lt;/child&gt;</span><br><span class="line">    &lt;/div&gt;`,</span><br><span class="line">    providers:[</span><br><span class="line">        &#123;</span><br><span class="line">            provide:Parent,</span><br><span class="line">            useExisting:ParentComponet</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line">export class ParentComponnet implements Parent&#123;</span><br><span class="line">    name=&quot;父组件&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//子组件中获取</span><br><span class="line">export class ChildComponent&#123;</span><br><span class="line">    name=&quot;子组件&quot;;</span><br><span class="line">    constructor(public:Parent)&#123;&#125;//找到父组件实例</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

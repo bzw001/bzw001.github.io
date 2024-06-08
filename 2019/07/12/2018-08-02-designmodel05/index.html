@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >常见设计模式-装饰者状态适配器</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="装饰者模式"><a href="#装饰者模式" class="headerlink" title="装饰者模式"></a>装饰者模式</h2><blockquote>
+<p>当不希望一个类一开始就很庞大，包含很多职责，可以使用装饰者模式<br>装饰者模式能够在不改变对象自身的基础上，在程序运行期间给对象动态地添加职责</p>
+</blockquote>
+<!--truncate-->
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">// AOP函数 分离业务代码与数据统计代码</span><br><span class="line">// 如在登录button上弹出登录浮层（业务代码），同时要进行上报多少用户点击了这个登录button(数据统计代码)</span><br><span class="line">//常规下</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;button tag=&quot;login&quot; id=&quot;button&quot;&gt;点击打开浮层&lt;/button&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    </span><br><span class="line">  var showLogin = function() &#123;</span><br><span class="line">    console.log(&#x27;打开登录浮层&#x27;);</span><br><span class="line">    log(this.getAttribute(&#x27;tag&#x27;));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var log = function(tag) &#123;</span><br><span class="line">    console.log(&quot;上报标签为：&quot; + tag);</span><br><span class="line">    (new Image()).src=&quot;http://xxx&quot;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  document.getElementById(&#x27;button&#x27;).onclick = showLogin;</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br><span class="line"></span><br><span class="line">//使用AOP分离</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">  Function.prototype.after = function(afterFn) &#123;</span><br><span class="line">    var _self = this;</span><br><span class="line">    return function () &#123;</span><br><span class="line">      var ret = _self.apply(this, arguments);</span><br><span class="line">      afterFn.apply(this.arguments);</span><br><span class="line">      return ret;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var showLogin = function() &#123;</span><br><span class="line">    console.log(&#x27;打开浮层);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var log = function() &#123;</span><br><span class="line">    console.log(&#x27;数据上报&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  showLogin = showLogin.after(log);</span><br><span class="line">  document.getElementById(&#x27;button&#x27;).onclick = showLogin;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>装饰者模式与代理模式的区别<blockquote>
+<p>代理模式本身是依赖于本体使用的，而装饰者模式在于加入的行为是不依赖于被装饰者的</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="状态模式"><a href="#状态模式" class="headerlink" title="状态模式"></a>状态模式</h2><blockquote>
+<p>状态模式的关键是把事务的每种状态都封装成单独的类，跟此种状态有关的行为都被封装在这个类的内部</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">//按下开发，变换灯的状态(强，弱，关)</span><br><span class="line">//定义3个状态类</span><br><span class="line">var OffLineState = function(light) &#123;</span><br><span class="line">  this.light = light;</span><br><span class="line">&#125;</span><br><span class="line">OffLineState.prototype.buttonWasPressed = function() &#123;</span><br><span class="line">  console.log(&#x27;弱光);</span><br><span class="line">  this.light.setState(this.light.WeakLightState); //切换到弱光</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var WeakLightState = function(light) &#123;</span><br><span class="line">  this.light = light;</span><br><span class="line">&#125;</span><br><span class="line"> WeakLightState.prototype.buttonWasPressed = function() &#123;</span><br><span class="line">   console.log(&#x27;强光&#x27;);</span><br><span class="line">   this.light.setState(this.light.strongLightState); //切换到强光</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> var StrongLightState = function(light) &#123;</span><br><span class="line">   this.light = light;</span><br><span class="line"> &#125;</span><br><span class="line"> StrongLightState = function() &#123;</span><br><span class="line">   console.log(&#x27;关灯&#x27;);</span><br><span class="line">   this.light.setState(this.light.offLightState); //切换到关灯</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> //light类</span><br><span class="line"> var Light = function() &#123;</span><br><span class="line">   this.offLightState = new OffLightState(this);</span><br><span class="line">   this.weakLightState = new WeakLightState(this);</span><br><span class="line">   this.strongLightState = new StrongLightState(this);</span><br><span class="line">   this.button = null;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Light.prototype.init = function() &#123;</span><br><span class="line">   var button = document.createElement(&#x27;button&#x27;);</span><br><span class="line">   var self = this;</span><br><span class="line">   this.button = document.appendChild(button);</span><br><span class="line">   this.button.innetHTML = &quot;开关&quot;;</span><br><span class="line"></span><br><span class="line">   this.currState = this.offLightState;//设置当前状态</span><br><span class="line"></span><br><span class="line">   this.button.click = functiont() &#123;</span><br><span class="line">     self.currState.buttonWasPressed();</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> Light.prototype.setState = function(newState) &#123;</span><br><span class="line">   this.currState = newState;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> //当如果要增加一个超光光的时候，则再增加一个状态类</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>状态模式的优缺点</li>
+</ul>
+<ul>
+<li>优点在于将行为封装到了状态类里，容易增加新的状态与状态转换，将多个逻辑判断语句换成了单一的状态行为切换</li>
+<li>缺点在于当状态比较多时，需要定义多个状态类，同时增加代码的复杂度</li>
+</ul>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><blockquote>
+<p>适配器好比插头转换器，当两个实体接口不兼容，同时不适宜改变两个实体的代码来使二者兼容时，适配器应运而生。<br>适配器其实是不得已的选择<br>比如xml与json数据的转换，百度地图与高德地图展示方法的切换等，实现起来并没有固定的模式，只是将这种业务场景下选择的处理方法称为适配者模式。</p>
+</blockquote>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Angular2学习笔记-组件01</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="一、创建组件的基本方法"><a href="#一、创建组件的基本方法" class="headerlink" title="一、创建组件的基本方法"></a>一、创建组件的基本方法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 创建组件的三种步骤</span><br><span class="line"> * 1、从@angular/core中引入Component装饰器</span><br><span class="line"> * 2、建立一个类，使用@component修饰它</span><br><span class="line"> * 3、@component中，设置selector自定义标签与template模板</span><br><span class="line"> *</span><br><span class="line"> * 先修饰，后定义组件逻辑</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//从angularjs角度来看，组件可以看做指令</span><br><span class="line">import &#123;Component&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line"></span><br><span class="line">@component(&#123;    //这个装饰器可以当作是组件封装的语法糖</span><br><span class="line">    //下面是组件元数据</span><br><span class="line">    selector:&#x27;contact-item&#x27;,   //在html中使用&lt;contact-item&gt;&lt;/contact-item&gt;</span><br><span class="line">    template:`</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;p&gt;张三&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;123&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">    styles:[</span><br><span class="line">        `</span><br><span class="line">            li:last-child&#123;</span><br><span class="line">                border-bottom:none;</span><br><span class="line">            &#125;</span><br><span class="line">        `</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class ContactItemComponent&#123;&#125;</span><br><span class="line"></span><br><span class="line">//组件元数据说明</span><br><span class="line">/**</span><br><span class="line"> * selector:组件标签名</span><br><span class="line"> * template:宿主元素模板   每个组件只能指定一个模板</span><br><span class="line"> * templateUrl:外联模板</span><br><span class="line"> * styles:内联样式    优先级没有styleUrls高，同时这里的样式是专属于组件的</span><br><span class="line"> * styleUrls：指定外联样式  ，可指定多个</span><br><span class="line"> * （如果是使用webpack指定less,则:styles:[require(&#x27;app/list/item.component.less&#x27;)]）</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//关于模板的说明</span><br><span class="line">/**</span><br><span class="line"> * 渲染组件内容的那个dom即宿主元素</span><br><span class="line"> */</span><br><span class="line">//组件与宿主元素交互的形式</span><br><span class="line">/**</span><br><span class="line"> * 显示数据，双向数据绑定，监听宿主元素事件以及调用组件的方法</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//单纯显示数据  ,单纯使用插值 &#123;&#123;&#125;&#125;</span><br><span class="line"></span><br><span class="line">@component(&#123;</span><br><span class="line">    selector:&#x27;contact-item&#x27;,</span><br><span class="line">    //这里的name是组件类成员变量</span><br><span class="line">    template:`</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;123&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//数据双向绑定    语法:[(ngModel)]=&quot;property&quot;</span><br><span class="line">@component(&#123;</span><br><span class="line">    selector:&#x27;contact-item&#x27;,</span><br><span class="line">    //input改变同步到name属性，同时同步到p标签上</span><br><span class="line">    template:`</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; value=&quot;&#123;&#123;name&#125;&#125;&quot; [(ngModel)]=&quot;name&quot;&gt;</span><br><span class="line">            &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p&gt;123&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class ContactItemComponent&#123;</span><br><span class="line">    name:string=&#x27;张三&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//监听宿主元素事件以及组件的方法调用</span><br><span class="line">// ()是事件绑定语法糖</span><br><span class="line"></span><br><span class="line">@component(&#123;</span><br><span class="line">    selector:&#x27;contact-item&#x27;,</span><br><span class="line">    template:`</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            &lt;input type=&quot;text&quot; value=&quot;&#123;&#123;name&#125;&#125;&quot; [(ngModel)]=&quot;name&quot;&gt;</span><br><span class="line">            &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;/p&gt;</span><br><span class="line">            &lt;p (click)=&quot;addContact()&quot;&gt;123&lt;/p&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">//其它元数据</span><br><span class="line">/**</span><br><span class="line"> * queries:设置需要注入到组件的查询</span><br><span class="line"> * 组件中的查询包括视图查询与内容查询:</span><br><span class="line"> * 视图查询可以通过@ViewChild/@ViewChildren,对于一些dom操作，可以通过视图查询的方式，这样利于浏览器解耦与降低单元测试复杂度</span><br><span class="line"> * 内容查询可以获取不在组件模板里定义的元素，其需要结合ng-content使用</span><br><span class="line"> *</span><br><span class="line"> * animation:便捷的动画定义方法</span><br><span class="line"> * 先引入动画函数，定义后使用@triggerName触发</span><br><span class="line"> * */</span><br><span class="line">import &#123;Component,trigger,state,style,transition,animate&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    template:`</span><br><span class="line">        &lt;div&gt;</span><br><span class="line">            &lt;button [@buttonStatus=&quot;status&quot;] click=&quot;toggleStatus()&quot;&gt;&lt;/button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    `,</span><br><span class="line">   animations:[</span><br><span class="line">       trigger(&#x27;buttonStatus&#x27;,[</span><br><span class="line">           state(&#x27;on&#x27;,style(&#123;</span><br><span class="line">               color:&#x27;red&#x27;,</span><br><span class="line">               transform:&#x27;scale(1.2)&#x27;</span><br><span class="line">           &#125;)),</span><br><span class="line">           state(&#x27;off&#x27;,style(&#123;</span><br><span class="line">               color:&#x27;yellow&#x27;,</span><br><span class="line">               transform:&#x27;scale(1)&#x27;</span><br><span class="line">           &#125;))</span><br><span class="line">       ]),</span><br><span class="line">       transition(&#x27;off=&gt;on&#x27;,animate(&#x27;100ms ease-in&#x27;)),</span><br><span class="line">       transition(&#x27;on=&gt;off&#x27;,animate(&#x27;100ms ease-out&#x27;))</span><br><span class="line">   ]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AnimationsExampleComponent&#123;</span><br><span class="line">    status:string=&#x27;on&#x27;;</span><br><span class="line">    toggleStatus()&#123;</span><br><span class="line">        this.status=(this.status===&#x27;on&#x27;)?&#x27;off&#x27;:&#x27;on&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * Encapsulation</span><br><span class="line"> * 用于视图包装，可以隔离组件样式，组件间的样式更加独立而不影响，组件复用更加简单</span><br><span class="line"> * 元数据encapsulation可以被设为三个值：</span><br><span class="line"> * ViewEncapsulation.None: 无ShadowDom，无样式包装，样式会放到document的head里面，组件样式可被覆盖</span><br><span class="line"> * ViewEncapsulation.Emulated: 无ShadowDom，通过Angular提供的样式包装机制使组件样式不受外部影响，这是默认设置</span><br><span class="line"> * 默认样式包装机制的方法是为组件的Dom添加一个独一的属性，然后这个属性用于css的dom选择</span><br><span class="line"> * ViewEncapsulation.Native:使用原生的ShadowDom特性，组件以浏览器支持的ShaDom形式的渲染</span><br><span class="line"> */</span><br><span class="line">let showDom=`</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;hello&gt;</span><br><span class="line">            #shadow-root</span><br><span class="line">            | &lt;style&gt;</span><br><span class="line">            |    .hello&#123;</span><br><span class="line">            |        background: green;</span><br><span class="line">            |    &#125;</span><br><span class="line">            | &lt;/style&gt;</span><br><span class="line">            | &lt;h1&gt;hello&lt;/h1&gt;</span><br><span class="line">        &lt;/hello&gt;</span><br><span class="line">    &lt;/body&gt;</span><br><span class="line">`</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、如何启动一个组件"><a href="#二、如何启动一个组件" class="headerlink" title="二、如何启动一个组件"></a>二、如何启动一个组件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//一个组件启动，需要有一个根模块</span><br><span class="line"></span><br><span class="line">//需要启动的组件</span><br><span class="line">//contact.component.ts</span><br><span class="line">import &#123; Component&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector:&#x27;contact-item&#x27;,</span><br><span class="line">    template:&#x27;&lt;div&gt;&lt;/div&gt;&#x27;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class ContactComponent &#123;&#125;</span><br><span class="line"></span><br><span class="line">//通过@NgModule的bootstrap元数据指定ContactComponent组件</span><br><span class="line">//app.module.ts</span><br><span class="line">import &#123; NgModule&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line">import &#123;BrowserModule&#125; from &#x27;@angular/platform-browser&#x27;;</span><br><span class="line">import &#123;ContactComponent&#125; from &#x27;./contact.component&#x27;</span><br><span class="line"></span><br><span class="line">@NgModule(&#123;</span><br><span class="line">    imports:[BrowserModule],  //引入依赖模块或路由</span><br><span class="line">    declarations:[ContactComponent],  //指定这个模块的视图类</span><br><span class="line">    bootstrap:[ContactComponent],</span><br><span class="line">    //providers://依赖的服务</span><br><span class="line">    //exports://导出视图类  ,当该模块被引入到外部模块时，可以指定可以使用的视图类</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class AppModule&#123;&#125;</span><br><span class="line"></span><br><span class="line">//最后使用platformBrowserDynamic().bootstrapModule()方法启动根模块，启动应用</span><br><span class="line">//app.ts</span><br><span class="line">import &#123; platformBrowserDynamic&#125; from &#x27;@angular/platform-browser-dynamic&#x27;;</span><br><span class="line">import &#123; AppModule&#125; from &#x27;./app.module&#x27;;</span><br><span class="line"></span><br><span class="line">platformBrowserDynamic().bootstrapModule(AppModule);</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

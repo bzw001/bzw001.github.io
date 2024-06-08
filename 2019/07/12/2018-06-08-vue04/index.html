@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >vue剖析笔记04-实现一个VNode节点</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="实现一个VNode节点"><a href="#实现一个VNode节点" class="headerlink" title="实现一个VNode节点"></a>实现一个VNode节点</h2><blockquote>
+<p>首先VNode是一个以js对象为基础的树, 对象属性描述节点，是真实Dom的抽象。 由于Virtual Dom以js对象为基础，所以具有跨平台属性</p>
+</blockquote>
+<ul>
+<li><p>实现一个Vnode</p>
+<blockquote>
+<p>创建一个简单的VNode类, 包含一些基本属性</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">class VNode &#123;</span><br><span class="line">    constructor (tag, data, children, text, elm) &#123;</span><br><span class="line">        //节点标签名</span><br><span class="line">        this.tag = tag;</span><br><span class="line">        //节点的一些数据信息，如props, attrs等</span><br><span class="line">        this.data = data;</span><br><span class="line">        //子节点，数组</span><br><span class="line">        this.childrend = children;</span><br><span class="line">        //节点文本</span><br><span class="line">        this.text = text;</span><br><span class="line">        //当前虚拟节点对应的真实Dom节点</span><br><span class="line">        this.elm = elm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一个简单vue组件下的VNode</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">//简单组件</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;span class=&quot;demo&quot; v-show=&quot;isShow&quot;&gt;</span><br><span class="line">        this is a span</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">//转换成js 代码形式</span><br><span class="line">function render () &#123;</span><br><span class="line">    return new VNode (</span><br><span class="line">            &#x27;span&#x27;,</span><br><span class="line">            &#123;</span><br><span class="line">                //指令集合数组</span><br><span class="line">                directives: [</span><br><span class="line">                    &#123;</span><br><span class="line">                        rawName:&#x27;v-show&#x27;,</span><br><span class="line">                    expression:&#x27;isShow&#x27;,</span><br><span class="line">                    name:&#x27;show&#x27;,</span><br><span class="line">                    value:true</span><br><span class="line">                    &#125;</span><br><span class="line">                ]</span><br><span class="line">            &#125;,</span><br><span class="line">            //静态class</span><br><span class="line">            staticClass: &#x27;demo&#x27;</span><br><span class="line">        &#125;,</span><br><span class="line">        [new VNode(undefined, undefined, undefined, &#x27;this is a span&#x27;)]</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">//转换成VNode之后</span><br><span class="line">&#123;</span><br><span class="line">    tag: &#x27;span&#x27;,</span><br><span class="line">    data: &#123;</span><br><span class="line">        directives: [</span><br><span class="line">            &#123;</span><br><span class="line">                //v-show指令</span><br><span class="line">                rawName: &#x27;v-show&#x27;,</span><br><span class="line">                expression:&#x27;ishow&#x27;,</span><br><span class="line">                name: &#x27;show&#x27;,</span><br><span class="line">                value: &#x27;true&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">        ],</span><br><span class="line">        staticClass: &#x27;demo&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">    text: undefined,</span><br><span class="line">    children: [</span><br><span class="line">        &#123;</span><br><span class="line">            tag: undefined,</span><br><span class="line">            data: undefined,</span><br><span class="line">            text: &#x27;This is a span&#x27;,</span><br><span class="line">            children: undefined</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对VNode节点进行一些分装</p>
+<blockquote>
+<p>分别形成创建空节点， 创建文本节点， 克隆VNode节点</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">//创建空节点</span><br><span class="line">function createEmptyVnode () &#123;</span><br><span class="line">    const node = new VNode();</span><br><span class="line">    node.text = &#x27;&#x27;;</span><br><span class="line">    return node;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//创建一个文本节点</span><br><span class="line">function createTextVNode() &#123;</span><br><span class="line">    return new Vnode(undefined, undefined, undefined, String(val));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//克隆一个VNode节点</span><br><span class="line"></span><br><span class="line">function cloneVNode (node) &#123;</span><br><span class="line">    const cloneVnode = new Vnode(</span><br><span class="line">        node.tag,</span><br><span class="line">        node.data,</span><br><span class="line">        node.children,</span><br><span class="line">        node.text,</span><br><span class="line">        node.elm</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    return cloneNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>VNode是一个带描述真实dom节点信息以及自身指令信息属性的js对象树，树的结构代表着其对应的dom树结构。</p>
+</blockquote>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Angular2学习笔记-模板相关01</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="一、模板语法概览"><a href="#一、模板语法概览" class="headerlink" title="一、模板语法概览"></a>一、模板语法概览</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//模板的意义在于它是自定义的标准化页面，能够实现页面与数据的结合。有一些标签如script标签是不可以在模板中使用的（防止注入攻击）</span><br><span class="line">/**</span><br><span class="line"> * 名称       作用              语法                  实例</span><br><span class="line"> * 插值      单向绑定       &#123;&#123;表达式&#125;&#125;         &lt;p&gt;&#123;&#123;dev.detail&#125;&#125;&lt;/p&gt;</span><br><span class="line"> * 属性绑定  将模板表达式的值绑定到元素属性   [元素属性]=&quot;模板表达式&quot; 或者bind-dom元素属性=&quot;模板表达式&quot;    &lt;div [title]=&quot;name&quot;&gt;&lt;/div&gt;</span><br><span class="line"> * HTML标签特性绑定    模板表达式返回值绑定到元素特性上   &lt;td [attr=colspan]=&quot;&#123;&#123;1+2&#125;&#125;&quot;&gt;&lt;/td&gt;</span><br><span class="line"> * 绑定class类  动态添加类名     &lt;div [class.isblue]=&quot;isBlue&quot;&gt;&lt;/div&gt;  要绑定的是isblue这个css类</span><br><span class="line"> * style样式绑定      动态添加具体样式          &lt;button [style.color]=&quot;isRed?&#x27;red&#x27;:&#x27;green&#x27;&quot;&gt;&lt;/button&gt;</span><br><span class="line"> * 绑定事件    元素绑定事件           &lt;a (click)=&quot;aClickCallback()&quot;&gt;&lt;/a&gt;,可加参数$event</span><br><span class="line"> * 双向绑定   组件与模板数据双向绑定      &lt;div [(title)]=&quot;name&quot;&gt;</span><br><span class="line"> * 模板局部变量   实现组件间的数据流动    &lt;input ##name name=&quot;name&quot; id=&quot;name&quot;&gt;</span><br><span class="line"> * 管道操作    输入数据|管道名：管道参数</span><br><span class="line"> * 模板表达式操作符?.  如果前面值为undefined，后面表达式会被忽略，不会引发异常   &lt;p&gt;&#123;&#123;detail?.telNum&#125;&#125;&lt;/p&gt;</span><br><span class="line"> * 星号前缀   简化对结构指令的使用        &lt;p *myUnless=&quot;boolValue&quot;&gt;&lt;/p&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="二、数据绑定"><a href="#二、数据绑定" class="headerlink" title="二、数据绑定"></a>二、数据绑定</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//数据半丁能更加简单快捷给html里面取值与赋值，易于数据的管理与显示</span><br><span class="line">//Angular下有三种不同数据流动方向的数据绑定方式</span><br><span class="line">/**</span><br><span class="line"> *1、属性绑定，只从数据源到视图</span><br><span class="line"> *   插值Dom元素属性    &lt;p&gt;&#123;&#123;detail.name&#125;&#125;&lt;/p&gt;</span><br><span class="line"> *   绑定HTML标签特性   &lt;div [title]=&quot;name&quot;&gt;he&lt;/div&gt;</span><br><span class="line"> *   绑定              &lt;div [style.color]=&quot;color&quot;&gt;&lt;/div&gt;</span><br><span class="line"> *</span><br><span class="line"> *2、事件绑定   视图到数据源</span><br><span class="line"> *   (click)=&quot;click()&quot;</span><br><span class="line"> *   on-click=&quot;click()&quot;</span><br><span class="line"> *</span><br><span class="line"> *3、双向绑定</span><br><span class="line"> *   &lt;div [(title)]=&quot;name&quot;&gt;&lt;/div&gt;</span><br><span class="line"> *   &lt;div bindon-title=&quot;name&quot;&gt;&lt;/div&gt;</span><br><span class="line"> *</span><br><span class="line"> *以上语法结构，&quot;=&quot;左侧为目标名称，右侧为绑定目标，绑定目标可以被[],()包裹，或者加前缀（bind-,on-,bindon-）</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//DOM对象属性property与HTML标签特性Attribute的区别</span><br><span class="line">/**</span><br><span class="line"> * property以Dom元素为对象，是在文档对象模型定义的，如childNodes，其值为当前值，反应当前，包含的内容多</span><br><span class="line"> * Attribute 是Dom节点自带的属性，是在HTML中定义的，如align，其值代表初始值，不会发生变化，包含的内容较少</span><br><span class="line"> *</span><br><span class="line"> * Angular的数据绑定是根据Dom对象属性property以及事件来运作，不是HTML标签特性</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//插值</span><br><span class="line">/**</span><br><span class="line"> * 插值表达式类似angularjs，其可以进行运算以及可以调用宿主组件的函数</span><br><span class="line"> *</span><br><span class="line"> *模板表达式注意：</span><br><span class="line"> * 不建议使用:new,赋值，带有;,的链式表达式，自增与自减。</span><br><span class="line"> * 模板表达式上下文一般是所在组件的实例，也可以包括组件之外的对象（如模板局部变量）</span><br><span class="line"> * 模板表达式不能引用全局命名空间下的成员，如window，document</span><br><span class="line"> *</span><br><span class="line"> * 模板表达式优化建议:</span><br><span class="line"> * 计算成本高时，考虑缓存</span><br><span class="line"> * 尽量简单</span><br><span class="line"> * 幂等性优先</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//属性绑定</span><br><span class="line">//属性绑定在于设置目标元素的值,属性绑定时不能用来从目标元素获取值</span><br><span class="line"></span><br><span class="line">//dom元素属性绑定</span><br><span class="line">/**</span><br><span class="line"> * 属性绑定是把元素的属性绑定到组件的属性上</span><br><span class="line"> * 绑定的属性可以dom对象属性,也可以是自定义组件的输入属性</span><br><span class="line"> * &lt;div [title]=&quot;titleText&quot;&gt;hello&lt;/div&gt;</span><br><span class="line"> * &lt;div [ngStyle]=&quot;styles&gt;</span><br><span class="line"> * &lt;user-detail [user]=&quot;currentUser&quot;&gt;&lt;/user-detail&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//中括号的作用</span><br><span class="line">//中括号能够在angular执行&quot;=&quot;右侧的模板表达式并将结果赋值给目标属性，不然属性值初始化将不会改变</span><br><span class="line">// &lt;user-detail detail=&quot;常量&quot; [user]=&quot;currentUser&quot;&gt;&lt;/user-detail&gt;</span><br><span class="line"></span><br><span class="line">//HTML标签特性绑定</span><br><span class="line">//优先使用DOM元素属性绑定，对于纯粹是HTML标签特性的绑定才使用HTML标签绑定</span><br><span class="line">/**</span><br><span class="line"> * 语法略有不同，需要加attr.这个前缀</span><br><span class="line"> * &lt;table&gt;&lt;tr&gt;&lt;td [attr.colspan]=&quot;&#123;&#123;1+2&#125;&#125;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//CSS类绑定</span><br><span class="line">/**</span><br><span class="line"> * 元素的全部css类替换</span><br><span class="line"> * &lt;div [class]=&quot;divClass&quot;&gt;&lt;/div&gt;</span><br><span class="line"> * 单独类的添加或移除</span><br><span class="line"> * &lt;div [class.color-blue]=&quot;isBlue&quot;&gt;&lt;/div&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//样式绑定</span><br><span class="line">/**</span><br><span class="line"> * html内联样式可以通过style样式绑定</span><br><span class="line"> * 不带单位的绑定</span><br><span class="line"> * &lt;button [style.background-color]=&quot;isBlue?&#x27;blue&#x27;:&#x27;red&#x27;&quot;&gt;&lt;/button&gt;</span><br><span class="line"> * 带单位</span><br><span class="line"> * &lt;button [style.font-size.px]=&quot;isLarge?18:20&quot;&gt;&lt;/button&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//属性绑定与插值表达式的关系</span><br><span class="line">/**</span><br><span class="line"> * 插值表达式只是属性表达式的一种语法糖</span><br><span class="line"> * &lt;div&gt;hello,&lt;i&gt;&#123;&#123;userName&#125;&#125;&lt;i&gt;&lt;/div&gt;</span><br><span class="line"> * &lt;div&gt;hello,&lt;i [innerHTML]=&quot;userName&quot;&gt;&lt;i&gt;&lt;/div&gt;</span><br><span class="line"> * 上面两种表达是一样的</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//事件绑定</span><br><span class="line">//目标事件</span><br><span class="line">/**</span><br><span class="line"> * 目标事件包括常见的元素事件以及自定义指令事件</span><br><span class="line"> *</span><br><span class="line"> * $event  包含事件的相关信息</span><br><span class="line"> * dom元素事件的$event是包含target与target.value属性的Dom事件对象</span><br><span class="line"> * 自定义事件包括自定义事件触发的传值payload等</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//自定义事件</span><br><span class="line">/**</span><br><span class="line"> * 自定义事件的触发可以借助于EventListener。组件通过EventListener创建实例对象，通过输出属性暴露出来</span><br><span class="line"> * 父组件可以绑定这个输出属性，然后调用EventListener.emit(payload)来触发自定义事件,payload可以传任意值，而且可通过$event访问</span><br><span class="line"> */</span><br><span class="line">//item,components,ts</span><br><span class="line">import &#123;Component.Input,Output,EventListener&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line">import &#123;Router&#125; from &#x27;@angular/router&#x27;;</span><br><span class="line"></span><br><span class="line">@Component(&#123;</span><br><span class="line">    selector:&#x27;list-item&#x27;,</span><br><span class="line">    templateUrl:&#x27;app/list/item.component.html&#x27;,</span><br><span class="line">    styleUrls:[&#x27;app/list/item.component.css&#x27;]</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">export class ListItemComponent&#123;</span><br><span class="line">    @Input() contact:any=&#123;&#125;;</span><br><span class="line">    @Output() routerNavigate=new EventEmitter&lt;number&gt;();</span><br><span class="line"></span><br><span class="line">    goDetail(num:number)&#123;</span><br><span class="line">        this.routerNavigate.emit(num);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//item.component.html</span><br><span class="line">//&lt;a (click)=goDedail(contact.id)&gt;&lt;/a&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//双向数据绑定</span><br><span class="line">/**</span><br><span class="line"> * 使用NgModel指令方便进行数据绑定，[(ngModel)]或者bindon-ngModel</span><br><span class="line"> * []实现数据流从组件类到模板，()实现数据流从模板到组件类</span><br><span class="line"> * [()]能设定一个数据绑定属性，但如果需要数据变化时增加一些额外的功能，则可以使用双向数据绑定的拆分版</span><br><span class="line"> * &lt;input [ngModel]=&quot;currentUser.phoneNumber&quot; (ngModelChange)=&quot;addCodeForPhoneNumber($event)&quot;&gt;</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">//输入域输出属性补充</span><br><span class="line">//&lt;list-item [contact]=&quot;contact&quot; (routerNavigate)=&quot;routerNavigate($event)&quot;&gt;</span><br><span class="line">/**</span><br><span class="line"> * 绑定声明的左侧是数据绑定的目标，右侧部分是数据绑定的源</span><br><span class="line"> * @Input与@Output可以设置别名，@Output(别名) 事件属性名=...,或者组件元数据声明： @Component(&#123;outputs:[&#x27;clicks:go&#x27;]&#125;)</span><br><span class="line"> */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、内置指令"><a href="#三、内置指令" class="headerlink" title="三、内置指令"></a>三、内置指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">//常见内置指令：NgClass,NgStyle,NgIf,NgFor,NgSwitch</span><br><span class="line"></span><br><span class="line">//NgClass 为标签元素添加或移除css类</span><br><span class="line">setClasses()&#123;</span><br><span class="line">    let classes=&#123;</span><br><span class="line">        //css类名:true/false</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//&lt;div [ngClass]=&quot;setClasses()&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//NgStyle   给模板元素设置单一样式</span><br><span class="line">setClass()&#123;</span><br><span class="line">    let styles=&#123;</span><br><span class="line">        &#x27;color&#x27;:&#x27;red&#x27;;//css属性名:css属性值</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//&lt;div [ngStyle]=&quot;setClasses()&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//NgIf  dom节点的消失与显示</span><br><span class="line"></span><br><span class="line">//NgSwitch  类似js的switch语句</span><br><span class="line">//结合ngSwitchCase 与ngSwitchDefault 可以根据模板表达式的值来决定哪个模板元素加载到DOM上</span><br><span class="line">let test=`</span><br><span class="line">        &lt;span [ngSwitch]=&quot;contactName&quot;&gt;</span><br><span class="line">            &lt;span *ngSwitchCase=&quot;&#x27;a&#x27;&quot;&gt;显示a&lt;/span&gt;</span><br><span class="line">            &lt;span *ngSwitchDefault=&quot;&#x27;default&#x27;&quot;&gt;显示default&lt;/span&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">`;</span><br><span class="line"></span><br><span class="line">//NgFor</span><br><span class="line">let testb=`</span><br><span class="line">    &lt;li *ngFor=&quot;let contact of contacts&quot;&gt;</span><br><span class="line">        &lt;list-li [contact]=&quot;contact&quot; (routerNavigate)=&quot;routerNavigate($event)&quot;&gt;&lt;/list-li&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">`;</span><br><span class="line">//赋值给*ngFor的字符串不是模板表达式，星号不能省略</span><br><span class="line">//使用索引</span><br><span class="line">let test2=`</span><br><span class="line">    &lt;div *ngFor=&quot;let contact of contacts;let i=index&quot;&gt;&lt;/div&gt;</span><br><span class="line">`;</span><br><span class="line">//使用NgForTrackBy优化性能</span><br><span class="line">//当ngfor的数据比较多是，一条数据的变更会应发所有数据的渲染。使用trackBy来避免这种情况</span><br><span class="line">//例</span><br><span class="line">trackByContacts(index:number,contact:Contact)&#123;</span><br><span class="line">    return contact.id;</span><br><span class="line">&#125;</span><br><span class="line">let testc=`</span><br><span class="line">    &lt;div *ngFor=&quot;let contact of contacts;trackBy:trackByContacts&quot;&gt;&#123;&#123;contact.id&#125;&#125;&lt;/div&gt;</span><br><span class="line">`;</span><br><span class="line">//这里将具有相同id对象处理成同一个人联系人。只要同一个联系人的属性发生变化，就会更新Dom元素，否则就会留下这个元素</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

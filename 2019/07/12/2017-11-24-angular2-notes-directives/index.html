@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >Angular2学习笔记-指令相关</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="一、指令相关"><a href="#一、指令相关" class="headerlink" title="一、指令相关"></a>一、指令相关</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//指令的作用在于扩展特定DOM元素的功能。而组件可以当做指令一个类别</span><br><span class="line">/**</span><br><span class="line"> * 指令的三个类别：属性指令，结构指令，组件</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> //1、属性指令</span><br><span class="line"> //属性指令一般用来改变元素的外观与行为。如NgStyle</span><br><span class="line"></span><br><span class="line"> //2、结构指令</span><br><span class="line"> //改变DOM结构  ,如果NgIf</span><br><span class="line"></span><br><span class="line"> //3、组件被用来构造自定义行为的可重用视图。</span><br><span class="line"></span><br><span class="line">//组件与其他两个类别的指令的不同点:</span><br><span class="line">/**</span><br><span class="line"> * a、组件用于自己的模板，以自定义标签的方式使用</span><br><span class="line"> * b、一些生命周期的钩子函数为组件独有：例如：ng</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
+
+<h2 id="二、内置指令"><a href="#二、内置指令" class="headerlink" title="二、内置指令"></a>二、内置指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">//内置指令分为三个类别：通用指令，路由指令，表单指令</span><br><span class="line"></span><br><span class="line">//1、通用指令</span><br><span class="line">//包含在CommonModule模块</span><br><span class="line">/**</span><br><span class="line"> * NgClass</span><br><span class="line"> * NgStyle</span><br><span class="line"> * NgIf</span><br><span class="line"> * NgSwitch,NgSwitchCase,NgSwitchDefault</span><br><span class="line"> * NgFor</span><br><span class="line"> * NgTemplateOutlet</span><br><span class="line"> * NgPlural,NgPluralCase</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> //2、表单指令</span><br><span class="line"> /**</span><br><span class="line">  * 表单指令包含在三个模块中：</span><br><span class="line">  FormsModule,ReactiveFormsModule,InternalFormsSharedModule</span><br><span class="line">  */</span><br><span class="line">//FormsModule</span><br><span class="line">/**</span><br><span class="line"> * NgModel,NgmodelGroup,NgForm,InternalFormsSharedModule</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> //ReactiveFormsModule</span><br><span class="line"> /**</span><br><span class="line">  * FormControlDirective,FormGroupDirective,FormControlName,FormGroupName,FormArrayName,InternalFormsModule</span><br><span class="line">  FormControlDirective :将一个已有的FormControl实力绑定到DOM元素</span><br><span class="line">  FormGroupDirective:将已有的表单组合绑定到一个Dom元素,通过formControl</span><br><span class="line">  FormContrlName :将已有的表单控件与一个Dom元素绑定，可以为表单控件制定一个别名。利用这个别名可以做校验以及获取值等。</span><br><span class="line">  其他几个不重要</span><br><span class="line">  */</span><br><span class="line">  //InternalFormsShareModule</span><br><span class="line">  //FormsModule与ReactiveFormsModule均引自InternalFormsSharedModule</span><br><span class="line">  /**</span><br><span class="line">   * 包括表单元素访问器指令：如</span><br><span class="line">   * DefaultValueAccessor,NumberValueAccessor等,这些访问器指令无需再应用中主动访问。他们负责DOM元素与表单输入控件的联系</span><br><span class="line">   * 选择框选项指令：NgSelectOption,NgSelectMultipleOption。可以设置多选与单选框</span><br><span class="line">   * 表单校验指令：RequiredValidator,MinLengthValidator,MaxLengthValidator,PatternValidator</span><br><span class="line">   * 控件状态指令：NgControlStatus,NgControlStatusGroup。无需主动使用，会自动判别控件状态作如设置css类的处理。</span><br><span class="line">   */</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   //3、路由指令</span><br><span class="line">   /**</span><br><span class="line">    * routerLink,routerOutlet,routerLinkActive</span><br><span class="line">     routerLink:占位符</span><br><span class="line">      routerOutlet:组件插入的地方</span><br><span class="line">      routerLinkActive:当前路由与css类的关系</span><br><span class="line">    详细讲解见路由模块</span><br><span class="line">    */</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、自定义属性指令"><a href="#三、自定义属性指令" class="headerlink" title="三、自定义属性指令"></a>三、自定义属性指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//1、如何创建一个指令</span><br><span class="line">/**</span><br><span class="line"> * a、首先需要有一个控制器类，该类使用@Directive装饰。该装饰制定选择器。控制类实现控制行为</span><br><span class="line"> */</span><br><span class="line">//例:</span><br><span class="line">import &#123;Directive,ElementRef&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line"></span><br><span class="line">@Directive(&#123;</span><br><span class="line">    selector:&#x27;[yellowBg]&#x27; //表示使用了yellowBg属性的元素</span><br><span class="line">&#125;)</span><br><span class="line">export class YelloWBg&#123;</span><br><span class="line">    constructor(el:ElementRef)&#123;</span><br><span class="line">            el.nativeElement.style.backgroundColor=&#x27;yellow&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//每一个匹配到的DOM元素都会创建一个实例，使用ElementRef的nativeElement属性可以直接访问DOM元素</span><br><span class="line">//解析到属性-》创建指令类的实例-&gt;元素的引入传入到构造函数-》设置样式</span><br><span class="line"></span><br><span class="line">//为指令绑定输入</span><br><span class="line">//需要使用@Input装饰器</span><br><span class="line">export class YellowBg&#123;</span><br><span class="line">    @Input()//不使用别名直接在元素中使用</span><br><span class="line">    backgroundColor:string;</span><br><span class="line">&#125;</span><br><span class="line">let test=`</span><br><span class="line">    &lt;div [yellowBg] [backgroundColor]=&quot;color&quot;&gt;&lt;&gt;</span><br><span class="line">`;</span><br><span class="line"></span><br><span class="line">//响应用户操作</span><br><span class="line">//通过@Hostlistener装饰器来修饰dom事件。是的dom事件与指令关联</span><br><span class="line">@HostListener(&#x27;click&#x27;)</span><br><span class="line">onClick&#123;</span><br><span class="line">    this.setStyle(this.backgroundColor||this._defaultColor);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、自定义结构指令"><a href="#四、自定义结构指令" class="headerlink" title="四、自定义结构指令"></a>四、自定义结构指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">//如何创建一个结构指令</span><br><span class="line">/**</span><br><span class="line"> * 引入@Directive装饰器</span><br><span class="line"> * 添加css属性选择器，标识指令</span><br><span class="line"> * 声明input绑定表达式</span><br><span class="line"> * 添加TemplateRef(访问组件的模板)与ViewContainerRef(将模板内容插入到DOM中)可以用来渲染组件模板内容</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> import &#123;Directive ,TemplateRef,与ViewContainerRef&#125; from &#x27;@angular/core&#x27;;</span><br><span class="line"> @Directive(&#123;</span><br><span class="line">     selector:[&#x27;myUnless&#x27;]</span><br><span class="line"> &#125;)</span><br><span class="line"> export class UnlessDirective&#123;</span><br><span class="line">     @Input(&#x27;myUnless&#x27;)</span><br><span class="line">     set condition(newCondition:boolean)&#123;//set是属性拦截器</span><br><span class="line">         if(!newCondition)this.ViewContainer.createEmbeddedView(this.templateRef);</span><br><span class="line">         else this.viewContainer.clear()</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">     constructor()&#123;</span><br><span class="line">         private templateRef:TmeplateRef&lt;any&gt;;</span><br><span class="line">         private viewContainer:ViewContainerRef</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> //扩展</span><br><span class="line"> /**</span><br><span class="line">  * 1、带星号前缀的指令会被替换成带有template标签的代码</span><br><span class="line">  2、NgTemplateOutlet可以末班中创建内嵌视图</span><br><span class="line">  3、NgPlural,NgPluralCase指令相当于NgSwitch，但是其支持范围匹配</span><br><span class="line">  4、FormGroupName支持将已有表单组合到一个Dom元素</span><br><span class="line">  5、FormArrayName当做FromGroupDirective指令使用。可以绑定表单数组</span><br><span class="line">  */</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-07-set与map的数据结构</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><ul>
+<li><p>1、set类似于数组，但是成员的值是唯一的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Set本身是一个构造函数，用来生成Set数据结构</span><br><span class="line">const s=new Set();</span><br><span class="line">[1,2,3].forEach(x=&gt;s.add(x));</span><br><span class="line">for(let i of s)&#123;</span><br><span class="line">    console.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">set可以接收数组或者类数组作为参数，去重后加入Set中</span><br><span class="line">let s2=new Set([1,2,1]);</span><br><span class="line"></span><br><span class="line">let s3=new Set(document.querySelectorAll(&#x27;div&#x27;);</span><br><span class="line"></span><br><span class="line">保持结构中值的唯一使用了“Same-value quality”.类似精确相当符（===）</span><br><span class="line">NaN被视为相等，但是对象不是</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、Set实例拥有的方法与属性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">Set.prototype.constructor:构造函数，默认是Set函数</span><br><span class="line">Set.prototype.size:返回Set实例的成员总数</span><br><span class="line"></span><br><span class="line">set包括操作方法与遍历方法：</span><br><span class="line">  四个操作方法：</span><br><span class="line">    add(value):添加某个值。返回Set结构</span><br><span class="line">    delete(value)；删除某个值，返回一布尔值，表示是否删除成功</span><br><span class="line">    has(value):返回一个布尔值</span><br><span class="line">    clear():清除所有成员，没有具体返回值</span><br><span class="line">    </span><br><span class="line">Array.from可以将Set结构转为数组:</span><br><span class="line">   这样可以组成数组去重的方式:</span><br><span class="line">     function dedupe(array)&#123;</span><br><span class="line">         return Array.from(new Set(array));</span><br><span class="line">     &#125;</span><br><span class="line">     dedupe([1,1,2]);//[1,2]</span><br><span class="line">     </span><br><span class="line"></span><br><span class="line">用于4个遍历的方法：</span><br><span class="line">    keys():返回键名</span><br><span class="line">    如：for(let item of s1.keys())&#123;...&#125;  for of也可以实现</span><br><span class="line">    values();返回键值，由于Set结构没有键名，只有键值，所以它的行为与keys()是一样的。</span><br><span class="line">    entries():返回键值对的遍历器</span><br><span class="line">    forEach():使用回调函数遍历每个成员。键名与键值是相等的。[1,1],</span><br><span class="line">    </span><br><span class="line">使用Set结构可以实现简单的去重外，如[...s1],同时它支持数组的map与filter的方法 </span><br><span class="line"></span><br><span class="line">实现交集，并集，差集:</span><br><span class="line">    let s1=new Set([1,2,3]);</span><br><span class="line">    let s2=new Set([4,3,2]);</span><br><span class="line">    </span><br><span class="line">    //并集</span><br><span class="line">    let union=new Set([...s1,...b]);</span><br><span class="line">    </span><br><span class="line">    //交集</span><br><span class="line">    let intersect=new Set([...s1].filter(x=&gt;b.has(x)));</span><br><span class="line">    </span><br><span class="line">    //差集</span><br><span class="line">    let difference=new Set([...a].filter(x=&gt;!b.has(x)));</span><br><span class="line">    </span><br><span class="line">结合map或者Array.from()可以在遍历中改变原来的set结构</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、WeakSet，weak结构与Set类似，只是有两点区别</p>
+<blockquote>
+<p>1、WeakSet的成员只能是对象<br>  2、weakSet中的对象时弱引用。如果其他对象不再引用该对象，垃圾回收机制会自动回收该对象所占的内存。<br>  基于这两点，WeakSet的成员不适合被引用，可以临时存放一组对象或与对象绑定的信息，<br> WeakSet没有size属性以及不可以被遍历，只有Set的前3种操作方法。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="Map数据结构"><a href="#Map数据结构" class="headerlink" title="Map数据结构"></a>Map数据结构</h2><ul>
+<li><p>1、map出现是因为之前的对象是键值对组合，传统上只能用字符串当做键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">map实现了可以各种类型的值都可以当作键,对于键值对数据结构，Map比Obejct更适合</span><br><span class="line">const m =new Map();</span><br><span class="line">const 0 =&#123;&#x27;p&#x27;:&#x27;hello world&#x27;&#125;;</span><br><span class="line">m.set(o,&#x27;content&#x27;);</span><br><span class="line">m.get(o);//&#x27;content&#x27;</span><br><span class="line">m.has(0);//true</span><br><span class="line">m.delete(o);//true</span><br><span class="line">m.has(o);//false</span><br><span class="line"></span><br><span class="line">接受数组作为参数，数组为一个个表示键值对的数组</span><br><span class="line">const map=new Map([</span><br><span class="line">    [&#x27;name&#x27;,&#x27;张三&#x27;],</span><br><span class="line">    [&#x27;title&#x27;,&#x27;Author&#x27;]</span><br><span class="line">]);</span><br><span class="line">map.size;//2</span><br><span class="line">map.has(&#x27;name&#x27;);//true</span><br><span class="line">map.get(&#x27;name&#x27;);//&#x27;张三&#x27;</span><br><span class="line"></span><br><span class="line">可以接受具有遍历接口的数据接口作为参数</span><br><span class="line">const set=new Set([</span><br><span class="line">    [&#x27;foo&#x27;,1],</span><br><span class="line">    [&#x27;bar&#x27;,2]</span><br><span class="line">);</span><br><span class="line">const m1=new Map[set];</span><br><span class="line"></span><br><span class="line">对同一键进行多次赋值，会进行覆盖</span><br><span class="line">const map=new Map();</span><br><span class="line">map.set(1,&#x27;aa&#x27;);</span><br><span class="line">map.set(1,&#x27;bb&#x27;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、Map的键实际上是跟内存地址绑定的，只要内存地址不一样，就会被视为两个键</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const map=new Map();</span><br><span class="line">map.set([&#x27;aaa&#x27;],1);</span><br><span class="line">map.get([&#x27;aaa&#x27;]);//undefined,因为地址不一样</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、Map属性与操作方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">属性:</span><br><span class="line">   1、size：返回成员总数</span><br><span class="line">   </span><br><span class="line">方法：</span><br><span class="line">    1、set：设置键值对,可以链式写法</span><br><span class="line">    let map=new Map()</span><br><span class="line">        .set(1,&#x27;a&#x27;)</span><br><span class="line">        .set(2,&#x27;b&#x27;)</span><br><span class="line">    2、get(key)</span><br><span class="line">    3、has(key)</span><br><span class="line">    4。delete(key)</span><br><span class="line">    5、clear()</span><br><span class="line">4个遍历方法：keys(),values(),entries(),forEach(),遍历出来的顺序就是插入的顺序</span><br><span class="line">Map的默认遍历接口是entries方法</span><br><span class="line"></span><br><span class="line">使用扩展运算符(...)将Map结构转为数组结构</span><br><span class="line">const map=new Map([</span><br><span class="line">    [1,&#x27;1&#x27;],</span><br><span class="line">    [2,&#x27;2&#x27;],</span><br><span class="line">    [3,&#x27;3&#x27;]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">[...map.keys()];//[1,2,3]</span><br><span class="line">[...map.values];//[&#x27;1&#x27;,&#x27;2&#x27;,&#x27;3&#x27;]</span><br><span class="line">[...map];//[[1,&#x27;1&#x27;],[2,&#x27;2&#x27;],[3,&#x27;3&#x27;]</span><br><span class="line"></span><br><span class="line">forEach方法还可以接受第二个参数用来绑定this</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4、与其他数据结构互相转换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">1、转为数组</span><br><span class="line">[...map]等</span><br><span class="line"></span><br><span class="line">2、数组转为map</span><br><span class="line">new Map([</span><br><span class="line">    [true,7],</span><br><span class="line">    [&#123;foo:3&#125;,[&#x27;abc&#x27;]]</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">3、Map转为对象</span><br><span class="line">需要map的键都为字符串，才能转</span><br><span class="line">function strMapToObj(map)&#123;</span><br><span class="line">    let obj=Object.create(null);</span><br><span class="line">    for(let [k,v] of map)&#123;</span><br><span class="line">        obj[k]-v;</span><br><span class="line">    &#125;</span><br><span class="line">    return obj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">4、对象转为Map</span><br><span class="line">function  objToMap(obj)&#123;</span><br><span class="line">    let map=new Map();</span><br><span class="line">    for(let k of Object.keys(obj))&#123;</span><br><span class="line">        map.set(k,obj[k]);</span><br><span class="line">    &#125;</span><br><span class="line">    return map;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">5、map转为JSON</span><br><span class="line">  a、map键名为字符串，可以转为对象JSON</span><br><span class="line">  b、map的键名有非字符串，可以选择转为数组JSON</span><br><span class="line">  </span><br><span class="line">6、JSON转Map，只要先转为对象，然后转Map即可</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="WeakMap"><a href="#WeakMap" class="headerlink" title="WeakMap"></a>WeakMap</h2><blockquote>
+<p>与Map的区别两点：<br>  1、只接受对象为键名<br>  2、WeakMap的键名所指向的对象，不计入垃圾回收机制<br>  使用：针对一些对象保存一些数据，但是又不需要手动将其释放，当该对象清除后，就自动释放<br>  WeakMap只要四个方法：get(),set(),has(),delete(),forEach90是不存在的。</p>
+</blockquote>
+
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >es6-04-对象类型的扩展</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="数组的扩展"><a href="#数组的扩展" class="headerlink" title="数组的扩展"></a>数组的扩展</h2><ul>
+<li><p>1、Array.from()  类数组对象与可遍历的对象转换成数组。如遍历DOM返回的nodelist集合，以及函数的arguments对象</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var arrayLike=&#123;</span><br><span class="line">    &#x27;0&#x27;:1,</span><br><span class="line">    &#x27;1&#x27;:2,</span><br><span class="line">    length:2</span><br><span class="line">&#125;</span><br><span class="line">//es5转换的方法</span><br><span class="line">var arr=[].slice.call(arrayLike);</span><br><span class="line">//es6</span><br><span class="line">let arr=Array.from(arrayLike);</span><br><span class="line">//具有遍历接口的数据  Arrary.from(&#x27;aa&#x27;); //[&#x27;a&#x27;,&#x27;a&#x27;]</span><br><span class="line"></span><br><span class="line">注意，本质上来说只要对象具有length属性，就可以通过这个方法转数组</span><br><span class="line"></span><br><span class="line">//这个方法还有第2个参数，类似于map方法，对于元素进行处理放入到返回的数组中</span><br><span class="line">Array.from(arrayLike,x=&gt;x*x);</span><br><span class="line">//等同   Array.from(arrayLike.map(x=&gt;x*x))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、Array.of()  将一组值转换成数组，可以理解为es5的Array()或者new Array()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Array.of(1,2,3)//[1,2,3]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、copyWithin() 将指定位置的成员复制到其他位置，其他位置会被覆盖，并且返回当前数组。可以修改当前数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Array.prototype.copyWithin(该位置开始替换数据，从该位置开始读取数据，该位置停止读取)</span><br><span class="line">[1,2,3,4,5].copyWithin(0,3) //[4,5,3,4,5]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4、find()与findIndex,可以查找，比indexOf()强大，它们可以执行函数，同时结合Object.is可以发现NaN</p>
+</li>
+<li><p>5、fill()，用于将数组进行覆盖填充，可以用于数组的初始化.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1,2,3].fill(&#x27;a&#x27;);//  [&#x27;a&#x27;,&#x27;a&#x27;,&#x27;a&#x27;]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6、entries（），keys().values()  ，用于数组遍历，第一个是对键值对的遍历，第2个是对键名的遍历，第3个是对键值对的遍历</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">for(let index of [&#x27;a&#x27;,&#x27;b&#x27;].keys())&#123; //其他两个用法一样</span><br><span class="line">    console.log(index);</span><br><span class="line">&#125;</span><br><span class="line">for(let [index,elem] of [&#x27;a&#x27;,&#x27;b&#x27;].entries())&#123; </span><br><span class="line">    console.log(index);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//比较有趣的方法，遍历器对象的next()方法，每次只去遍历对象的一个值，而且是一次取得</span><br><span class="line"></span><br><span class="line">let array=[1,2,3];</span><br><span class="line">let entries=array.entries();</span><br><span class="line">console.log(entries.next().value);//[0.1]</span><br><span class="line">console.log(entries.next().value);//[1.2]</span><br><span class="line">console.log(entries.next().value);//[2.3]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7、includes()   判断某个数组是否包含给定的值</p>
+</li>
+<li><p>8、对空位的处理，如[,,,]</p>
+<blockquote>
+<p> forEach(), filter(), every() 和some()都会跳过空位。<br>map()会跳过空位，但会保留这个值<br>join()和toString()会将空位视为undefined，而undefined和null会被处理成空字符串。</p>
+</blockquote>
+<ul>
+<li>Es6会明确将空位转为undefined,这样一些方法就不会略过空位</li>
+</ul>
+</li>
+</ul>
+<h2 id="函数的扩展"><a href="#函数的扩展" class="headerlink" title="函数的扩展"></a>函数的扩展</h2><ul>
+<li><p>1、可以直接给函数参数设置默认值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function func(x,y=1)&#123;&#125; //如果传来的参数y没有被赋值，那么y=1;</span><br><span class="line">//这样的好处可以知道哪些参数是不必输的，一些参数以后不传也是可以的.</span><br><span class="line">let x=99</span><br><span class="line">function func(y=x+1)&#123;console.log(y)&#125;;</span><br><span class="line">func();//100</span><br><span class="line">func();//101  //取的值是最新的计算的值，也叫惰性取值</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>2、与解构赋值默认值结合使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function func(&#123;x,y=5&#125;)&#123;console.log(x,y)&#125;;</span><br><span class="line">func(&#123;&#123;x:1&#125;&#125;);//1,5</span><br><span class="line">func(&#123;x:1,y:2&#125;);//1,2</span><br><span class="line"></span><br><span class="line">还有一些用法，这里暂略。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3、一般需要设置默认值的参数都会排在后面</p>
+</li>
+<li><p>4、函数具有length属性，表示没有设置默认值参数的个数，但是注意一点，只计算从第一个设置了默认值参数算起，前面的未设置默认值参数个个数就是length的值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(function(x,y=1)&#123;&#125;).length;//1</span><br><span class="line">（function(x=1,y)&#123;&#125;).length;//0</span><br></pre></td></tr></table></figure></li>
+<li><p>5、函数设置默认值的参数会有单独的作用域</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let x=3;</span><br><span class="line">function func(y=x)&#123;let x=2;console.log(y)&#125;;</span><br><span class="line">func();//3</span><br><span class="line">这里参数y=x会形成一个单独的作用域，这里的x由于没有被声明值，就会找到外层的x=3;然后赋值给y,</span><br><span class="line">函数里得x是不起作用的，如果x在外面找不到值，那么就会报undefined</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>6、利用参数值默认值可以在函数声明时就确定哪些参数不可以省略以及哪些参数可以省略</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function throwIfMissing()&#123;</span><br><span class="line">    throw new Error(&#x27;missing parameter&#x27;);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function func(x=throwIfMissing(),y=undefined);x参数如果被省略，那么就会报错，y可以被省略</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>7、使用rest参数(…变量名)能够接受多余的参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function add(...values)&#123;</span><br><span class="line">    let sum=0;</span><br><span class="line">    for(var val of values)&#123;</span><br><span class="line">        sum++=value;</span><br><span class="line">    &#125;</span><br><span class="line">    return sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">add(1,2,3)//6</span><br><span class="line">//这里的...values表示将输进来的参数放到values数组中,注意values后面不能再有其它参数</span><br><span class="line"></span><br><span class="line">应用：</span><br><span class="line">1、将一个数组依次作为参数传入到函数中</span><br><span class="line">function func(x,y,z);</span><br><span class="line">var args=[1,2,3];</span><br><span class="line">func(...args);</span><br><span class="line"></span><br><span class="line">2、合并数组的新方式</span><br><span class="line">var arr1=[1,2,3];</span><br><span class="line">var arr2=[4,5,6];</span><br><span class="line">var arr3=[7,8,9];</span><br><span class="line">[...arr1,...arr2,...arr3];</span><br><span class="line"></span><br><span class="line">3、与解构进行结合</span><br><span class="line">const [first,...rest]=[1,2,3,4];</span><br><span class="line">first;//1</span><br><span class="line">rest;//[2,3,4]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>8 、函数的name属性，es5与es6有点不同</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function func()&#123;&#125;;</span><br><span class="line">func.name;//&#x27;func&#x27;</span><br><span class="line"></span><br><span class="line">var func2=function()&#123;&#125;;</span><br><span class="line">func2.name;//es5为&#x27;&#x27;,es6为 &#x27;func2&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="箭头函数"><a href="#箭头函数" class="headerlink" title="箭头函数"></a>箭头函数</h2><ul>
+<li>1、箭头函数使用规则：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1、(x)=&gt;x,直接小括号内写入参数，当需要执行多个代码时，使用大括号将代码包住，如</span><br><span class="line">()=&gt;&#123;console.log(&#x27;a&#x27;);return 1&#125;.</span><br><span class="line">2、如果需要直接返回对象，需要加上小括号:()=&gt;(&#123;x:1&#125;);</span><br><span class="line">3、可以与解构结合起来，（&#123;first，second&#125;&#125;=？first+&#x27;&#x27;+second</span><br><span class="line">4、最有意义的一点，它的this不根据运行环境改变而改变，在声明时就绑定。者对于回调来说有很大好处。</span><br><span class="line">5、不能与new结合使用，以及函数内不使用arguments，可以使用rest代替。</span><br><span class="line"></span><br><span class="line">注意一点，本身箭头函数没有自己产生的this,需要依靠外边的this.所以使用call,applay,</span><br><span class="line">或者bind都不能改变箭头函数的this的指向。</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>2.多重嵌套函数与管道机制<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let insert=(value)=&gt;(&#123;into:(array)=&gt;(&#123;after:(aftervalue)=&gt;&#123;array.splice(array.indexOf(afterValue)+1,0,value)&#125;&#125;)&#125;)</span><br><span class="line"></span><br><span class="line">管道机制：</span><br><span class="line"></span><br><span class="line">const pipeline=(...funcs)=&gt;val=&gt;funcs.reduce((a,b)=&gt;b(a),val)</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="es7的提案，使用运算符来绑定this（babel转换器已经实现）"><a href="#es7的提案，使用运算符来绑定this（babel转换器已经实现）" class="headerlink" title="es7的提案，使用运算符来绑定this（babel转换器已经实现）"></a>es7的提案，使用运算符来绑定this（babel转换器已经实现）</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">foo::func;//将左边的foo作为func的绑定的this,就是func,bind(foo);</span><br><span class="line">foo:func(...argumnets);//就是func,bind(foo,arguments);</span><br><span class="line"></span><br><span class="line">还有一种用法。</span><br></pre></td></tr></table></figure>
+
+<h2 id="尾调用"><a href="#尾调用" class="headerlink" title="尾调用"></a>尾调用</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 尾调用: function func()&#123;return func2();&#125;;//最后一步调用一个函数，只是最单纯的调用.</span><br><span class="line"> 尾调用优化：一个函数调用就会产生一个调用记录，即调用帧，如果a函数里面执行b函数，而且b函数的执行使用了外层的内部变量信息。那么上一层的调用帧会保存，如果这种调用帧产生的多了，将非常的损耗资源。</span><br><span class="line"> 如:</span><br><span class="line"> function func()&#123;</span><br><span class="line">     let m=1;</span><br><span class="line">     let n=2;</span><br><span class="line">     return g(m+n);</span><br><span class="line"> &#125;</span><br><span class="line"> //等同于g(3)</span><br><span class="line"> </span><br><span class="line"> 这种情况就不能尾调用优化:</span><br><span class="line"> function addone(a)&#123;</span><br><span class="line">     var one=1;</span><br><span class="line">     function inner(b)&#123;</span><br><span class="line">         return b+one;</span><br><span class="line">     &#125;</span><br><span class="line">     </span><br><span class="line">     return inner(a);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">es6的尾调用优化只在严格模式下开启。因为正常模式下，函数有arguments与caller跟踪函数的调用栈</span><br></pre></td></tr></table></figure>
+
+<h2 id="尾递归"><a href="#尾递归" class="headerlink" title="尾递归"></a>尾递归</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function afactorial(n,total=1)&#123;//计算阶乘</span><br><span class="line">    if(n==1) return total;</span><br><span class="line">    return factorail(n-1,n*total);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

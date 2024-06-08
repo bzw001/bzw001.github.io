@@ -1,0 +1,236 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >JS常见设计模式-发布订阅命令组合模板享元职责中介者</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="发布-订阅模式"><a href="#发布-订阅模式" class="headerlink" title="发布-订阅模式"></a>发布-订阅模式</h2><blockquote>
+<p>发布-订阅模式又叫观察者模式，其定义对象间的一种一对多的依赖关系，当一个兑现的状态发生改变时，所有依赖于它的对象都将得到通知。<br>js中一般用事件模型来替代传统的发布-订阅模式,例如dom事件</p>
+</blockquote>
+<ul>
+<li><p>自定义事件</p>
+<ul>
+<li>实现发布-订阅模式</li>
+<li>指定发布者</li>
+<li>给发布者添加一个缓存列表，用于存放回调函数以便通知订阅者</li>
+<li>最后发布消息时，发布者会遍历缓存列表，依次触发里面的订阅者回调函数</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var salesOffices = &#123;&#125;;</span><br><span class="line">salesOffices.clientList = [];</span><br><span class="line">salesOffices.listen = function(fn) &#123;</span><br><span class="line">  this.clientList.push(fn);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">salesOffices.trigger = function() &#123;</span><br><span class="line">  for (var i = 0, fn; fn = this.clientList[i++];) &#123;</span><br><span class="line">    fn.apply(this, arguments);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>发布-订阅模式的通用实现</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">var event = &#123;</span><br><span class="line">  clientList: &#123;&#125;,</span><br><span class="line">  listen: function(key, fn) &#123;</span><br><span class="line">    if (!this.clientList[key]) &#123;</span><br><span class="line">      this.clientList[key] = [];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    this.clientList[key].push(fn);</span><br><span class="line">  &#125;,</span><br><span class="line">  trigger: function() &#123;</span><br><span class="line">    var key = Array.prototype.shift.call(arguments),</span><br><span class="line">    fns = this.clientList[key];</span><br><span class="line"></span><br><span class="line">    if (!fns || fns.length === 0) &#123;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for(var i = 0, fn = fns[ i++ ]) &#123;</span><br><span class="line">      fn.apply(this, arguments);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  remove = function(key, fn) &#123;</span><br><span class="line">    var fns = this.clientList[key];</span><br><span class="line"></span><br><span class="line">    if (!fns) &#123;</span><br><span class="line">      return false;</span><br><span class="line">    &#125;</span><br><span class="line">    if (!fn) &#123;</span><br><span class="line">      fns &amp;&amp; (fns.length = 0);//取消该key所有订阅</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      for (var l = fns.length -1; l &gt;= 0; l--) &#123;</span><br><span class="line">        var _fn = fns[l];</span><br><span class="line">        if (_fn === fn) &#123;</span><br><span class="line">          fns.splice(l , 1);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125; </span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>对于先订阅再发布的场景<blockquote>
+<p>可以建立一个存放离线事件的堆栈，当事件发布的时候，如果还没有订阅者订阅这个事件，，可以将发布事件的动作包裹在一个函数，包装函数存入到堆栈中，等有对象订阅次事件时，遍历堆栈一次执行包装函数</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h2><blockquote>
+<p>命令模式最常见的应用场景: 当需要向某些对象发送请求，但并不知道请求的接收者是谁，也不知道被请求后的操作是什么。命令模式弄消除请求发起者与接收者之间的耦合关系</p>
+</blockquote>
+<h2 id="组合模式"><a href="#组合模式" class="headerlink" title="组合模式"></a>组合模式</h2><blockquote>
+<p>用小的子对象来构建更大的对象，而子对象由更小的子对象构成。组合模式将对象组合成树形结果，以表示部分-整体的层次结构<br>只有用一致的方式对待列表中的每个叶对象的时候，才适合使用组合模式</p>
+</blockquote>
+<h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2><blockquote>
+<p>模板方法模式由两部分结构组成，第一部分是抽象父类，第二部分是具体的实现子类。父类会封装子类的算法框架（包括一些公关方法以及封装子类中所有方法的执行顺序），子类通过集成这个抽象类，也会集成整个算法结构，并且可以选择重写父类的方法<br>相同部分留给父类，不同部分留给子类实现。通过封装变化来提高系统扩展性</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//例子：泡咖啡与茶</span><br><span class="line">两个动作都有着共同点：煮沸水，到人杯子，倒入饮料（咖啡/茶）</span><br><span class="line">这些共同基本动作可以抽象成父类的方法，同时init顺序调用其固定的动作</span><br><span class="line">然后coffer类与子类通过prototype继承父类，重写其独特的方法，最后都会调用init方法完成动作</span><br><span class="line"></span><br><span class="line">//这里的init便可以称为模板方法，因为其封装了子类的算法框架，指导子类以何种顺序去执行哪些方法。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用场景<blockquote>
+<p>大的方面讲，模板方法模式常用语搭建项目的框架，定好框架的骨架后，然后几成框架的结果进行填空。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="享元模式"><a href="#享元模式" class="headerlink" title="享元模式"></a>享元模式</h2><blockquote>
+<p>享元模式核心在于运用共享技术来有效支持大量细粒度的对象，当系统创建了大量类似的对象而导致内存占用过高，可以使用享元模式。<br>适合一个程序中使用了大量的相似对象，同时对象的大多数状态都可以变为外部状态 。例如文件上传</p>
+</blockquote>
+<ul>
+<li><p>内部状态与外部状态</p>
+<blockquote>
+<p>享元模式将对象的属性划分为内部状态与外部状态。内部状态存储于对象内部，同时被一些对象共享，通常不会改变，外部状态取决于具体的场景，并根据场景而变化，外部状态不能被共享</p>
+</blockquote>
+</li>
+<li><p>对象池</p>
+<blockquote>
+<p>对于创建过的对象进行循环利用</p>
+</blockquote>
+</li>
+</ul>
+ <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//通用对象池实现</span><br><span class="line">var objectPoolFactory = function(createObjFn) &#123;</span><br><span class="line">  var objectPool = [];</span><br><span class="line">  return &#123;</span><br><span class="line">    create : function () &#123;</span><br><span class="line">      var obj = objectPool.length === 0 ?</span><br><span class="line">               createObjFn.apply(this, arguments) : objectPool.shift();</span><br><span class="line">       return obj;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    recover: function(obj) &#123;</span><br><span class="line">      objectPool.push(obj);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="职责链模式"><a href="#职责链模式" class="headerlink" title="职责链模式"></a>职责链模式</h2><blockquote>
+<p>对于一个请求，多个对象都有机会处理请求，这些对象形成一条链，请求会沿着链传递，直到被处理为止<br>优势： 请求者只需要知道一个处理链中的一个节点，并不需要知道真正的处理者，从而弱化发送者与接收者的强联系。<br>无论是作用域链，原型链，还是DOM节点中的事件冒泡，都可找到职责链模式的影子</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line">//一个支付定金购买的例子</span><br><span class="line">//正式购买后：</span><br><span class="line">a、已经支付过500元定金的用户，收到100元的优惠券</span><br><span class="line">b、已经支付过200元的用户，收到50元的优惠券</span><br><span class="line">c、未支付定金的进入普通购买模式，没有优惠券，同时库存不足下，不能购买</span><br><span class="line">// 可传入3个字段</span><br><span class="line">orderType: 订单类型， 1-- 500元定金用户, 2 -- 200元定金用户， 3 -- 未支付定金的普通用户</span><br><span class="line">pay: true/false 表示是否已经支付定金，未支付定金相当于普通用户</span><br><span class="line">stock: 普通用户可购买的手机数量库存，支付定金（500/200）的用户不受此限制</span><br><span class="line"></span><br><span class="line">//根据流程直接怼， 简单快</span><br><span class="line">var order = function (orderType, pay, stock) &#123;</span><br><span class="line">  if (orderType === 1) &#123;//500元定金用户</span><br><span class="line">    if (pay) &#123;</span><br><span class="line">      console.log(&#x27;得到100优惠券&#x27;) </span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      if (stock &gt; 0) &#123;</span><br><span class="line">        console.log(&#x27;无优惠券);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        console.log(&#x27;手机库存不足，无法购买&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  else if (orderType === 2) &#123;</span><br><span class="line">    if (pay) &#123;</span><br><span class="line">      console.log(&#x27;获取50优惠券&#x27;);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      if (stock &gt; 0) &#123;</span><br><span class="line">        console.log(&#x27;无优惠券);</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        console.log(&#x27;手机库存不足，无法购买&#x27;)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  &#125; </span><br><span class="line">  else if (orderType === 3) &#123;</span><br><span class="line">    if (stock &gt; 0) &#123;</span><br><span class="line">      console.log(&#x27;无优惠券);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">       console.log(&#x27;手机库存不足，无法购买&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">//职责链模式重构代码 </span><br><span class="line">//将分支逻辑拆成节点函数，同时通过返回表示请求是否被当前节点处理</span><br><span class="line"></span><br><span class="line">var order500 = function(orderType, pay ,stock) &#123;</span><br><span class="line">  if (orderType === 1 &amp;&amp; pay === true) &#123;</span><br><span class="line">    console.log(&#x27;获得100优惠券&#x27;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return true;// 表示给下一个节点处理</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var order200 = function(orderType, pay , stock) &#123;</span><br><span class="line">  if (orderType === 2 &amp;&amp; pay === true) &#123;</span><br><span class="line">    console.log(&#x27;获得50优惠券&#x27;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var orderNomal = function(orderType, pay, stock) &#123;</span><br><span class="line">  if (stock &gt; 0) &#123;</span><br><span class="line">    console.log(&#x27;普通购买&#x27;);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    console.log(&#x27;库存不足，不能购买&#x27;);</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//职责链节点</span><br><span class="line">var chain = function(fn) &#123;</span><br><span class="line">  this.fn = fn;</span><br><span class="line">  this.successor = null;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chain.prototype.setNextSuccessor = function(successor) &#123;</span><br><span class="line">  return this.successor = successor;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">chain.prototype.passRequest = function()&#123;</span><br><span class="line">  var ret = this.fn.apply(this, arguments);</span><br><span class="line">  if (ret) &#123;</span><br><span class="line">    return this.successor &amp;&amp; this.successor.passRequest.apply(this.successor, arguments);</span><br><span class="line">  &#125;</span><br><span class="line">  return ret;</span><br><span class="line">&#125;</span><br><span class="line">//将业务函数包装成职责链的节点</span><br><span class="line">var chainOrder500 = new Chain(order500);</span><br><span class="line">var chainOrder200 = new Chain(order200);</span><br><span class="line">var chainOrderNormal = new Chain(orderNormal);</span><br><span class="line"></span><br><span class="line">//指定节点顺序</span><br><span class="line">chainOrder500.setNextSuccessor(chainOrder200);</span><br><span class="line">chainOrder200.setNextSuccessor(chainOrderNormal);</span><br><span class="line"></span><br><span class="line">//请求处理给第一个节点</span><br><span class="line">chainOder500.passRequest(1, true, 500); // 100优惠券</span><br><span class="line">chainOder500.passRequest(2, true, 500); // 50优惠券</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>异步的职责链<blockquote>
+<p>在节点函数中能进行异步请求,在职责链的节点行进依赖于异步请求的结果</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 增加next方法，需要手动的传递请求给职责链的下一个节点</span><br><span class="line"></span><br><span class="line">Chain.prototype.next = function() &#123;</span><br><span class="line">  return this.successor &amp;&amp; this.successor.passReuqest.apply(this.succesor, arguments);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="中介者模式"><a href="#中介者模式" class="headerlink" title="中介者模式"></a>中介者模式</h2><blockquote>
+<p>面向对象鼓励将行为分布到各个对象中，把对象划分为更小的粒度，有助于增强对象可复用性，但是对象增多，同时联系激增下可能会降低它们的复用性<br>中介者模式作用就是解决对象与对象之间的耦合关系。对象通过中介者来通信，而不是相互引用<br>中介者模式是迎合迪米特法则（最少知识原则，一个对象应该尽少了解另外的对象）的一种实现。<br>本身中介者的维护也是存在一定代价的，当程序的维护或者调用困难主要是对象间的高耦合度造成，可以试试中介者模式</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">//中介者模式, 实现常见游戏玩家/团队对决的决胜关系</span><br><span class="line"></span><br><span class="line">function Player(name, teamColor) &#123;</span><br><span class="line">  this.name = name;</span><br><span class="line">  this.teamColor = teamColor;</span><br><span class="line">  this.state = &#x27;alive&#x27;;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">Player.prototype.win = function() &#123;</span><br><span class="line">  console.log(this.name + &#x27;won&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Player.prototype.lose = function () &#123;</span><br><span class="line">  console.log(this.name + &#x27;lost&#x27;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//玩家死忙</span><br><span class="line">Player.prototype.die = function() &#123;</span><br><span class="line">  this.state = &#x27;dead&#x27;;</span><br><span class="line">  playerDirector.reciveMassage(&#x27;palyerDead&#x27;, this); //给中介者发送消息,万鸡死亡</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//移除玩家</span><br><span class="line"></span><br><span class="line">Player.prototype.remove = function() &#123;</span><br><span class="line">  playerDirector.reciveMassage(&#x27;removePlayer&#x27;, this);// 给中介者发送消息，移除一个玩家</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//玩家换队</span><br><span class="line"></span><br><span class="line">Player.prototype.changeTeam = function(color)&#123;</span><br><span class="line">  playerDirector.reciveMassage(&#x27;changeTeam&#x27;, this, color);//玩家换队</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//玩家工厂</span><br><span class="line"></span><br><span class="line">var playerFactory = function (name, teamColor) &#123;</span><br><span class="line">  var newPlayer = new Player (name, teamColor);</span><br><span class="line">  playerDirector.reciveMassage(&#x27;addPlayer&#x27;, this);</span><br><span class="line">  return newPlayer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//中介者 playerDirector</span><br><span class="line"></span><br><span class="line">var playerDirector = (function() &#123;</span><br><span class="line">  var players = &#123;&#125;;</span><br><span class="line">  var operations = &#123;&#125;; //中介者可以执行的操作</span><br><span class="line">  </span><br><span class="line">  //新增玩家</span><br><span class="line">  operations.addPlayer = function(player) &#123;</span><br><span class="line">    var teamColor = player.teamColor; //玩家的队伍颜色</span><br><span class="line">    players[teamColor] = players[teamColor] || [];</span><br><span class="line">    players[teamColor].push(player);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //移除一个玩家</span><br><span class="line">  operations.removePlayer = function(player) &#123;</span><br><span class="line">    var teamColor = player.teamColor;</span><br><span class="line">    var teamPlayers = players[teamColor] || [];</span><br><span class="line">    for (var i = teamPlayers.length - 1; i &gt;=0; i--) &#123;</span><br><span class="line">      if (teamPlayers[i] === player) &#123;</span><br><span class="line">        teamPlayers.splice(i, 1);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //玩家换队</span><br><span class="line">  operations.changeTeam = function(player, newTeamColor) &#123;</span><br><span class="line">    oprations.removePlayer(player);</span><br><span class="line">    player.teamColor = newTeamColor;</span><br><span class="line">    oprations.addPlayer(player);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  oprations.palyerDead = function(player) &#123;</span><br><span class="line">    var teamColor = player.teamColor;</span><br><span class="line">    var teamPlayers = players[teamColor];</span><br><span class="line"></span><br><span class="line">    var all_dead = true;</span><br><span class="line">    for (var i = 0 , player; player = teamPlayers[i ++];) &#123;</span><br><span class="line">      if (player.state !== &#x27;dead&#x27;) &#123;</span><br><span class="line">        all_dead = false;</span><br><span class="line">        break;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (all_dead === true) &#123;</span><br><span class="line">      for (var i = 0, player; player = teamPlayers[i++])&#123;</span><br><span class="line">        player.lose();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      for (var color in players) &#123;</span><br><span class="line">        if (color !== teamColor) &#123;</span><br><span class="line">          var teamPlayers = players[color];</span><br><span class="line">          for (var i = 0, player; player = teamPlayers[i++]) &#123;</span><br><span class="line">            player.win();</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  var reciveMassage = function () &#123;</span><br><span class="line">    var message = Array.prototype.shift.call(arguments); //获取消息名称</span><br><span class="line">    if (oprations[message]) &#123;</span><br><span class="line">      oprations[message].apply(this, arguments);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>

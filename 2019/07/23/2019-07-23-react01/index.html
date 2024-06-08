@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<link rel="bookmark"  type="image/x-icon"  href="/img/logo_miccall.png"/>
+	<link rel="shortcut icon" href="/img/logo_miccall.png">
+	
+			    <title>
+    Hexo
+    </title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="/css/mic_main.css" />
+    <link rel="stylesheet" href="/css/dropdownMenu.css" />
+    <meta name="keywords" content="miccall" />
+    
+    	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	 
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
+    <style type="text/css">
+        body:before {
+          content: ' ';
+          position: fixed;
+          top: 0;
+          background: url('/img/bg.png') center 0 no-repeat;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-size: cover; 
+        }
+    </style>
+
+			    
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script async type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+    <script src="/js/main.js"></script>
+	
+<meta name="generator" content="Hexo 7.2.0"></head>
+    
+		
+<!-- Layouts -->
+
+
+
+<!--  代码渲染  -->
+<link rel="stylesheet" href="/css/prism_coy.css" />
+<link rel="stylesheet" href="/css/typo.css" />
+<!-- 文章页 -->
+<body class="is-loading">
+    <!-- Wrapper 外包 s-->
+    <div id="wrapper" class="fade-in">
+        <!-- Intro 头部显示 s -->
+        <!-- Intro 头部显示 e -->
+        <!-- Header 头部logo start -->
+        <header id="header">
+    <a href="/" class="logo">bamboo</a>
+</header>
+        <!-- Nav 导航条 start -->
+        <nav id="nav" class="special" >
+            <ul class="menu links" >
+			<!-- Homepage  主页  --> 
+			<li >
+	            <a href="/" rel="nofollow">主页</a>
+	        </li>
+			<!-- categories_name  分类   --> 
+	        
+	        <li class="active">
+	            <a href="#s1">分类</a>
+	                    <ul class="submenu">
+	                        <li>
+	                        
+	                    </ul>
+	        </li>
+	        
+	        <!-- archives  归档   --> 
+	        
+	        
+		        <!-- Pages 自定义   -->
+		        
+		        <li>
+		            <a href="/about/" title="简历">
+		                简历
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/group/" title="团队">
+		                团队
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/gallery/" title="图库">
+		                图库
+		            </a>
+		        </li>
+		        
+		        <li>
+		            <a href="/tag/" title="标签">
+		                标签
+		            </a>
+		        </li>
+		        
+
+
+            </ul>
+            <!-- icons 图标   -->
+			<ul class="icons">
+                    
+			</ul>
+</nav>
+
+        <div id="main" >
+            <div class ="post_page_title_img" style="height: 25rem;background-image: url();background-position: center; background-repeat:no-repeat; background-size:cover;-moz-background-size:cover;overflow:hidden;" >
+                <a href="#" style="padding: 4rem 4rem 2rem 4rem ;"><h2 >renderProps模式</h2></a>
+            </div>
+            <!-- Post -->
+            <div class="typo" style="padding: 3rem;">
+                <h2 id="renderProps模式"><a href="#renderProps模式" class="headerlink" title="renderProps模式"></a>renderProps模式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * render props</span><br><span class="line"> * 让React组件的props支持函数这种模式，作为props传入的函数往往被用来渲染一部分界面</span><br><span class="line"> * 1、以函数为子组件的方式</span><br><span class="line"> * 2、其他/多个props作为函数</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">/// 简单的render props组件 </span><br><span class="line">const RenderAll = (props) =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">    &lt;React.Fragment&gt;</span><br><span class="line">      &#123;props.children(props)&#125;</span><br><span class="line">    &lt;/React.Fragment&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">&lt;RenderAll&gt;</span><br><span class="line">  &#123;() =&gt; &lt;h1&gt;hello world&lt;/h1&gt;&#125;</span><br><span class="line">&lt;/RenderAll&gt;</span><br><span class="line"></span><br><span class="line">/// 与高阶组件一样，render props可以左很多定制功能</span><br><span class="line">/// 以登陆状态显示界面元素为例</span><br><span class="line">const Login = (props) =&gt; &#123;</span><br><span class="line">  const userName = getUserName();</span><br><span class="line"></span><br><span class="line">  if (userName) &#123;</span><br><span class="line">    const allProps = &#123; userName, ...props &#125;;</span><br><span class="line">    return (</span><br><span class="line">      &lt;React.Fragment&gt;</span><br><span class="line">        &#123;props.children(allProps)&#125;</span><br><span class="line">      &lt;/React.Fragment&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;Login&gt;</span><br><span class="line">  &#123;(&#123; userName &#125;) =&gt; &lt;h1&gt;hello &#123;userName&#125;&lt;/h1&gt;&#125;</span><br><span class="line">&lt;/Login&gt;</span><br><span class="line"></span><br><span class="line">// 其他非children props作为函数</span><br><span class="line">/// 定制用户没有登陆时显示的东西，如Auth</span><br><span class="line"></span><br><span class="line">const Auth = (props) =&gt; &#123;</span><br><span class="line">  const userName = getUserName();</span><br><span class="line"></span><br><span class="line">  if (userName) &#123;</span><br><span class="line">    const allProps = &#123; userName, ...props &#125;;</span><br><span class="line">    return (</span><br><span class="line">      &lt;React.Fragment&gt;</span><br><span class="line">        &#123;props.login(allProps)&#125;</span><br><span class="line">      &lt;/React.Fragment&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    &lt;React.Fragment&gt;</span><br><span class="line">      &#123;props.nologin(props)&#125;</span><br><span class="line">    &lt;/React.Fragment&gt;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;Auth&gt;</span><br><span class="line">  login=&#123;(&#123; userName &#125;) =&gt; &lt;h1&gt;hello &#123;userName&#125;&lt;/h1&gt;&#125;</span><br><span class="line">  nologin=&#123;() =&gt; &lt;h1&gt;please login&lt;/h1&gt;&#125;</span><br><span class="line">&lt;/Auth&gt;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 依赖注入 , render props 是React中的&quot;依赖注入&quot;:</span><br><span class="line"> * 逻辑A（Login）依赖于B(userName)，如果需要将A通用，那么将逻辑B以函数props的形式传给A</span><br><span class="line"> * 只要函数接口达成一致</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line"> /// render props 与高阶组件</span><br><span class="line"> /**</span><br><span class="line">  * render props 定义函数props比高阶组件更加方便，如果高阶组件中参数组件中如果不接受某些props</span><br><span class="line">  * 作为参数，那么需要给原来组件包一层组件来传值。</span><br><span class="line">  */</span><br><span class="line"></span><br><span class="line">  /**</span><br><span class="line">   * 重用React组件的逻辑时:</span><br><span class="line">   *  抽象为简单组件-&gt; render props模式 -&gt; 高阶组件模式</span><br><span class="line">   */</span><br></pre></td></tr></table></figure>
+            </div>
+
+            <!-- Post Comments -->
+            
+
+        </div>
+        <!-- Copyright 版权 start -->
+        
+    </div>
+</body>
+
+
+
+ 	
+</html>
